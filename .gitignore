@@ -14,6 +14,7 @@ build/
 # Archivos de entorno y configuración sensible
 .env
 application-*.properties
+application*.properties
 application-*.yml
 
 # Archivos generados por STS (Spring Tool Suite)
