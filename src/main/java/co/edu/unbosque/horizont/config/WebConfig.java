@@ -4,7 +4,6 @@ package co.edu.unbosque.horizont.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
-import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

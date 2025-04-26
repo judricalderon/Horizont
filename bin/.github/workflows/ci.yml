@@ -1,0 +1,16 @@
+name: Simple CI Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dummy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run a dummy command
+        run: echo "todo está muy bien!"
