@@ -1,0 +1,15 @@
+2025-04-29 22:14:42 - Starting MarketControllerTest using Java 23.0.1 with PID 17528 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-04-29 22:14:42 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 22:14:44 - Tomcat initialized with port 0 (http)
+2025-04-29 22:14:44 - Starting service [Tomcat]
+2025-04-29 22:14:44 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 22:14:44 - Initializing Spring embedded WebApplicationContext
+2025-04-29 22:14:44 - Root WebApplicationContext: initialization completed in 1308 ms
+2025-04-29 22:14:45 - Tomcat started on port 51657 (http) with context path '/'
+2025-04-29 22:14:45 - Started MarketControllerTest in 2.411 seconds (process running for 3.935)
+2025-04-29 22:14:45 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 22:14:45 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 22:14:45 - Completed initialization in 1 ms
+2025-04-29 22:14:46 - Test completado correctamente: Quotes recuperadas con éxito.
+2025-04-29 22:14:46 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-29 22:14:46 - Graceful shutdown complete

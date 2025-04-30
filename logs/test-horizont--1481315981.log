@@ -1,0 +1,4 @@
+2025-04-29 22:14:32 - Starting MarketServiceTest using Java 23.0.1 with PID 14576 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-04-29 22:14:32 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 22:14:33 - Started MarketServiceTest in 2.199 seconds (process running for 3.644)
+2025-04-29 22:14:34 - la prueba 'shouldReturnQuotesWithSymbols' se realizó exitosamente.
