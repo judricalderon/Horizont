@@ -1,6 +1,7 @@
 package co.edu.unbosque.horizont.service.internal;
 
 import java.util.List;
+
 /**
  * Interfaz para el servicio de gestión de listas de seguimiento de activos financieros.
  *
@@ -19,5 +20,10 @@ public interface InterfaceWatchlistService {
      *
      * @return una lista de símbolos de activos financieros, o una lista vacía si no hay datos guardados.
      */
+
+
+public interface InterfaceWatchlistService {
+    void saveWatchlist(List<String> symbols);
+
     List<String> getWatchlist();
 }

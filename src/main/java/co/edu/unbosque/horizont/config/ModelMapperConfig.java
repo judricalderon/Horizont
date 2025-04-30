@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
  * Clase de configuración para el bean de {@link ModelMapper}.
  * <p>
@@ -22,6 +23,11 @@ public class ModelMapperConfig {
      *
      * @return una nueva instancia de {@link ModelMapper}.
      */
+
+@Configuration
+public class ModelMapperConfig {
+
+
     @Bean
     public ModelMapper getModelMapper() {
         return new ModelMapper();

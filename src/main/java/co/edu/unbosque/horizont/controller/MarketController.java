@@ -20,12 +20,17 @@ public class MarketController {
 
     private final InterfaceMarketService marketService;
     private final InterfaceWatchlistService watchlistService;
+
     /**
      * Constructor que inyecta los servicios de mercado y lista de seguimiento.
      *
      * @param marketService servicio encargado de las operaciones relacionadas con cotizaciones de mercado.
      * @param watchlistService servicio encargado de la gestión de listas de seguimiento de activos.
      */
+
+
+    // Constructor con ambos servicios inyectados
+
     public MarketController(InterfaceMarketService marketService, InterfaceWatchlistService watchlistService) {
         this.marketService = marketService;
         this.watchlistService = watchlistService;
