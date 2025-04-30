@@ -1,0 +1,48 @@
+HELP.md
+
+# Carpetas de compilación
+target/
+build/
+
+# Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignora target en subdirectorios, excepto en src/main o src/test (por si acaso)
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Archivos de entorno y configuración sensible
+.env
+application-*.properties
+application*.properties
+application-*.yml
+
+# Archivos generados por STS (Spring Tool Suite)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Archivos generados por IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Archivos generados por NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Visual Studio Code
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
