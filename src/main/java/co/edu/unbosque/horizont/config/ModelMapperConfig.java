@@ -24,12 +24,5 @@ public class ModelMapperConfig {
      * @return una nueva instancia de {@link ModelMapper}.
      */
 
-@Configuration
-public class ModelMapperConfig {
 
-
-    @Bean
-    public ModelMapper getModelMapper() {
-        return new ModelMapper();
-    }
 }

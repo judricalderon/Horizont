@@ -15,6 +15,9 @@ public interface InterfaceWatchlistService {
      * @throws IllegalArgumentException si la lista es nula, vacía o contiene solo símbolos inválidos.
      */
     void saveWatchlist(List<String> symbols);
+
+    List<String> getWatchlist();
+
     /**
      * Recupera la lista actual de símbolos en la lista de seguimiento del usuario.
      *

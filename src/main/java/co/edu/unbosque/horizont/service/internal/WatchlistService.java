@@ -31,13 +31,6 @@ public class WatchlistService implements InterfaceWatchlistService {
      */
 
 
-@Service
-public class WatchlistService implements InterfaceWatchlistService {
-
-    private final Map<String, List<String>> watchlists = new HashMap<>();
-    private static final String DEFAULT_USER = "usuario-demo";
-
-
     @Override
     public void saveWatchlist(List<String> symbols) {
         if (symbols == null || symbols.isEmpty()) {
@@ -63,8 +56,6 @@ public class WatchlistService implements InterfaceWatchlistService {
      *
      * @return una lista de símbolos, o una lista vacía si no hay datos guardados.
      */
-
-
 
     @Override
     public List<String> getWatchlist() {

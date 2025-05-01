@@ -21,11 +21,6 @@ public class ValidationExceptionHandler {
      * @return una respuesta HTTP con el objeto {@link BaseResponse} conteniendo el error.
      */
 
-
-@ControllerAdvice
-public class ValidationExceptionHandler {
-
-
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<BaseResponse> handleIllegalArgument(IllegalArgumentException ex) {
         BaseResponse response = new BaseResponse(
