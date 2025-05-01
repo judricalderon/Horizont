@@ -3,7 +3,6 @@ package co.edu.unbosque.horizont.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
-
 /**
  * Configuración de CORS para permitir la comunicación entre el frontend en JavaScript y el backend en Spring Boot.
  *
@@ -21,14 +20,6 @@ public class WebConfig implements WebMvcConfigurer {
      *
      * @param registry objeto utilizado para registrar las configuraciones de CORS.
      */
-
-
-import java.util.List;
-
-@Configuration
-public class WebConfig implements WebMvcConfigurer {
-
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

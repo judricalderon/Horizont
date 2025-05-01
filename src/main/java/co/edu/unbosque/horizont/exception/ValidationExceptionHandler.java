@@ -2,7 +2,6 @@ package co.edu.unbosque.horizont.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 /**
  * Manejador global de excepciones relacionadas con validaciones de argumentos.
  *
@@ -20,12 +19,6 @@ public class ValidationExceptionHandler {
      * @param ex la excepción capturada.
      * @return una respuesta HTTP con el objeto {@link BaseResponse} conteniendo el error.
      */
-
-
-@ControllerAdvice
-public class ValidationExceptionHandler {
-
-
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<BaseResponse> handleIllegalArgument(IllegalArgumentException ex) {
         BaseResponse response = new BaseResponse(
