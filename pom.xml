@@ -53,6 +53,12 @@
 			<version>3.0.0</version>
 		</dependency>
 
+		<!-- Mail Sender -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 		<!-- Test y Mocking -->
 		<dependency>
 			<groupId>org.mockito</groupId>
