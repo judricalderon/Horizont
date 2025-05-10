@@ -60,9 +60,49 @@ public class UsuarioService implements InterfaceUsuarioService {
         return modelMapper.map(guardado, UsuarioDTO.class);
     }
 
-    /**
-     * Construye el DTO de alpaca combinando contact, identity, disclosures y agreements.
-     */
+    @Override
+    public boolean verificarCodigo(Long idUsuario, String codigoIngresado) {
+        Optional<Usuario> opt = usuarioRepository.findById(idUsuario);
+        if (opt.isEmpty()) {
+            return false;
+        }
+        Usuario u = opt.get();
+        if (u.isVerificado()) {
+            return true;
+        }
+        if (u.getCodigoVerificacion().equals(codigoIngresado)
+                && u.getExpiracionCodigo().isAfter(LocalDateTime.now())) {
+            u.setVerificado(true);
+            usuarioRepository.save(u);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Usuario guardarUsuario(Usuario usuario) {
+        // Reuse lógica de registrar
+        UsuarioDTO dto = modelMapper.map(usuario, UsuarioDTO.class);
+        UsuarioDTO savedDto = registrarUsuarioDesdeDTO(dto);
+        return modelMapper.map(savedDto, Usuario.class);
+    }
+
+    @Override
+    public List<Usuario> obtenerTodosLosUsuarios() {
+        return usuarioRepository.findAll();
+    }
+
+    @Override
+    public Usuario obtenerUsuarioPorId(Long id) {
+        return usuarioRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void eliminarUsuario(Long id) {
+        usuarioRepository.deleteById(id);
+    }
+
+    /** Construye el DTO de Alpaca con contact, identity, disclosures y agreements */
     private AlpacaAccountDTO buildAlpacaAccountDTO(Usuario u) {
         // Contact
         ContactDTO contact = new ContactDTO();
@@ -78,7 +118,6 @@ public class UsuarioService implements InterfaceUsuarioService {
         IdentityDTO identity = new IdentityDTO();
         identity.setGiven_name(u.getNombre());
         identity.setFamily_name(u.getApellido());
-        // Asumimos que fechaNacimiento no es null
         identity.setDate_of_birth(u.getFechaNacimiento().toString());
         identity.setTax_id(u.getSsn());
         identity.setFunding_source(List.of("employment_income"));
@@ -102,37 +141,17 @@ public class UsuarioService implements InterfaceUsuarioService {
         cuenta.setIdentity(identity);
         cuenta.setDisclosures(disclosures);
         cuenta.setAgreements(List.of(a1, a2, a3));
-
         return cuenta;
     }
 
-    @Override
-    public Usuario guardarUsuario(Usuario usuario) {
-        // Lógica sin DTO; reusa mismo flujo para mantener compatibilidad
-        UsuarioDTO dto = modelMapper.map(usuario, UsuarioDTO.class);
-        return modelMapper.map(registrarUsuarioDesdeDTO(dto), Usuario.class);
-    }
-
-    @Override
-    public List<Usuario> obtenerTodosLosUsuarios() {
-        return usuarioRepository.findAll();
-    }
-
-    @Override
-    public Usuario obtenerUsuarioPorId(Long id) {
-        return usuarioRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public void eliminarUsuario(Long id) {
-        usuarioRepository.deleteById(id);
-    }
-
+    /** Genera un código alfanumérico aleatorio de 8 caracteres */
     private String generarCodigoAleatorio() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder sb = new StringBuilder();
         Random rnd = new Random();
-        for (int i = 0; i < 8; i++) sb.append(chars.charAt(rnd.nextInt(chars.length())));
+        for (int i = 0; i < 8; i++) {
+            sb.append(chars.charAt(rnd.nextInt(chars.length())));
+        }
         return sb.toString();
     }
 }
