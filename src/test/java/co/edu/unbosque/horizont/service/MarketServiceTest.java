@@ -3,7 +3,7 @@ package co.edu.unbosque.horizont.service;
 
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteDTO;
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteWithSymbolDTO;
-import co.edu.unbosque.horizont.service.client.InterfaceFinnhubClient;
+import co.edu.unbosque.horizont.service.client.finnhub.InterfaceFinnhubClient;
 import co.edu.unbosque.horizont.service.internal.MarketService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

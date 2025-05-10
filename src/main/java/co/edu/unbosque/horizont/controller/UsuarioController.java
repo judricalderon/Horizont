@@ -1,8 +1,7 @@
 package co.edu.unbosque.horizont.controller;
 
-import co.edu.unbosque.horizont.dto.client.alpaca.AlpacaAccountDTO;
 import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
-import co.edu.unbosque.horizont.service.client.AlpacaClient;
+import co.edu.unbosque.horizont.service.client.alpaca.AlpacaClient;
 import co.edu.unbosque.horizont.service.internal.InterfaceUsuarioService;
 import co.edu.unbosque.horizont.service.internal.UsuarioService;
 import org.modelmapper.ModelMapper;
