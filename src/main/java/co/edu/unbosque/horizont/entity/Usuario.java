@@ -3,22 +3,44 @@ package co.edu.unbosque.horizont.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String nombre;
+
+    @Column(nullable = false, length = 50)
     private String apellido;
+
+    @Column(nullable = false, unique = true, length = 100)
     private String correo;
+
+    @Column(length = 20)
     private String telefono;
+
+    @Column(length = 100)
     private String direccion;
+
+    @Column(length = 50)
     private String ciudad;
+
+    @Column(length = 50)
     private String estado;
+
+    @Column(length = 20)
     private String codigoPostal;
+
+    @Column(length = 50)
     private String pais;
-    private String fechaNacimiento; // puedes usar LocalDate si quieres validar bien fechas
+
+    @Column(name = "fecha_nacimiento", length = 10)
+    private String fechaNacimiento;
+
+    @Column(length = 15)
     private String ssn;
 
     public Usuario() {}

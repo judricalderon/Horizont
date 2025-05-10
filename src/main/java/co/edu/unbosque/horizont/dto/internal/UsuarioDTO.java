@@ -1,4 +1,4 @@
-package co.edu.unbosque.horizont.dto;
+package co.edu.unbosque.horizont.dto.internal;
 
 public class UsuarioDTO {
     private String nombre;
