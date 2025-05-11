@@ -2,7 +2,9 @@ package co.edu.unbosque.horizont.controller;
 
 import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
 import co.edu.unbosque.horizont.exception.EmailAlreadyExistsException;
+import co.edu.unbosque.horizont.service.client.alpaca.AlpacaClient;
 import co.edu.unbosque.horizont.service.internal.InterfaceUsuarioService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -10,45 +12,48 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.Properties;
+
 /**
  * Controlador REST para operaciones relacionadas con usuarios.
- * Proporciona endpoints para registro de nuevos usuarios, registro a través de formularios
- * y confirmación de códigos OTP enviados por correo.
+ * Proporciona endpoints para:
+ *   - Registro JSON de nuevos usuarios (POST /usuarios/registrar)
+ *   - Registro legacy por formulario (POST /usuarios/form-registro)
+ *   - Confirmación de código OTP enviado por correo (POST /usuarios/confirmar)
+ *
+ * Incorpora además un ModelMapper y un AlpacaClient por si se desea mapear DTOs
+ * o invocar directamente la API de Alpaca desde el controlador.
  */
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
-    /**
-     * Servicio de usuario que implementa la lógica de negocio.
-     */
     private final InterfaceUsuarioService usuarioService;
+    private final ModelMapper modelMapper;
+    private final AlpacaClient alpacaClient;
 
     /**
-     * Crea una instancia de {@link UsuarioController} con el servicio inyectado.
-     *
-     * @param usuarioService servicio de usuario para manejar operaciones de registro y verificación
+     * Inyección de dependencias:
+     * @param usuarioService servicio con la lógica de registro y verificación
+     * @param modelMapper    para convertir entre entidades y DTOs
+     * @param alpacaClient   cliente HTTP para la API externa de Alpaca
      */
     @Autowired
-    public UsuarioController(InterfaceUsuarioService usuarioService) {
+    public UsuarioController(InterfaceUsuarioService usuarioService,
+                             ModelMapper modelMapper,
+                             AlpacaClient alpacaClient) {
         this.usuarioService = usuarioService;
+        this.modelMapper = modelMapper;
+        this.alpacaClient = alpacaClient;
     }
 
     /**
      * Endpoint JSON para registrar un nuevo usuario y crear la cuenta en Alpaca.
-     * <p>
-     * Método: POST<br>
-     * Ruta: /usuarios/registrar<br>
-     * Content-Type: application/json<br>
+     * Método: POST
+     * Ruta: /usuarios/registrar
      *
-     * @param dto datos del usuario recibidos en el cuerpo de la petición
-     * @return {@link ResponseEntity} con el usuario creado y código HTTP adecuado:
-     *         <ul>
-     *           <li>201 CREATED: Registro exitoso</li>
-     *           <li>409 CONFLICT: Correo ya registrado o violación de integridad</li>
-     *           <li>502 BAD_GATEWAY: Error en la API de Alpaca</li>
-     *           <li>500 INTERNAL_SERVER_ERROR: Error inesperado</li>
-     *         </ul>
+     * @param dto datos del usuario en formato JSON
+     * @return 201 CREATED + UsuarioDTO, o el código de error correspondiente
      */
     @PostMapping("/registrar")
     public ResponseEntity<?> registrarUsuario(@RequestBody UsuarioDTO dto) {
@@ -75,19 +80,12 @@ public class UsuarioController {
 
     /**
      * Endpoint legacy para registrar un usuario mediante formulario.
-     * <p>
-     * Método: POST<br>
-     * Ruta: /usuarios/form-registro<br>
-     * Consumes: application/x-www-form-urlencoded<br>
+     * Método: POST
+     * Ruta: /usuarios/form-registro
+     * Consumes: application/x-www-form-urlencoded
      *
-     * @param dto datos del usuario mapeados desde los campos del formulario
-     * @return {@link ResponseEntity} con mensaje de éxito o error:
-     *         <ul>
-     *           <li>202 ACCEPTED: Registro exitoso</li>
-     *           <li>409 CONFLICT: Correo ya registrado o violación de integridad</li>
-     *           <li>502 BAD_GATEWAY: Error en la API de Alpaca</li>
-     *           <li>500 INTERNAL_SERVER_ERROR: Error inesperado</li>
-     *         </ul>
+     * @param dto datos del usuario mapeados desde campos de formulario
+     * @return 202 ACCEPTED con mensaje, o el código de error correspondiente
      */
     @PostMapping(value = "/form-registro", consumes = "application/x-www-form-urlencoded")
     public ResponseEntity<String> registrarUsuarioForm(@ModelAttribute UsuarioDTO dto) {
@@ -115,18 +113,12 @@ public class UsuarioController {
 
     /**
      * Endpoint para confirmar el código OTP enviado al usuario.
-     * <p>
-     * Método: POST<br>
-     * Ruta: /usuarios/confirmar<br>
-     * Parametros: idUsuario, codigo<br>
+     * Método: POST
+     * Ruta: /usuarios/confirmar
      *
      * @param idUsuario ID del usuario registrado
-     * @param codigo código OTP recibido por correo
-     * @return {@link ResponseEntity} con mensaje:
-     *         <ul>
-     *           <li>200 OK: Código válido y usuario activado</li>
-     *           <li>400 BAD_REQUEST: Código inválido o expirado</li>
-     *         </ul>
+     * @param codigo    código OTP recibido por correo
+     * @return 200 OK si el código es válido, 400 BAD_REQUEST si no lo es
      */
     @PostMapping("/confirmar")
     public ResponseEntity<String> confirmarCodigo(@RequestParam Long idUsuario,

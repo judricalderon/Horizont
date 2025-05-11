@@ -1,6 +1,7 @@
-package co.edu.unbosque.horizont.service.client;
+package co.edu.unbosque.horizont.service.client.alpaca;
 
 import co.edu.unbosque.horizont.dto.client.alpaca.AlpacaAccountDTO;
+import co.edu.unbosque.horizont.service.client.InterfaceAlpacaClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
