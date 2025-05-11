@@ -1,43 +1,54 @@
-      spring:
-        application:
-          name: horizont
+# --------------------------------------
+# Configuración general de la aplicación
+spring:
+  application:
+    name: horizont
 
-        datasource:
-          url: jdbc:h2:mem:testdb
-          driver-class-name: org.h2.Driver
-          username: sa
-          password: ""
+  # --------------------------------------
+  # Configuración de la base de datos H2 (en memoria)
+  datasource:
+    url: jdbc:h2:mem:testdb         # Base de datos en memoria
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""                    # Contraseña vacía por defecto para H2
 
-        jpa:
-          database-platform: org.hibernate.dialect.H2Dialect
-          hibernate:
-            ddl-auto: update
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update              # Crea o actualiza automáticamente las tablas según las entidades
 
-        h2:
-          console:
-            enabled: true
-            path: /h2-console
+  h2:
+    console:
+      enabled: true                 # Activa la consola web de H2
+      path: /h2-console             # Ruta para acceder a la consola (http://localhost:8080/h2-console)
 
-        mail:
-          host: smtp.gmail.com
-          port: 587
-          username: tu-correo@gmail.com
-          password: tu-contraseña-o-clave-de-aplicación
-          properties:
-            mail:
-              smtp:
-                auth: true
-                starttls:
-                  enable: true
+  # --------------------------------------
+  # Configuración del correo (Gmail SMTP)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: horizontfortrading@gmail.com
+    password: kiacduxmshckdypf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true            # Habilita TLS (requerido por Gmail)
 
-      server:
-        port: 8080
+# --------------------------------------
+# Configuración del servidor
+server:
+  port: 8080                        # Puerto donde corre la app
 
-      finnhub:
-        api:
-          url: https://finnhub.io/api/v1
-          key: d09tp49r01qus8rfcsb0d09tp49r01qus8rf
+# --------------------------------------
+# API de Finnhub
+finnhub:
+  api:
+    url: https://finnhub.io/api/v1
+    key: d09tp49r01qus8rfcsb0d09tp49r01qus8rfcsbg
 
-      #  API Key y Secret de Alpaca para uso con @Value
-      Alpaca_api_key: CKMDE1PS3JNCCCLKWYC0
-      Alpaca_api_secret: nzYn9viMp6SjNzz0AovW4IeUzNh4RwG4qW32f7nN
+# --------------------------------------
+# API Key y Secret de Alpaca para uso con @Value
+Alpaca_api_key: CKMDE1PS3JNCCCLKWYC0
+Alpaca_api_secret: nzYn9viMp6SjNzz0AovW4IeUzNh4RwG4qW32f7nN
