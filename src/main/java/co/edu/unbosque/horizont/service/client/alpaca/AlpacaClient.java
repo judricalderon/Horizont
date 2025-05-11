@@ -1,6 +1,9 @@
 package co.edu.unbosque.horizont.service.client.alpaca;
 
 import co.edu.unbosque.horizont.dto.client.alpaca.AlpacaAccountDTO;
+
+import co.edu.unbosque.horizont.service.client.alpaca.InterfaceAlpacaClient;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Servicio que implementa la comunicación con la API externa de Alpaca para la creación de cuentas de usuario.
  * <p>
@@ -55,6 +59,7 @@ public class AlpacaClient implements InterfaceAlpacaClient {
     public ResponseEntity<String> crearCuenta(AlpacaAccountDTO cuenta) {
         try {
             // Convertir a JSON para revisión
+
             ObjectMapper mapper = new ObjectMapper();
             String json = mapper.writeValueAsString(cuenta);
             System.out.println("JSON enviado a Alpaca:");
@@ -71,6 +76,8 @@ public class AlpacaClient implements InterfaceAlpacaClient {
             // Hacer POST
             ResponseEntity<String> response = restTemplate.postForEntity(ALPACA_URL, request, String.class);
 
+
+            // 💡 NUEVO: imprimir respuesta de Alpaca
 
             System.out.println("Respuesta HTTP Alpaca: " + response.getStatusCode());
             System.out.println("Body de la respuesta Alpaca: " + response.getBody());

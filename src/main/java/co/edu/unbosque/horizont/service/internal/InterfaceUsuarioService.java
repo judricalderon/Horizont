@@ -12,6 +12,8 @@ public interface InterfaceUsuarioService {
 
     List<Usuario> obtenerTodosLosUsuarios();
 
+    boolean verificarCodigo(Long idUsuario, String codigo);
+
     Usuario obtenerUsuarioPorId(Long id);
 
     void eliminarUsuario(Long id);

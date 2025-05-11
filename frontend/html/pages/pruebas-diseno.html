@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas de Diseño - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/pruebas-diseno.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base para todos los diseños */
+        .navbar {
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar .nav-link {
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link.btn-primary {
+            border-radius: 25px;
+            padding: 0.5rem 2rem;
+            font-weight: 500;
+        }
+
+        /* Diseño 1: Bordes redondeados con sombra suave */
+        .navbar-1 {
+            background-color: var(--mit-white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-1 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-1 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+        }
+
+        /* Diseño 2: Bordes redondeados con gradiente */
+        .navbar-2 {
+            background: linear-gradient(135deg, var(--mit-red), var(--mit-bright-red));
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-2 .nav-link {
+            color: var(--mit-white);
+        }
+
+        .navbar-2 .nav-link.btn-primary {
+            background: linear-gradient(135deg, var(--mit-white), #f8f9fa);
+            color: var(--mit-red);
+        }
+
+        /* Diseño 3: Bordes redondeados con transparencia */
+        .navbar-3 {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-3 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-3 .nav-link.btn-primary {
+            background: rgba(163, 31, 52, 0.9);
+            color: var(--mit-white);
+        }
+
+        /* Diseño 4: Bordes redondeados con acentos */
+        .navbar-4 {
+            background-color: var(--mit-white);
+            border: 2px solid var(--mit-red);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-4 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-4 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            border: 2px solid var(--mit-red);
+        }
+
+        /* Diseño 5: Bordes redondeados con sombra pronunciada */
+        .navbar-5 {
+            background-color: var(--mit-white);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-5 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-5 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            box-shadow: 0 4px 15px rgba(163, 31, 52, 0.3);
+        }
+
+        /* Diseño 6: Bordes redondeados con fondo oscuro */
+        .navbar-6 {
+            background-color: var(--mit-black);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-6 .nav-link {
+            color: var(--mit-white);
+        }
+
+        .navbar-6 .nav-link.btn-primary {
+            background-color: var(--mit-bright-red);
+            color: var(--mit-white);
+        }
+
+        /* Diseño 7: Bordes redondeados con líneas sutiles */
+        .navbar-7 {
+            background-color: var(--mit-white);
+            border: 1px solid var(--mit-silver-gray);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-7 .nav-link {
+            color: var(--mit-black);
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar-7 .nav-link:hover {
+            border-bottom: 2px solid var(--mit-red);
+        }
+
+        .navbar-7 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            border: none;
+        }
+
+        /* Diseño 8: Bordes redondeados con efecto flotante */
+        .navbar-8 {
+            background-color: var(--mit-white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-8:hover {
+            transform: translateY(-10px);
+        }
+
+        .navbar-8 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-8 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            box-shadow: 0 4px 15px rgba(163, 31, 52, 0.3);
+        }
+
+        /* Diseño 9: Bordes redondeados con fondo claro */
+        .navbar-9 {
+            background-color: var(--mit-light-gray);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-9 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-9 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+        }
+
+        /* Diseño 10: Bordes redondeados con efecto neumórfico */
+        .navbar-10 {
+            background-color: var(--mit-light-gray);
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1),
+                       -8px -8px 16px rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar-10 .nav-link {
+            color: var(--mit-black);
+        }
+
+        .navbar-10 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
+                       -4px -4px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Diseño 11: Bordes muy redondeados con fondo blanco y acentos rojos */
+        .navbar-11 {
+            background-color: var(--mit-white);
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-11 .nav-link {
+            border-radius: 15px;
+            padding: 0.75rem 1.5rem;
+            color: var(--mit-black);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-11 .nav-link:hover {
+            background-color: rgba(163, 31, 52, 0.1);
+        }
+
+        .navbar-11 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            border-radius: 20px;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 10px rgba(163, 31, 52, 0.2);
+        }
+
+        /* Diseño 12: Bordes redondeados con gradiente suave y sombra */
+        .navbar-12 {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-12 .nav-link {
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            color: var(--mit-black);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-12 .nav-link:hover {
+            background-color: rgba(163, 31, 52, 0.05);
+        }
+
+        .navbar-12 .nav-link.btn-primary {
+            background: linear-gradient(135deg, var(--mit-red), var(--mit-bright-red));
+            color: var(--mit-white);
+            border-radius: 18px;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 15px rgba(163, 31, 52, 0.25);
+        }
+
+        /* Diseño 13: Bordes redondeados con efecto de elevación */
+        .navbar-13 {
+            background-color: var(--mit-white);
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-13:hover {
+            transform: translateY(-5px);
+        }
+
+        .navbar-13 .nav-link {
+            border-radius: 16px;
+            padding: 0.75rem 1.5rem;
+            color: var(--mit-black);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-13 .nav-link:hover {
+            background-color: rgba(163, 31, 52, 0.08);
+        }
+
+        .navbar-13 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            border-radius: 20px;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 15px rgba(163, 31, 52, 0.3);
+        }
+
+        /* Diseño 14: Bordes redondeados con efecto de cristal */
+        .navbar-14 {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-14 .nav-link {
+            border-radius: 18px;
+            padding: 0.75rem 1.5rem;
+            color: var(--mit-black);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-14 .nav-link:hover {
+            background-color: rgba(163, 31, 52, 0.1);
+        }
+
+        .navbar-14 .nav-link.btn-primary {
+            background: rgba(163, 31, 52, 0.9);
+            color: var(--mit-white);
+            border-radius: 22px;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 15px rgba(163, 31, 52, 0.2);
+        }
+
+        /* Diseño 15: Bordes redondeados con efecto neumórfico suave */
+        .navbar-15 {
+            background-color: var(--mit-light-gray);
+            border-radius: 20px;
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1),
+                       -6px -6px 12px rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar-15 .nav-link {
+            border-radius: 15px;
+            padding: 0.75rem 1.5rem;
+            color: var(--mit-black);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-15 .nav-link:hover {
+            background-color: rgba(163, 31, 52, 0.05);
+        }
+
+        .navbar-15 .nav-link.btn-primary {
+            background-color: var(--mit-red);
+            color: var(--mit-white);
+            border-radius: 18px;
+            padding: 0.75rem 2rem;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
+                       -4px -4px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Estilos específicos para la página de pruebas */
+        .test-container {
+            padding: 100px 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .navbar-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .navbar-item h3 {
+            color: var(--mit-black);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--mit-silver-gray);
+        }
+
+        .navbar-preview {
+            margin: 1rem 0;
+            border: 1px solid var(--mit-silver-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: white;
+            position: relative;
+        }
+
+        .navbar {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-sizing: border-box;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .navbar .nav-link {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link.btn-primary {
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .design-description {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: var(--mit-light-gray);
+            border-radius: 4px;
+        }
+
+        .design-description p {
+            margin: 0;
+            color: var(--mit-dark-gray);
+        }
+
+        .select-design {
+            background-color: var(--mit-red);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .select-design:hover {
+            background-color: var(--mit-dark-red);
+        }
+
+        /* Ajustes para las navbar individuales */
+        .navbar-1, .navbar-2, .navbar-3, .navbar-4, .navbar-5,
+        .navbar-6, .navbar-7, .navbar-8, .navbar-9, .navbar-10 {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        /* Ajustes específicos para cada diseño */
+        .navbar-5 {
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .navbar-9 {
+            margin: 0;
+            border-radius: 0;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .navbar .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .navbar-item {
+                padding: 1rem;
+            }
+        }
+
+        .test-section {
+            margin-bottom: 50px;
+            padding: 20px;
+            border: 1px solid var(--mit-silver-gray);
+            border-radius: 8px;
+        }
+
+        .test-section h2 {
+            color: var(--mit-black);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--mit-red);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">
+            <span class="material-icons">menu</span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="notifications.html">Notificaciones</a></li>
+            <li><a href="admin.html">Administración</a></li>
+        </ul>
+        <div class="user-menu" id="userMenu">
+            <!-- Se actualizará dinámicamente -->
+        </div>
+    </nav>
+
+    <div class="pruebas-container">
+        <div class="pruebas-header">
+            <h1>Pruebas de Diseño</h1>
+            <p>Página para probar diferentes componentes y estilos</p>
+        </div>
+
+        <!-- Sección de Componentes -->
+        <section class="componentes-section">
+            <h2>Componentes Base</h2>
+            
+            <!-- Botones -->
+            <div class="componente-grupo">
+                <h3>Botones</h3>
+                <div class="componente-ejemplos">
+                    <button class="btn-primary">Botón Primario</button>
+                    <button class="btn-secondary">Botón Secundario</button>
+                    <button class="btn-danger">Botón Peligro</button>
+                    <button class="btn-success">Botón Éxito</button>
+                </div>
+            </div>
+
+            <!-- Tarjetas -->
+            <div class="componente-grupo">
+                <h3>Tarjetas</h3>
+                <div class="componente-ejemplos">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Tarjeta Simple</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Contenido de la tarjeta</p>
+                        </div>
+                    </div>
+                    <div class="card card-hover">
+                        <div class="card-header">
+                            <h4>Tarjeta con Hover</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Contenido de la tarjeta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formularios -->
+            <div class="componente-grupo">
+                <h3>Formularios</h3>
+                <div class="componente-ejemplos">
+                    <form class="form-ejemplo">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" placeholder="Ingrese su nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Ingrese su email">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" placeholder="Ingrese su mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Alertas -->
+            <div class="componente-grupo">
+                <h3>Alertas</h3>
+                <div class="componente-ejemplos">
+                    <div class="alert alert-success">
+                        <span class="material-icons">check_circle</span>
+                        <p>Operación exitosa</p>
+                    </div>
+                    <div class="alert alert-danger">
+                        <span class="material-icons">error</span>
+                        <p>Error en la operación</p>
+                    </div>
+                    <div class="alert alert-warning">
+                        <span class="material-icons">warning</span>
+                        <p>Advertencia</p>
+                    </div>
+                    <div class="alert alert-info">
+                        <span class="material-icons">info</span>
+                        <p>Información importante</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Tipografía -->
+        <section class="tipografia-section">
+            <h2>Tipografía</h2>
+            <div class="tipografia-ejemplos">
+                <h1>Encabezado 1</h1>
+                <h2>Encabezado 2</h2>
+                <h3>Encabezado 3</h3>
+                <h4>Encabezado 4</h4>
+                <p class="texto-normal">Texto normal con Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="texto-pequeño">Texto pequeño con Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="texto-grande">Texto grande con Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Colores -->
+        <section class="colores-section">
+            <h2>Paleta de Colores</h2>
+            <div class="colores-grid">
+                <div class="color-item">
+                    <div class="color-muestra color-primary"></div>
+                    <p>Color Primario</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-secondary"></div>
+                    <p>Color Secundario</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-accent"></div>
+                    <p>Color de Acento</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-success"></div>
+                    <p>Color de Éxito</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-danger"></div>
+                    <p>Color de Peligro</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-warning"></div>
+                    <p>Color de Advertencia</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-muestra color-info"></div>
+                    <p>Color de Información</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+        <div class="user-menu" id="userMenu">
+            <!-- Se actualizará dinámicamente -->
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/auth.js"></script>
+    <script src="js/utils/main.js"></script>
+    <script src="js/utils/pruebas-diseno.js"></script>
+
+    <div class="test-container">
+        <h1>Pruebas de Diseño - Navbar</h1>
+        <p>Selecciona el diseño que más te guste y haz clic en "Seleccionar este diseño" para aplicarlo al index.html</p>
+        
+        <div class="navbar-list">
+            <!-- Diseño 1: Bordes redondeados con sombra suave -->
+            <div class="navbar-item">
+                <h3>Diseño 1: Bordes redondeados con sombra suave</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-1">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y sombra suave. El botón de registro mantiene el estilo redondeado y el padding extra para mejor visibilidad.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(1)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 2: Bordes redondeados con gradiente -->
+            <div class="navbar-item">
+                <h3>Diseño 2: Bordes redondeados con gradiente</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-2">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y fondo con gradiente suave. El botón de registro mantiene el estilo redondeado con un gradiente complementario.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(2)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 3: Bordes redondeados con transparencia -->
+            <div class="navbar-item">
+                <h3>Diseño 3: Bordes redondeados con transparencia</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-3">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto de cristal. El botón de registro mantiene el estilo redondeado con un fondo semi-transparente.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(3)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 4: Bordes redondeados con acentos -->
+            <div class="navbar-item">
+                <h3>Diseño 4: Bordes redondeados con acentos</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-4">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y acentos de color. El botón de registro mantiene el estilo redondeado con un borde de acento.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(4)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 5: Bordes redondeados con sombra pronunciada -->
+            <div class="navbar-item">
+                <h3>Diseño 5: Bordes redondeados con sombra pronunciada</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-5">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y sombra más pronunciada. El botón de registro mantiene el estilo redondeado con una sombra más intensa.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(5)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 6: Bordes redondeados con fondo oscuro -->
+            <div class="navbar-item">
+                <h3>Diseño 6: Bordes redondeados con fondo oscuro</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-6">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y fondo oscuro. El botón de registro mantiene el estilo redondeado con un contraste brillante.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(6)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 7: Bordes redondeados con líneas sutiles -->
+            <div class="navbar-item">
+                <h3>Diseño 7: Bordes redondeados con líneas sutiles</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-7">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y líneas sutiles de acento. El botón de registro mantiene el estilo redondeado con un borde sutil.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(7)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 8: Bordes redondeados con efecto flotante -->
+            <div class="navbar-item">
+                <h3>Diseño 8: Bordes redondeados con efecto flotante</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-8">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto de elevación. El botón de registro mantiene el estilo redondeado con una sombra que crea profundidad.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(8)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 9: Bordes redondeados con fondo claro -->
+            <div class="navbar-item">
+                <h3>Diseño 9: Bordes redondeados con fondo claro</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-9">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y fondo claro. El botón de registro mantiene el estilo redondeado con un contraste suave.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(9)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 10: Bordes redondeados con efecto neumórfico -->
+            <div class="navbar-item">
+                <h3>Diseño 10: Bordes redondeados con efecto neumórfico</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-10">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto neumórfico. El botón de registro mantiene el estilo redondeado con sombras suaves que crean profundidad.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(10)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 11: Bordes muy redondeados con fondo blanco y acentos rojos -->
+            <div class="navbar-item">
+                <h3>Diseño 11: Bordes muy redondeados con fondo blanco y acentos rojos</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-11">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes muy redondeados, fondo blanco y acentos rojos. El botón de registro tiene un borde más redondeado y una sombra suave.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(11)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 12: Bordes redondeados con gradiente suave y sombra -->
+            <div class="navbar-item">
+                <h3>Diseño 12: Bordes redondeados con gradiente suave y sombra</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-12">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados, gradiente suave y sombra elegante. El botón de registro tiene un gradiente complementario.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(12)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 13: Bordes redondeados con efecto de elevación -->
+            <div class="navbar-item">
+                <h3>Diseño 13: Bordes redondeados con efecto de elevación</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-13">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto de elevación al pasar el mouse. El botón de registro tiene una sombra más pronunciada.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(13)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 14: Bordes redondeados con efecto de cristal -->
+            <div class="navbar-item">
+                <h3>Diseño 14: Bordes redondeados con efecto de cristal</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-14">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto de cristal. El botón de registro tiene un fondo semi-transparente y sombra suave.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(14)">Seleccionar este diseño</button>
+            </div>
+
+            <!-- Diseño 15: Bordes redondeados con efecto neumórfico suave -->
+            <div class="navbar-item">
+                <h3>Diseño 15: Bordes redondeados con efecto neumórfico suave</h3>
+                <div class="navbar-preview">
+                    <nav class="navbar navbar-15">
+                        <div class="logo">
+                            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+                        </div>
+                        <div class="nav-links">
+                            <a href="login.html" class="nav-link">Ingresar</a>
+                            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="design-description">
+                    <p>Diseño con bordes redondeados y efecto neumórfico suave. El botón de registro tiene sombras que crean profundidad.</p>
+                </div>
+                <button class="select-design" onclick="selectDesign(15)">Seleccionar este diseño</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diseño 6: Minimalista Redondeado -->
+    <section id="design-6" class="design-section design-6">
+        <div class="container">
+            <h2>Diseño 6: Minimalista Redondeado</h2>
+            <div class="card">
+                <h3>Características</h3>
+                <p>Diseño minimalista con bordes extremadamente redondeados y efectos sutiles.</p>
+                <button class="btn">Explorar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseño 7: Elegante con Bordes Suaves -->
+    <section id="design-7" class="design-section design-7">
+        <div class="container">
+            <h2>Diseño 7: Elegante con Bordes Suaves</h2>
+            <div class="card">
+                <h3>Características</h3>
+                <p>Diseño elegante con gradientes suaves y bordes redondeados.</p>
+                <button class="btn">Explorar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseño 8: Moderno con Efecto Glass -->
+    <section id="design-8" class="design-section design-8">
+        <div class="container">
+            <h2>Diseño 8: Moderno con Efecto Glass</h2>
+            <div class="card">
+                <h3>Características</h3>
+                <p>Diseño moderno con efecto de cristal y bordes suaves.</p>
+                <button class="btn">Explorar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseño 9: Contraste Alto -->
+    <section id="design-9" class="design-section design-9">
+        <div class="container">
+            <h2>Diseño 9: Contraste Alto</h2>
+            <div class="card">
+                <h3>Características</h3>
+                <p>Diseño de alto contraste con fondo oscuro y acentos en rojo.</p>
+                <button class="btn">Explorar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseño 10: Minimalista con Bordes Extremos -->
+    <section id="design-10" class="design-section design-10">
+        <div class="container">
+            <h2>Diseño 10: Minimalista con Bordes Extremos</h2>
+            <div class="card">
+                <h3>Características</h3>
+                <p>Diseño minimalista con bordes extremadamente redondeados y efectos sutiles.</p>
+                <button class="btn">Explorar</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function selectDesign(designNumber) {
+            // Guardar el diseño seleccionado en localStorage
+            localStorage.setItem('selectedNavbarDesign', designNumber);
+            alert('Diseño ' + designNumber + ' seleccionado. Ahora puedes aplicar este diseño al index.html');
+        }
+    </script>
+</body>
+</html> 

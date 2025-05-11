@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/login.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación Simplificada -->
+    <nav class="navbar navbar-simple">
+        <div class="logo">
+            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+        </div>
+        <div class="nav-back">
+            <a href="index.html" class="back-link">
+                <span class="material-icons">arrow_back</span>
+                <span>Volver a Inicio</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="assets/images/logo/logo.svg" alt="Acciones El Bosque">
+                <h1>Bienvenido de Nuevo</h1>
+                <p>Ingresa tus credenciales para continuar</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <span class="material-icons">email</span>
+                    <input type="text" id="username" name="username" placeholder="Usuario o Correo electrónico" required autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <span class="material-icons">lock</span>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required autocomplete="current-password">
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" id="remember" name="remember">
+                        Recordarme
+                    </label>
+                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <div id="error-message" class="error-message" style="display: none;">
+                    Usuario o contraseña incorrectos
+                </div>
+
+                <button type="submit" class="btn-login" id="submitBtn">Iniciar Sesión</button>
+            </form>
+
+            <div class="social-login">
+                <p><span>O inicia sesión con</span></p>
+                <div class="social-buttons">
+                    <button type="button" class="social-button">
+                        <span>G</span> Google
+                    </button>
+                    <button type="button" class="social-button">
+                        <span>f</span> Facebook
+                    </button>
+                </div>
+            </div>
+
+            <div class="login-footer">
+                <p>¿No tienes una cuenta? <a href="register.html">Regístrate</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ocultar mensaje de error previo
+            document.getElementById('error-message').style.display = 'none';
+            
+            // Desactivar botón para prevenir múltiples envíos
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Procesando...';
+            
+            const usernameOrEmail = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (!usernameOrEmail || !password) {
+                document.getElementById('error-message').textContent = 'Todos los campos son obligatorios';
+                document.getElementById('error-message').style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Iniciar Sesión';
+                return;
+            }
+            
+            try {
+                // Intentar iniciar sesión
+                const user = loginUser(usernameOrEmail, password);
+                
+                // Redirigir según el rol
+                if (user.role === 'ADMIN') {
+                    window.location.href = 'admin.html';
+                } else {
+                    window.location.href = 'trading.html';
+                }
+            } catch (error) {
+                document.getElementById('error-message').textContent = error.message;
+                document.getElementById('error-message').style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Iniciar Sesión';
+            }
+        });
+        
+        // Añadir hover effect en dispositivos táctiles
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.classList.add('hover-effect');
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.classList.remove('hover-effect');
+            });
+        });
+    </script>
+    <script src="../../js/utils/auth.js"></script>
+</body>
+</html>

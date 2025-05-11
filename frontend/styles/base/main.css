@@ -1,0 +1,563 @@
+/* Variables globales */
+:root {
+    --mit-red: #750014;
+    --mit-silver-gray: #8b959e;
+    --mit-bright-red: #ff1423;
+    --mit-black: #000000;
+    --mit-white: #ffffff;
+    --navbar-height: 70px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--mit-black);
+    background-color: #f5f5f5;
+    padding-top: var(--navbar-height);
+}
+
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background-color: var(--mit-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    z-index: 1000;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--mit-black);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--mit-red);
+    background-color: rgba(117, 0, 20, 0.1);
+}
+
+.nav-links a.active {
+    color: var(--mit-red);
+    font-weight: 600;
+    background-color: rgba(117, 0, 20, 0.1);
+}
+
+.nav-link.btn-primary {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+}
+
+.nav-link.btn-primary:hover {
+    background-color: var(--mit-bright-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(117, 0, 20, 0.2);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--mit-black);
+}
+
+/* Estilos del Menú Móvil */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--mit-white);
+    z-index: 1001;
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    display: block;
+    transform: translateX(0);
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--mit-silver-gray);
+}
+
+.mobile-logo {
+    height: 40px;
+    width: auto;
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--mit-black);
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.mobile-link {
+    color: var(--mit-black);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-link:hover {
+    background-color: rgba(139, 149, 158, 0.1);
+}
+
+.mobile-link.btn-primary {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+    border-radius: 25px;
+}
+
+.mobile-link.btn-primary:hover {
+    background-color: var(--mit-bright-red);
+}
+
+/* Navbar simplificado para páginas de autenticación */
+.navbar-simple {
+    background-color: var(--mit-white);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--navbar-height);
+}
+
+.nav-back {
+    display: flex;
+    align-items: center;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    color: var(--mit-black);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+}
+
+.back-link:hover,
+.back-link:focus,
+.back-link.hover-effect {
+    color: var(--mit-red);
+    background-color: rgba(117, 0, 20, 0.1);
+}
+
+.back-link .material-icons {
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        background-color: var(--mit-white);
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+/* Sección Hero */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(135deg, var(--mit-red), var(--mit-bright-red));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--mit-white);
+    padding: 0 1rem;
+    margin-top: 60px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Botones */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--mit-white);
+    color: var(--mit-red);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--mit-white);
+    border: 2px solid var(--mit-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--mit-bright-red);
+    color: var(--mit-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--mit-white);
+    color: var(--mit-red);
+}
+
+/* Features Section */
+.features-section {
+    padding: 5rem 2rem;
+    background-color: var(--mit-white);
+}
+
+.features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--mit-black);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--mit-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .material-icons {
+    font-size: 3rem;
+    color: var(--mit-red);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--mit-black);
+}
+
+/* User Menu */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-menu .user-name {
+    font-weight: 500;
+    color: var(--mit-black);
+}
+
+.login-btn, .register-btn, .logout-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn, .logout-btn {
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+    background: transparent;
+}
+
+.register-btn {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+    border: none;
+}
+
+.login-btn:hover, .logout-btn:hover {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+}
+
+.register-btn:hover {
+    background-color: var(--mit-bright-red);
+}
+
+/* Markets Section */
+.markets-section {
+    padding: 5rem 2rem;
+    background-color: #f5f5f5;
+}
+
+.markets-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--mit-black);
+}
+
+.markets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.market-card {
+    background-color: var(--mit-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.market-card:hover {
+    transform: translateY(-5px);
+}
+
+.market-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--mit-black);
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--mit-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-link:hover {
+    color: var(--mit-bright-red);
+}
+
+/* Additional Responsive Styles */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        height: auto;
+        padding: 4rem 1rem;
+    }
+
+    .navbar-simple {
+        padding: 0.5rem 1rem;
+    }
+
+    .back-link span:not(.material-icons) {
+        display: none;
+    }
+
+    .back-link .material-icons {
+        margin-right: 0;
+    }
+}
+
+/* Auth Container */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f5f5f5;
+}
+
+.auth-card {
+    background-color: var(--mit-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--mit-black);
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--mit-silver-gray);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.input-group .material-icons {
+    padding: 0.75rem;
+    color: var(--mit-silver-gray);
+}
+
+.input-group input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.auth-footer a {
+    color: var(--mit-red);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    color: var(--mit-bright-red);
+} 
