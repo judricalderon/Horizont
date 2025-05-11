@@ -43,7 +43,7 @@ public class UsuarioController {
     private final InterfaceUsuarioService usuarioService;
     private final ModelMapper modelMapper;
     private final AlpacaClient alpacaClient;
-    private final UsuarioService usuarioService;
+
     /**
      * Constructor para inyectar dependencias necesarias en el controlador.
      *
