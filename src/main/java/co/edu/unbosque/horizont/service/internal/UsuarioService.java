@@ -3,9 +3,9 @@ package co.edu.unbosque.horizont.service.internal;
 import co.edu.unbosque.horizont.dto.client.alpaca.*;
 import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
 import co.edu.unbosque.horizont.entity.Usuario;
+import co.edu.unbosque.horizont.exception.EmailAlreadyExistsException;
 import co.edu.unbosque.horizont.repository.UsuarioRepository;
 import co.edu.unbosque.horizont.service.client.InterfaceAlpacaClient;
-import co.edu.unbosque.horizont.service.internal.CorreoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +17,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+/**
+ * Servicio para gestionar operaciones de usuario, incluyendo registro, verificación de códigos OTP
+ * y sincronización de cuentas con la API de Alpaca.
+ */
 @Service
 public class UsuarioService implements InterfaceUsuarioService {
 
@@ -31,35 +35,59 @@ public class UsuarioService implements InterfaceUsuarioService {
     @Autowired
     private CorreoService correoService;
 
+    /**
+     * Construye un {@link UsuarioService} inyectando el {@link ModelMapper}.
+     *
+     * @param modelMapper mapea entre DTOs y entidades.
+     */
     public UsuarioService(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
+    /**
+     * Registra un nuevo usuario, enviando OTP por correo y creando la cuenta en Alpaca.
+     *
+     * Pasos:
+     * 1. Verifica si el correo ya existe en la base de datos.
+     * 2. Mapea DTO a entidad y genera un código de verificación (OTP).
+     * 3. Guarda el usuario en BD y envía OTP por correo.
+     * 4. Construye y envía los datos de la cuenta a Alpaca.
+     * 5. Devuelve el {@link UsuarioDTO} del usuario registrado.
+     *
+     * @param dto datos de entrada para crear el usuario.
+     * @return DTO del usuario creado.
+     * @throws EmailAlreadyExistsException si el correo ya está registrado.
+     */
     @Override
     public UsuarioDTO registrarUsuarioDesdeDTO(UsuarioDTO dto) {
-        // Mapear DTO a Entity
-        Usuario usuario = modelMapper.map(dto, Usuario.class);
+        if (usuarioRepository.existsByCorreo(dto.getCorreo())) {
+            throw new EmailAlreadyExistsException(
+                    "El correo '" + dto.getCorreo() + "' ya está registrado."
+            );
+        }
 
-        // Generar código y expiración
+        Usuario usuario = modelMapper.map(dto, Usuario.class);
         String codigoVerificacion = generarCodigoAleatorio();
         usuario.setCodigoVerificacion(codigoVerificacion);
         usuario.setExpiracionCodigo(LocalDateTime.now().plusMinutes(10));
         usuario.setVerificado(false);
 
-        // Guardar usuario en BD
         Usuario guardado = usuarioRepository.save(usuario);
-
-        // Enviar código por correo
         correoService.enviarCodigoVerificacion(guardado.getCorreo(), codigoVerificacion);
 
-        // Crear y enviar cuenta a Alpaca
         AlpacaAccountDTO cuenta = buildAlpacaAccountDTO(guardado);
         alpacaClient.crearCuenta(cuenta);
 
-        // Mapear y retornar DTO
         return modelMapper.map(guardado, UsuarioDTO.class);
     }
 
+    /**
+     * Verifica el código OTP de un usuario y activa la cuenta si es válido.
+     *
+     * @param idUsuario    identificador del usuario.
+     * @param codigoIngresado código recibido por correo.
+     * @return {@code true} si el código es válido y activa la cuenta; {@code false} si es inválido o expirado.
+     */
     @Override
     public boolean verificarCodigo(Long idUsuario, String codigoIngresado) {
         Optional<Usuario> opt = usuarioRepository.findById(idUsuario);
@@ -79,32 +107,57 @@ public class UsuarioService implements InterfaceUsuarioService {
         return false;
     }
 
+    /**
+     * Registra un usuario reutilizando la lógica de {@link #registrarUsuarioDesdeDTO(UsuarioDTO)}.
+     *
+     * @param usuario entidad de usuario para guardar.
+     * @return entidad de usuario guardada.
+     */
     @Override
     public Usuario guardarUsuario(Usuario usuario) {
-        // Reuse lógica de registrar
         UsuarioDTO dto = modelMapper.map(usuario, UsuarioDTO.class);
         UsuarioDTO savedDto = registrarUsuarioDesdeDTO(dto);
         return modelMapper.map(savedDto, Usuario.class);
     }
 
+    /**
+     * Obtiene todos los usuarios registrados.
+     *
+     * @return lista de usuarios.
+     */
     @Override
     public List<Usuario> obtenerTodosLosUsuarios() {
         return usuarioRepository.findAll();
     }
 
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param id identificador del usuario.
+     * @return entidad de usuario o {@code null} si no existe.
+     */
     @Override
     public Usuario obtenerUsuarioPorId(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
+    /**
+     * Elimina un usuario por su ID.
+     *
+     * @param id identificador del usuario a eliminar.
+     */
     @Override
     public void eliminarUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }
 
-    /** Construye el DTO de Alpaca con contact, identity, disclosures y agreements */
+    /**
+     * Construye el DTO de Alpaca combinando contact, identity, disclosures y agreements.
+     *
+     * @param u entidad de usuario.
+     * @return {@link AlpacaAccountDTO} listo para enviar.
+     */
     private AlpacaAccountDTO buildAlpacaAccountDTO(Usuario u) {
-        // Contact
         ContactDTO contact = new ContactDTO();
         contact.setEmail_address(u.getCorreo());
         contact.setPhone_number(u.getTelefono());
@@ -114,7 +167,6 @@ public class UsuarioService implements InterfaceUsuarioService {
         contact.setPostal_code(u.getCodigoPostal());
         contact.setCountry(u.getPais());
 
-        // Identity
         IdentityDTO identity = new IdentityDTO();
         identity.setGiven_name(u.getNombre());
         identity.setFamily_name(u.getApellido());
@@ -122,14 +174,12 @@ public class UsuarioService implements InterfaceUsuarioService {
         identity.setTax_id(u.getSsn());
         identity.setFunding_source(List.of("employment_income"));
 
-        // Disclosures
         DisclosuresDTO disclosures = new DisclosuresDTO();
         disclosures.setIs_control_person(false);
         disclosures.setIs_affiliated_exchange_or_finra(false);
         disclosures.setIs_politically_exposed(false);
         disclosures.setImmediate_family_exposed(false);
 
-        // Agreements
         String now = ZonedDateTime.now().format(DateTimeFormatter.ISO_INSTANT);
         String ip = "127.0.0.1";
         AgreementDTO a1 = new AgreementDTO(); a1.setAgreement("account_agreement"); a1.setSigned_at(now); a1.setIp_address(ip);
@@ -144,7 +194,11 @@ public class UsuarioService implements InterfaceUsuarioService {
         return cuenta;
     }
 
-    /** Genera un código alfanumérico aleatorio de 8 caracteres */
+    /**
+     * Genera un código OTP aleatorio de 8 caracteres.
+     *
+     * @return cadena alfanumérica.
+     */
     private String generarCodigoAleatorio() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder sb = new StringBuilder();

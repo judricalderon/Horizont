@@ -18,17 +18,14 @@
             enabled: true
             path: /h2-console
 
-        mail:
-          host: smtp.gmail.com
-          port: 587
-          username: tu-correo@gmail.com
-          password: tu-contraseña-o-clave-de-aplicación
-          properties:
-            mail:
-              smtp:
-                auth: true
-                starttls:
-                  enable: true
+      mail:
+        host: smtp.gmail.com
+        port: 587
+        username: horizontfortrading@gmail.com
+        password: kiacduxmshckdypf
+        properties:
+          mail.smtp.auth: true
+          mail.smtp.starttls.enable: true
 
       server:
         port: 8080
