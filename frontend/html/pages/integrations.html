@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integraciones - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/integrations.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">
+            <span class="material-icons">menu</span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="notifications.html">Notificaciones</a></li>
+            <li><a href="admin.html">Administración</a></li>
+        </ul>
+        <div class="user-menu" id="userMenu">
+            <!-- Se actualizará dinámicamente -->
+        </div>
+    </nav>
+
+    <div class="integrations-container">
+        <div class="integrations-header">
+            <h1>Integraciones</h1>
+            <p>Gestiona tus conexiones con servicios externos</p>
+        </div>
+
+        <div class="integrations-grid">
+            <!-- Trading APIs -->
+            <div class="integration-card">
+                <div class="integration-icon">
+                    <span class="material-icons">trending_up</span>
+                </div>
+                <h3>APIs de Trading</h3>
+                <p>Conecta con plataformas de trading populares</p>
+                <div class="integration-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">No conectado</span>
+                </div>
+                <button class="btn-connect">Conectar</button>
+            </div>
+
+            <!-- Payment Gateways -->
+            <div class="integration-card">
+                <div class="integration-icon">
+                    <span class="material-icons">payment</span>
+                </div>
+                <h3>Pasarelas de Pago</h3>
+                <p>Integra métodos de pago seguros</p>
+                <div class="integration-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">No conectado</span>
+                </div>
+                <button class="btn-connect">Conectar</button>
+            </div>
+
+            <!-- Market Data -->
+            <div class="integration-card">
+                <div class="integration-icon">
+                    <span class="material-icons">analytics</span>
+                </div>
+                <h3>Datos de Mercado</h3>
+                <p>Accede a información en tiempo real</p>
+                <div class="integration-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">No conectado</span>
+                </div>
+                <button class="btn-connect">Conectar</button>
+            </div>
+
+            <!-- News Services -->
+            <div class="integration-card">
+                <div class="integration-icon">
+                    <span class="material-icons">newspaper</span>
+                </div>
+                <h3>Servicios de Noticias</h3>
+                <p>Mantente informado con las últimas noticias</p>
+                <div class="integration-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">No conectado</span>
+                </div>
+                <button class="btn-connect">Conectar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/auth.js"></script>
+    <script src="js/utils/main.js"></script>
+    <script src="js/api/tradingApi.js"></script>
+    <script src="js/integrations.js"></script>
+</body>
+</html> 

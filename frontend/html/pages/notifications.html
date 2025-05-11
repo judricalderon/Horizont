@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/notifications.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="notifications.html" class="active">Notificaciones</a></li>
+            <li><a href="admin.html">Administración</a></li>
+        </ul>
+        <div class="user-menu" id="userMenu">
+            <span class="user-name" id="userName"></span>
+            <button class="notification-bell" id="notificationBell">
+                <span class="material-icons">notifications</span>
+                <span class="notification-badge" id="notificationCount">3</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="notifications-container">
+        <div class="notifications-header">
+            <div class="header-left">
+                <h1>Notificaciones</h1>
+                <p class="notification-stats">
+                    <span id="unreadCount">3</span> sin leer
+                </p>
+            </div>
+            <div class="notifications-actions">
+                <div class="search-box">
+                    <span class="material-icons">search</span>
+                    <input type="text" placeholder="Buscar notificaciones..." id="notificationSearch">
+                </div>
+                <button class="btn-filter" id="filterBtn">
+                    <span class="material-icons">filter_list</span>
+                    Filtrar
+                </button>
+                <button class="btn-mark-read" id="markAllReadBtn">
+                    <span class="material-icons">done_all</span>
+                    Marcar todo como leído
+                </button>
+            </div>
+        </div>
+
+        <div class="notifications-tabs">
+            <button class="tab-btn active" data-tab="all">
+                <span class="material-icons">notifications</span>
+                Todas
+                <span class="tab-count" id="allCount">12</span>
+            </button>
+            <button class="tab-btn" data-tab="trading">
+                <span class="material-icons">trending_up</span>
+                Trading
+                <span class="tab-count" id="tradingCount">5</span>
+            </button>
+            <button class="tab-btn" data-tab="alerts">
+                <span class="material-icons">notifications_active</span>
+                Alertas
+                <span class="tab-count" id="alertsCount">4</span>
+            </button>
+            <button class="tab-btn" data-tab="system">
+                <span class="material-icons">system_update</span>
+                Sistema
+                <span class="tab-count" id="systemCount">3</span>
+            </button>
+        </div>
+
+        <div class="notifications-list" id="notificationsList">
+            <!-- Las notificaciones se cargarán dinámicamente -->
+        </div>
+
+        <!-- Modal de Filtros -->
+        <div class="modal" id="filterModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Filtrar Notificaciones</h3>
+                    <button class="close-modal">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-section">
+                        <h4>Período</h4>
+                        <select id="timeFilter">
+                            <option value="all">Todo el tiempo</option>
+                            <option value="today">Hoy</option>
+                            <option value="week">Esta semana</option>
+                            <option value="month">Este mes</option>
+                        </select>
+                    </div>
+                    <div class="filter-section">
+                        <h4>Estado</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="unreadOnly" checked>
+                            Solo no leídas
+                        </label>
+                    </div>
+                    <div class="filter-section">
+                        <h4>Tipos de Notificación</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tradingNotif" checked>
+                            Trading
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="alertsNotif" checked>
+                            Alertas
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="systemNotif" checked>
+                            Sistema
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="resetFilters">Restablecer</button>
+                    <button class="btn-primary" id="applyFilters">Aplicar Filtros</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/utils/notifications.js"></script>
+</body>
+</html>

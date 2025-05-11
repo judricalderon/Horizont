@@ -1,7 +1,9 @@
 package co.edu.unbosque.horizont.controller;
 
 import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
+
 import co.edu.unbosque.horizont.exception.EmailAlreadyExistsException;
+
 import co.edu.unbosque.horizont.service.client.alpaca.AlpacaClient;
 import co.edu.unbosque.horizont.service.internal.InterfaceUsuarioService;
 import org.modelmapper.ModelMapper;
@@ -9,10 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.Properties;
+
+
+/**
+ * Controlador REST que maneja las operaciones relacionadas con los usuarios.
+ *
+ * Esta clase expone endpoints HTTP para gestionar usuarios, incluyendo su registro.
+ */
+
 
 /**
  * Controlador REST para operaciones relacionadas con usuarios.
@@ -28,9 +39,19 @@ import java.util.Properties;
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
+
     private final InterfaceUsuarioService usuarioService;
     private final ModelMapper modelMapper;
     private final AlpacaClient alpacaClient;
+    private final UsuarioService usuarioService;
+    /**
+     * Constructor para inyectar dependencias necesarias en el controlador.
+     *
+     * @param usuarioService servicio de usuarios que implementa la lógica de negocio
+     * @param modelMapper objeto para realizar conversiones entre DTOs y entidades
+     * @param alpacaClient cliente para interactuar con la API externa de Alpaca
+     * @param usuarioService1 instancia específica del servicio de usuario (se utiliza como final)
+     */
 
     /**
      * Inyección de dependencias:
@@ -60,6 +81,9 @@ public class UsuarioController {
         try {
             UsuarioDTO respuesta = usuarioService.registrarUsuarioDesdeDTO(dto);
             return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
+
+   
+
 
         } catch (EmailAlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
@@ -130,5 +154,6 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Código inválido o expirado.");
         }
+
     }
 }

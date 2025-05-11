@@ -5,7 +5,7 @@ import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
 import co.edu.unbosque.horizont.entity.Usuario;
 import co.edu.unbosque.horizont.exception.EmailAlreadyExistsException;
 import co.edu.unbosque.horizont.repository.UsuarioRepository;
-import co.edu.unbosque.horizont.service.client.InterfaceAlpacaClient;
+import co.edu.unbosque.horizont.service.client.alpaca.InterfaceAlpacaClient;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
