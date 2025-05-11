@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/admin.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../../public/assets/images/logo/logo.svg" alt="Acciones El Bosque">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="notifications.html">Notificaciones</a></li>
+            <li><a href="admin.html" class="active">Administración</a></li>
+        </ul>
+        <div class="user-menu">
+            <span id="userDisplay"></span>
+            <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="active" data-section="dashboard">
+                    <span class="material-icons">dashboard</span>
+                    <span>Dashboard</span>
+                </li>
+                <li data-section="users">
+                    <span class="material-icons">people</span>
+                    <span>Gestión de Usuarios</span>
+                </li>
+                <li data-section="roles">
+                    <span class="material-icons">admin_panel_settings</span>
+                    <span>Roles y Permisos</span>
+                </li>
+                <li data-section="trading">
+                    <span class="material-icons">trending_up</span>
+                    <span>Config. Trading</span>
+                </li>
+                <li data-section="system">
+                    <span class="material-icons">settings</span>
+                    <span>Config. Sistema</span>
+                </li>
+                <li data-section="logs">
+                    <span class="material-icons">receipt_long</span>
+                    <span>Logs del Sistema</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Contenido del Dashboard -->
+        <div class="admin-content">
+            <!-- Dashboard -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Dashboard</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <span class="material-icons">people</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Usuarios Activos</h3>
+                            <p>1,234</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon trading">
+                            <span class="material-icons">trending_up</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Operaciones Hoy</h3>
+                            <p>567</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orders">
+                            <span class="material-icons">shopping_cart</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Órdenes Pendientes</h3>
+                            <p>89</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon revenue">
+                            <span class="material-icons">attach_money</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Volumen Total</h3>
+                            <p>$1.2M</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Actividad de Trading</h3>
+                        <canvas id="tradingChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Distribución de Usuarios</h3>
+                        <canvas id="usersChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Actividad Reciente</h3>
+                    <div class="activity-list">
+                        <!-- Actividades recientes -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gestión de Usuarios -->
+            <section id="users" class="admin-section">
+                <h2>Gestión de Usuarios</h2>
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="showAddUserModal()">
+                        <span class="material-icons">person_add</span>
+                        Nuevo Usuario
+                    </button>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar usuarios...">
+                        <span class="material-icons">search</span>
+                    </div>
+                </div>
+
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Usuario</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Último Acceso</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Los usuarios se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Roles y Permisos -->
+            <section id="roles" class="admin-section">
+                <h2>Roles y Permisos</h2>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="material-icons">admin_panel_settings</span>
+                            <h3>Administrador</h3>
+                        </div>
+                        <ul class="permissions-list">
+                            <li>Gestión total del sistema</li>
+                            <li>Gestión de usuarios</li>
+                            <li>Configuración del sistema</li>
+                            <li>Acceso a logs</li>
+                        </ul>
+                        <button class="btn-secondary">Editar Permisos</button>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="material-icons">school</span>
+                            <h3>Profesor</h3>
+                        </div>
+                        <ul class="permissions-list">
+                            <li>Gestión de estudiantes</li>
+                            <li>Monitoreo de trading</li>
+                            <li>Reportes académicos</li>
+                        </ul>
+                        <button class="btn-secondary">Editar Permisos</button>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-header">
+                            <span class="material-icons">person</span>
+                            <h3>Estudiante</h3>
+                        </div>
+                        <ul class="permissions-list">
+                            <li>Acceso a trading</li>
+                            <li>Gestión de portafolio</li>
+                            <li>Ver reportes</li>
+                        </ul>
+                        <button class="btn-secondary">Editar Permisos</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración de Trading -->
+            <section id="trading" class="admin-section">
+                <h2>Configuración de Trading</h2>
+                <div class="trading-settings">
+                    <div class="settings-card">
+                        <h3>Límites de Trading</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Límite Diario por Usuario</label>
+                                <input type="number" value="1000000">
+                            </div>
+                            <div class="form-group">
+                                <label>Límite por Operación</label>
+                                <input type="number" value="100000">
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Comisiones</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Comisión por Compra (%)</label>
+                                <input type="number" value="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label>Comisión por Venta (%)</label>
+                                <input type="number" value="0.1">
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración del Sistema -->
+            <section id="system" class="admin-section">
+                <h2>Configuración del Sistema</h2>
+                <div class="system-settings">
+                    <div class="settings-card">
+                        <h3>Configuración General</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Nombre del Sistema</label>
+                                <input type="text" value="Acciones El Bosque">
+                            </div>
+                            <div class="form-group">
+                                <label>URL del API</label>
+                                <input type="url" value="https://api.accioneselbosque.edu.co">
+                            </div>
+                            <div class="form-group">
+                                <label>Zona Horaria</label>
+                                <select>
+                                    <option>America/Bogota</option>
+                                    <option>UTC</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logs del Sistema -->
+            <section id="logs" class="admin-section">
+                <h2>Logs del Sistema</h2>
+                <div class="logs-filters">
+                    <select>
+                        <option>Todos los Niveles</option>
+                        <option>Error</option>
+                        <option>Warning</option>
+                        <option>Info</option>
+                    </select>
+                    <input type="date">
+                    <button class="btn-secondary">Exportar Logs</button>
+                </div>
+                <div class="logs-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha/Hora</th>
+                                <th>Nivel</th>
+                                <th>Módulo</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-03-20 10:30:15</td>
+                                <td><span class="log-level info">Info</span></td>
+                                <td>Trading</td>
+                                <td>Nueva orden ejecutada</td>
+                            </tr>
+                            <tr>
+                                <td>2024-03-20 10:29:45</td>
+                                <td><span class="log-level warning">Warning</span></td>
+                                <td>Usuarios</td>
+                                <td>Intento de acceso fallido</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Verificar autenticación
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser || currentUser.role !== 'ADMIN') {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            document.getElementById('userDisplay').textContent = `Admin: ${currentUser.username}`;
+            loadUsers();
+            initCharts();
+        });
+
+        // Cargar usuarios
+        function loadUsers() {
+            const users = [
+                { id: 1, username: 'admin', role: 'ADMIN', status: 'Activo', lastAccess: '2024-03-20 10:30' },
+                { id: 2, username: 'profesor', role: 'TEACHER', status: 'Activo', lastAccess: '2024-03-20 09:15' },
+                { id: 3, username: 'estudiante', role: 'STUDENT', status: 'Activo', lastAccess: '2024-03-20 08:45' },
+                { id: 4, username: 'monitor', role: 'MONITOR', status: 'Inactivo', lastAccess: '2024-03-19 15:20' },
+                { id: 5, username: 'invitado', role: 'GUEST', status: 'Activo', lastAccess: '2024-03-20 10:00' }
+            ];
+
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.role}</td>
+                    <td><span class="status-badge ${user.status.toLowerCase()}">${user.status}</span></td>
+                    <td>${user.lastAccess}</td>
+                    <td>
+                        <button class="btn-icon" onclick="editUser(${user.id})">
+                            <span class="material-icons">edit</span>
+                        </button>
+                        <button class="btn-icon" onclick="deleteUser(${user.id})">
+                            <span class="material-icons">delete</span>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Inicializar gráficos
+        function initCharts() {
+            // Gráfico de Trading
+            const tradingCtx = document.getElementById('tradingChart').getContext('2d');
+            new Chart(tradingCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Operaciones',
+                        data: [65, 59, 80, 81, 56, 55],
+                        borderColor: '#A31F34',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Gráfico de Usuarios
+            const usersCtx = document.getElementById('usersChart').getContext('2d');
+            new Chart(usersCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Estudiantes', 'Profesores', 'Monitores', 'Admin'],
+                    datasets: [{
+                        data: [70, 15, 10, 5],
+                        backgroundColor: [
+                            '#A31F34',
+                            '#28a745',
+                            '#ffc107',
+                            '#17a2b8'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // Navegación entre secciones
+        document.querySelectorAll('.admin-menu li').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remover clase active de todos los items
+                document.querySelectorAll('.admin-menu li').forEach(i => i.classList.remove('active'));
+                // Agregar clase active al item clickeado
+                this.classList.add('active');
+                
+                // Mostrar sección correspondiente
+                const sectionId = this.dataset.section;
+                document.querySelectorAll('.admin-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // Funciones de gestión de usuarios
+        function showAddUserModal() {
+            alert('Funcionalidad en desarrollo: Agregar nuevo usuario');
+        }
+
+        function editUser(id) {
+            alert(`Funcionalidad en desarrollo: Editar usuario ${id}`);
+        }
+
+        function deleteUser(id) {
+            if (confirm(`¿Estás seguro de que deseas eliminar el usuario ${id}?`)) {
+                alert(`Usuario ${id} eliminado`);
+                loadUsers(); // Recargar lista
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

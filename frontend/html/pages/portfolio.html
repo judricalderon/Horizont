@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/portfolio.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html" class="active">Portafolio</a></li>
+            <li><a href="notifications.html">Notificaciones</a></li>
+        </ul>
+        <div class="user-menu">
+            <span class="material-icons">account_circle</span>
+        </div>
+    </nav>
+
+    <main class="portfolio-container">
+        <!-- Resumen del Portafolio -->
+        <section class="portfolio-summary">
+            <div class="summary-header">
+                <h1>Mi Portafolio</h1>
+                <div class="portfolio-actions">
+                    <button class="btn-refresh">
+                        <span class="material-icons">refresh</span>
+                        Actualizar
+                    </button>
+                    <button class="btn-export">
+                        <span class="material-icons">download</span>
+                        Exportar
+                    </button>
+                </div>
+            </div>
+
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="card-icon total-value">
+                        <span class="material-icons">account_balance_wallet</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Valor Total</h3>
+                        <p class="value" id="totalValue">$0.00</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon daily-change">
+                        <span class="material-icons">trending_up</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cambio Diario</h3>
+                        <p class="value positive" id="dailyChange">+$0.00 (0.00%)</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon total-gain">
+                        <span class="material-icons">show_chart</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ganancia Total</h3>
+                        <p class="value positive" id="totalGain">+$0.00 (0.00%)</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon cash-balance">
+                        <span class="material-icons">payments</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Efectivo Disponible</h3>
+                        <p class="value" id="cashBalance">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráficos y Análisis -->
+        <section class="portfolio-analysis">
+            <div class="analysis-grid">
+                <div class="analysis-card chart-card">
+                    <div class="card-header">
+                        <h3>Rendimiento del Portafolio</h3>
+                        <div class="chart-controls">
+                            <button class="btn-time active" data-period="1D">1D</button>
+                            <button class="btn-time" data-period="1W">1S</button>
+                            <button class="btn-time" data-period="1M">1M</button>
+                            <button class="btn-time" data-period="1Y">1A</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="portfolioChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analysis-card distribution-card">
+                    <div class="card-header">
+                        <h3>Distribución del Portafolio</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analysis-card performance-card">
+                    <div class="card-header">
+                        <h3>Rendimiento por Sector</h3>
+                    </div>
+                    <div class="sector-performance">
+                        <div class="sector-item">
+                            <div class="sector-info">
+                                <span class="sector-name">Tecnología</span>
+                                <span class="sector-value">45.2%</span>
+                            </div>
+                            <div class="sector-bar">
+                                <div class="bar-fill" style="width: 45.2%"></div>
+                            </div>
+                        </div>
+                        <div class="sector-item">
+                            <div class="sector-info">
+                                <span class="sector-name">Financiero</span>
+                                <span class="sector-value">25.8%</span>
+                            </div>
+                            <div class="sector-bar">
+                                <div class="bar-fill" style="width: 25.8%"></div>
+                            </div>
+                        </div>
+                        <div class="sector-item">
+                            <div class="sector-info">
+                                <span class="sector-name">Salud</span>
+                                <span class="sector-value">15.3%</span>
+                            </div>
+                            <div class="sector-bar">
+                                <div class="bar-fill" style="width: 15.3%"></div>
+                            </div>
+                        </div>
+                        <div class="sector-item">
+                            <div class="sector-info">
+                                <span class="sector-name">Otros</span>
+                                <span class="sector-value">13.7%</span>
+                            </div>
+                            <div class="sector-bar">
+                                <div class="bar-fill" style="width: 13.7%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posiciones Actuales -->
+        <section class="portfolio-positions">
+            <div class="positions-header">
+                <h2>Posiciones Actuales</h2>
+                <div class="positions-actions">
+                    <div class="search-box">
+                        <span class="material-icons">search</span>
+                        <input type="text" placeholder="Buscar posiciones..." id="positionSearch">
+                    </div>
+                    <button class="btn-sort">
+                        <span class="material-icons">sort</span>
+                        Ordenar
+                    </button>
+                </div>
+            </div>
+
+            <div class="positions-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Símbolo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio Promedio</th>
+                            <th>Precio Actual</th>
+                            <th>Valor Total</th>
+                            <th>Ganancia/Pérdida</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="positionsTableBody">
+                        <!-- Las posiciones se cargarán dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Historial de Transacciones -->
+        <section class="portfolio-history">
+            <div class="history-header">
+                <h2>Historial de Transacciones</h2>
+                <div class="history-filters">
+                    <select id="transactionType">
+                        <option value="all">Todas las transacciones</option>
+                        <option value="buy">Compras</option>
+                        <option value="sell">Ventas</option>
+                    </select>
+                    <input type="date" id="transactionDate">
+                </div>
+            </div>
+
+            <div class="history-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Símbolo</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <!-- El historial se cargará dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/utils/portfolio.js"></script>
+</body>
+</html>

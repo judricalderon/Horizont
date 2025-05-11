@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trading - Acciones El Bosque</title>
+  <link rel="stylesheet" href="../../styles/base/main.css" />
+  <link rel="stylesheet" href="../../styles/pages/mit-theme.css" />
+  <link rel="stylesheet" href="../../styles/pages/trading.css" />
+  <link rel="stylesheet" href="../../styles/components/footer.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque" /></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="trading.html" class="active">Trading</a></li>
+      <li><a href="portfolio.html">Portafolio</a></li>
+      <li><a href="notifications.html">Notificaciones</a></li>
+      <li><a href="admin.html">Administración</a></li>
+    </ul>
+    <div class="user-menu" id="userMenu">
+      <span class="user-name" id="userName"></span>
+    </div>
+  </nav>
+
+  <!-- Panel de Trading -->
+  <main class="trading-container trading-page">
+    <!-- Panel Izquierdo - Lista de Símbolos -->
+    <aside class="symbols-panel">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar símbolo..." />
+        <span class="material-icons">search</span>
+      </div>
+      <div class="symbols-list">
+        <div class="market-data"></div> <!-- 🔧 Aquí se pintan las acciones -->
+      </div>
+    </aside>
+
+    <!-- Panel Central - Gráfico -->
+    <section class="chart-panel">
+      <div class="chart-header">
+        <h2 id="selectedSymbolHeader">Símbolo - Empresa</h2>
+        <div class="chart-controls">
+          <button class="btn-timeframe active">1D</button>
+          <button class="btn-timeframe">1S</button>
+          <button class="btn-timeframe">1M</button>
+          <button class="btn-timeframe">1A</button>
+        </div>
+      </div>
+      <div id="tradingChart" class="chart-container">
+        <!-- El gráfico se renderizará aquí -->
+      </div>
+    </section>
+
+    <!-- Panel Derecho - Órdenes y Posiciones -->
+    <aside class="orders-panel">
+      <div class="panel-section">
+        <h3>Nueva Orden</h3>
+        <form id="orderForm" class="order-form">
+          <input type="text" name="symbol" placeholder="Símbolo (ej: AAPL)" />
+          <select name="orderType">
+            <option value="market">Orden de Mercado</option>
+            <option value="limit">Orden Límite</option>
+          </select>
+          <input type="number" name="quantity" placeholder="Cantidad" min="1" />
+          <input type="number" name="price" placeholder="Precio" step="0.01" />
+          <div class="order-buttons">
+            <button type="button" class="btn-buy">Comprar</button>
+            <button type="button" class="btn-sell">Vender</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel-section">
+        <h3>Posiciones Abiertas</h3>
+        <div class="positions-list">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h3>Historial de Órdenes</h3>
+        <div class="order-history">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Acciones El Bosque</h4>
+        <div class="footer-contact">
+          <p>Universidad El Bosque</p>
+          <p>Bogotá, Colombia</p>
+        </div>
+        <div class="footer-social">
+          <a href="#"><span class="material-icons">facebook</span></a>
+          <a href="#"><span class="material-icons">twitter</span></a>
+          <a href="#"><span class="material-icons">linkedin</span></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Trading</h4>
+        <ul>
+          <li><a href="trading.html">Plataforma de Trading</a></li>
+          <li><a href="portfolio.html">Mi Portafolio</a></li>
+          <li><a href="orders.html">Órdenes</a></li>
+          <li><a href="market.html">Mercado</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="notifications.html">Notificaciones</a></li>
+          <li><a href="learning.html">Educación</a></li>
+          <li><a href="support.html">Soporte</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Términos de Uso</a></li>
+          <li><a href="privacy.html">Privacidad</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  
+  <script type="module">
+    import { initializeTrading } from '../../js/controllers/trading.js';
+    document.addEventListener('DOMContentLoaded', initializeTrading);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

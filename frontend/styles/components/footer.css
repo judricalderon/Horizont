@@ -1,0 +1,113 @@
+/* Styles for footer across all pages */
+.main-footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 40px 0 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: 500;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 30px;
+    height: 2px;
+    background-color: #A31F34;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    background-color: #1a1d21;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-section {
+        flex: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+/* Dark Theme Support - Footer is already dark */
+@media (prefers-color-scheme: dark) {
+    .main-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+} 

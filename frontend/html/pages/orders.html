@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/orders.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="orders.html" class="active">Órdenes</a></li>
+            <li><a href="notifications.html">Notificaciones</a></li>
+        </ul>
+        <div class="user-menu" id="userMenu">
+            <!-- Se actualizará dinámicamente -->
+        </div>
+    </nav>
+
+    <main class="orders-container">
+        <h1>Lista de Órdenes</h1>
+        
+        <div class="order-filters">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar por símbolo...">
+                <span class="material-icons">search</span>
+            </div>
+            <div class="filter-options">
+                <select name="orderStatus">
+                    <option value="all">Todos los estados</option>
+                    <option value="completed">Completadas</option>
+                    <option value="pending">Pendientes</option>
+                    <option value="cancelled">Canceladas</option>
+                </select>
+                <select name="orderType">
+                    <option value="all">Todos los tipos</option>
+                    <option value="buy">Compra</option>
+                    <option value="sell">Venta</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="order-table">
+            <div class="table-header">
+                <div>Símbolo</div>
+                <div>Tipo</div>
+                <div>Cantidad</div>
+                <div>Precio</div>
+                <div>Estado</div>
+                <div>Acciones</div>
+            </div>
+            
+            <div class="table-row">
+                <div>AAPL</div>
+                <div>Compra</div>
+                <div>10</div>
+                <div>$185.00</div>
+                <div class="status completed">Completada</div>
+                <div class="row-actions">
+                    <button class="icon-btn"><span class="material-icons">visibility</span></button>
+                </div>
+            </div>
+            
+            <div class="table-row">
+                <div>TSLA</div>
+                <div>Venta</div>
+                <div>5</div>
+                <div>$250.00</div>
+                <div class="status pending">Pendiente</div>
+                <div class="row-actions">
+                    <button class="icon-btn"><span class="material-icons">visibility</span></button>
+                    <button class="icon-btn"><span class="material-icons">cancel</span></button>
+                </div>
+            </div>
+            
+            <div class="table-row">
+                <div>MSFT</div>
+                <div>Compra</div>
+                <div>15</div>
+                <div>$320.00</div>
+                <div class="status cancelled">Cancelada</div>
+                <div class="row-actions">
+                    <button class="icon-btn"><span class="material-icons">visibility</span></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userMenu = document.getElementById('userMenu');
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                userMenu.innerHTML = `
+                    <span class="user-name">${currentUser.username}</span>
+                    <button onclick="logout()" class="login-btn">Cerrar Sesión</button>
+                `;
+            } else {
+                userMenu.innerHTML = `
+                    <a href="login.html" class="login-btn">Iniciar Sesión</a>
+                    <a href="register.html" class="register-btn">Registrarse</a>
+                `;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

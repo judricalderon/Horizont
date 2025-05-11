@@ -1,0 +1,512 @@
+/* Dashboard grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+/* Market overview */
+.market-overview {
+    grid-column: span 12;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+}
+
+.market-overview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.market-overview-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.market-overview-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.market-overview-action {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--light-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.market-overview-action:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.market-overview-action.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.market-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.market-overview-item {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--light-color);
+}
+
+.market-overview-label {
+    font-size: var(--font-size-sm);
+    color: var(--gray-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.market-overview-value {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.market-overview-value.positive {
+    color: var(--success-color);
+}
+
+.market-overview-value.negative {
+    color: var(--danger-color);
+}
+
+/* Watchlist */
+.watchlist {
+    grid-column: span 6;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.watchlist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--light-color);
+}
+
+.watchlist-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.watchlist-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.watchlist-action {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--light-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.watchlist-action:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.watchlist-action.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.watchlist-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.watchlist-table th,
+.watchlist-table td {
+    padding: var(--spacing-sm);
+    text-align: right;
+    font-size: var(--font-size-sm);
+}
+
+.watchlist-table th {
+    font-weight: 500;
+    color: var(--gray-color);
+    background-color: var(--light-color);
+}
+
+.watchlist-table td {
+    color: var(--dark-color);
+}
+
+.watchlist-table tr:hover {
+    background-color: var(--light-color);
+}
+
+.watchlist-table .symbol {
+    text-align: left;
+    font-weight: 500;
+}
+
+.watchlist-table .price {
+    font-family: monospace;
+}
+
+.watchlist-table .change {
+    font-family: monospace;
+}
+
+.watchlist-table .change.positive {
+    color: var(--success-color);
+}
+
+.watchlist-table .change.negative {
+    color: var(--danger-color);
+}
+
+/* Recent trades */
+.recent-trades {
+    grid-column: span 6;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.recent-trades-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--light-color);
+}
+
+.recent-trades-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.recent-trades-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.recent-trades-action {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--light-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.recent-trades-action:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.recent-trades-action.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.recent-trades-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-trades-table th,
+.recent-trades-table td {
+    padding: var(--spacing-sm);
+    text-align: right;
+    font-size: var(--font-size-sm);
+}
+
+.recent-trades-table th {
+    font-weight: 500;
+    color: var(--gray-color);
+    background-color: var(--light-color);
+}
+
+.recent-trades-table td {
+    color: var(--dark-color);
+}
+
+.recent-trades-table tr:hover {
+    background-color: var(--light-color);
+}
+
+.recent-trades-table .time {
+    text-align: left;
+}
+
+.recent-trades-table .symbol {
+    text-align: left;
+    font-weight: 500;
+}
+
+.recent-trades-table .type {
+    text-align: center;
+}
+
+.recent-trades-table .type.buy {
+    color: var(--success-color);
+}
+
+.recent-trades-table .type.sell {
+    color: var(--danger-color);
+}
+
+.recent-trades-table .price {
+    font-family: monospace;
+}
+
+.recent-trades-table .amount {
+    font-family: monospace;
+}
+
+.recent-trades-table .total {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+/* Market news */
+.market-news {
+    grid-column: span 12;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.market-news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--light-color);
+}
+
+.market-news-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.market-news-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.market-news-action {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--light-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.market-news-action:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.market-news-action.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.market-news-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.market-news-item {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--light-color);
+    transition: all var(--transition-fast);
+}
+
+.market-news-item:last-child {
+    border-bottom: none;
+}
+
+.market-news-item:hover {
+    background-color: var(--light-color);
+}
+
+.market-news-content {
+    flex: 1;
+}
+
+.market-news-title {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.market-news-message {
+    font-size: var(--font-size-sm);
+    color: var(--gray-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.market-news-time {
+    font-size: var(--font-size-xs);
+    color: var(--gray-color);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    .market-overview,
+    .watchlist,
+    .recent-trades,
+    .market-news {
+        background-color: #2d2d2d;
+    }
+
+    .market-overview-title,
+    .watchlist-title,
+    .recent-trades-title,
+    .market-news-title {
+        color: var(--white-color);
+    }
+
+    .market-overview-action,
+    .watchlist-action,
+    .recent-trades-action,
+    .market-news-action {
+        background-color: #404040;
+        border-color: #404040;
+        color: var(--gray-color);
+    }
+
+    .market-overview-action:hover,
+    .watchlist-action:hover,
+    .recent-trades-action:hover,
+    .market-news-action:hover {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .market-overview-action.active,
+    .watchlist-action.active,
+    .recent-trades-action.active,
+    .market-news-action.active {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: var(--white-color);
+    }
+
+    .market-overview-item {
+        background-color: #404040;
+    }
+
+    .market-overview-value {
+        color: var(--white-color);
+    }
+
+    .watchlist-table th,
+    .recent-trades-table th {
+        background-color: #404040;
+        color: var(--gray-color);
+    }
+
+    .watchlist-table td,
+    .recent-trades-table td {
+        color: var(--white-color);
+    }
+
+    .watchlist-table tr:hover,
+    .recent-trades-table tr:hover {
+        background-color: #404040;
+    }
+
+    .market-news-item {
+        border-color: #404040;
+    }
+
+    .market-news-item:hover {
+        background-color: #404040;
+    }
+
+    .market-news-title {
+        color: var(--white-color);
+    }
+
+    .market-news-message,
+    .market-news-time {
+        color: var(--gray-color);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .watchlist,
+    .recent-trades {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        padding: var(--spacing-sm);
+    }
+
+    .market-overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .market-news-list {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .market-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .watchlist-table th,
+    .watchlist-table td,
+    .recent-trades-table th,
+    .recent-trades-table td {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-xs);
+    }
+
+    .market-news-item {
+        padding: var(--spacing-sm);
+    }
+} 

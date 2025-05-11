@@ -1,0 +1,117 @@
+:root {
+    /* MIT Brand Colors */
+    --mit-red: #A31F34;
+    --mit-dark-red: #8A1B2A;
+    --mit-gray: #8A8B8C;
+    --mit-dark-gray: #222222;
+    --mit-light-gray: #C2C0BF;
+    --mit-white: #FFFFFF;
+    
+    /* MIT Secondary Colors */
+    --mit-blue: #0066CC;
+    --mit-yellow: #FFC726;
+    --mit-green: #009B76;
+    
+    /* MIT Typography */
+    --mit-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--mit-white);
+    border-bottom: 4px solid var(--mit-red);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--mit-dark-gray);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--mit-red);
+    background-color: rgba(163, 31, 52, 0.1);
+}
+
+.nav-links a.active {
+    color: var(--mit-red);
+    font-weight: 600;
+}
+
+/* Auth Buttons */
+.user-menu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.login-btn, .register-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+    background: transparent;
+}
+
+.login-btn:hover {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+}
+
+.register-btn {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+    border: none;
+}
+
+.register-btn:hover {
+    background-color: var(--mit-dark-red);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-links a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+} 

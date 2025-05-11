@@ -1,0 +1,975 @@
+/* Design Test Page Styles */
+
+/* Design Selector */
+.design-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: var(--mit-light-gray);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.design-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--mit-dark-gray);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.design-btn.active {
+    background-color: var(--mit-red);
+    color: white;
+}
+
+/* Common Section Styles */
+.design-section {
+    display: none;
+    padding: 4rem 2rem;
+}
+
+.design-section.active {
+    display: block;
+}
+
+/* Design 1: Moderno y Minimalista */
+#design1 .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+
+#design1 .hero-content {
+    flex: 1;
+    padding-right: 4rem;
+}
+
+#design1 h1 {
+    font-size: 3.5rem;
+    color: var(--mit-red);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+#design1 .hero-content p {
+    font-size: 1.25rem;
+    color: var(--mit-dark-gray);
+    margin-bottom: 2rem;
+}
+
+#design1 .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: var(--mit-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#design1 .cta-button:hover {
+    background-color: var(--mit-dark-red);
+}
+
+#design1 .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#design1 .feature-card {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#design1 .feature-card .material-icons {
+    font-size: 2.5rem;
+    color: var(--mit-red);
+    margin-bottom: 1rem;
+}
+
+/* Design 2: Dinámico y Moderno */
+#design2 .split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#design2 .content-side {
+    padding: 4rem 0;
+}
+
+#design2 h1 {
+    font-size: 4rem;
+    background: linear-gradient(45deg, var(--mit-red), var(--mit-dark-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+#design2 .tagline {
+    font-size: 1.5rem;
+    color: var(--mit-dark-gray);
+    margin-bottom: 3rem;
+}
+
+#design2 .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+#design2 .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#design2 .feature-item .material-icons {
+    font-size: 2rem;
+    color: var(--mit-red);
+}
+
+#design2 .action-button {
+    padding: 1rem 2.5rem;
+    background-color: var(--mit-red);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#design2 .action-button:hover {
+    transform: translateY(-2px);
+}
+
+#design2 .animated-chart {
+    height: 400px;
+    background: linear-gradient(45deg, var(--mit-light-gray), white);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Design 3: Profesional y Elegante */
+#design3 .gradient-header {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--mit-red), var(--mit-dark-red));
+    color: white;
+    margin-bottom: 4rem;
+}
+
+#design3 h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#design3 .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+}
+
+#design3 .stat-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#design3 .stat-card h2 {
+    font-size: 2.5rem;
+    color: var(--mit-red);
+    margin-bottom: 0.5rem;
+}
+
+#design3 .cta-section {
+    text-align: center;
+}
+
+#design3 .primary-button,
+#design3 .secondary-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+#design3 .primary-button {
+    background-color: var(--mit-red);
+    color: white;
+    border: none;
+}
+
+#design3 .secondary-button {
+    background-color: transparent;
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+}
+
+/* Design 4: Innovador y Tecnológico */
+#design4 .tech-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+#design4 .main-feature {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+#design4 h1 {
+    font-size: 3.5rem;
+    color: var(--mit-red);
+    margin-bottom: 1rem;
+}
+
+#design4 .tech-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#design4 .tech-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#design4 .tech-button:not(.outline) {
+    background-color: var(--mit-red);
+    color: white;
+    border: none;
+}
+
+#design4 .tech-button.outline {
+    background-color: transparent;
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+}
+
+#design4 .tech-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+#design4 .tech-card {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+#design4 .tech-card:hover {
+    transform: translateY(-10px);
+}
+
+#design4 .tech-card .material-icons {
+    font-size: 2.5rem;
+    color: var(--mit-red);
+    margin-bottom: 1rem;
+}
+
+/* Design 5: Académico y Profesional */
+#design5 .academic-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#design5 .academic-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+#design5 .university-brand {
+    margin-bottom: 2rem;
+}
+
+#design5 .university-brand img {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+#design5 h1 {
+    font-size: 2rem;
+    color: var(--mit-red);
+}
+
+#design5 h2 {
+    font-size: 3rem;
+    color: var(--mit-dark-gray);
+}
+
+#design5 .course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+#design5 .course-card {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#design5 .course-card .material-icons {
+    font-size: 2.5rem;
+    color: var(--mit-red);
+    margin-bottom: 1rem;
+}
+
+#design5 .course-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--mit-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#design5 .course-button:hover {
+    background-color: var(--mit-dark-red);
+}
+
+/* Diseño 6: Plataforma de Trading Profesional */
+#design6 .trading-platform {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+#design6 .market-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #404040;
+}
+
+#design6 .market-overview {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+#design6 .market-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#design6 .market-indicator.positive {
+    color: #00ff88;
+}
+
+#design6 .market-indicator.negative {
+    color: #ff4444;
+}
+
+#design6 .market-time {
+    color: #888;
+    font-size: 0.875rem;
+}
+
+#design6 .user-balance {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+}
+
+#design6 .balance-amount {
+    font-weight: 500;
+    color: #00ff88;
+}
+
+#design6 .trading-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+#design6 .trading-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+#design6 .chart-container {
+    flex: 1;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#design6 .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #404040;
+}
+
+#design6 .chart-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#design6 .timeframe-btn {
+    padding: 0.25rem 0.75rem;
+    background-color: #404040;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#design6 .timeframe-btn.active {
+    background-color: #00ff88;
+    color: #000;
+}
+
+#design6 .chart-area {
+    height: calc(100% - 60px);
+    padding: 1rem;
+}
+
+#design6 .chart-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #404040;
+    border-radius: 4px;
+}
+
+#design6 .order-book {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#design6 .order-book h3 {
+    padding: 1rem;
+    border-bottom: 1px solid #404040;
+}
+
+#design6 .order-book-content {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+#design6 .sell-orders {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#design6 .buy-orders {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#design6 .current-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #404040;
+}
+
+#design6 .order-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+#design6 .trading-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+#design6 .order-form {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#design6 .order-form h3 {
+    margin-bottom: 1rem;
+}
+
+#design6 .order-type-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#design6 .order-type-btn {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: #404040;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#design6 .order-type-btn.active {
+    background-color: #00ff88;
+    color: #000;
+}
+
+#design6 .form-group {
+    margin-bottom: 1rem;
+}
+
+#design6 .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #888;
+}
+
+#design6 .form-group input,
+#design6 .form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #404040;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+}
+
+#design6 .place-order-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #00ff88;
+    border: none;
+    border-radius: 4px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#design6 .place-order-btn:hover {
+    background-color: #00cc6a;
+}
+
+#design6 .trade-history {
+    flex: 1;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#design6 .trade-history h3 {
+    padding: 1rem;
+    border-bottom: 1px solid #404040;
+}
+
+#design6 .trade-list {
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+#design6 .trade-item {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #404040;
+}
+
+#design6 .trade-item.buy {
+    color: #00ff88;
+}
+
+#design6 .trade-item.sell {
+    color: #ff4444;
+}
+
+/* Responsive styles para el diseño de trading */
+@media (max-width: 1200px) {
+    #design6 .trading-content {
+        grid-template-columns: 1fr;
+    }
+
+    #design6 .trading-sidebar {
+        flex-direction: row;
+    }
+
+    #design6 .order-form,
+    #design6 .trade-history {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #design6 .market-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    #design6 .market-overview {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #design6 .trading-sidebar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    #design6 .chart-controls {
+        display: none;
+    }
+
+    #design6 .order-row,
+    #design6 .trade-item {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .design-selector {
+        flex-wrap: wrap;
+    }
+
+    #design1 .hero-section,
+    #design2 .split-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #design1 .features-grid,
+    #design3 .stats-grid,
+    #design4 .tech-features,
+    #design5 .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+    #design1 .features-grid,
+    #design3 .stats-grid,
+    #design4 .tech-features,
+    #design5 .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #design2 .split-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+    .design-btn {
+        background-color: var(--mit-dark-gray);
+        color: white;
+    }
+
+    .feature-card,
+    .stat-card,
+    .tech-card,
+    .course-card {
+        background-color: var(--mit-dark-gray);
+        color: white;
+    }
+
+    #design2 .animated-chart {
+        background: linear-gradient(45deg, var(--mit-dark-gray), var(--mit-medium-gray));
+    }
+}
+
+/* Variables globales */
+:root {
+    --mit-red: #8A1931;
+    --mit-gray: #888D95;
+    --mit-light-gray: #D6D6D6;
+    --mit-dark: #222222;
+    --white: #ffffff;
+    --black: #000000;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-xl: 32px;
+    --border-radius-2xl: 40px;
+}
+
+/* Diseño 6: Minimalista Redondeado */
+.design-6 {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.design-6 .btn {
+    border-radius: var(--border-radius-2xl);
+    padding: 1rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--mit-red);
+    background: var(--white);
+    color: var(--mit-red);
+}
+
+.design-6 .btn:hover {
+    background: var(--mit-red);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.design-6 .card {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--mit-light-gray);
+    transition: all 0.3s ease;
+}
+
+.design-6 .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Diseño 7: Elegante con Bordes Suaves */
+.design-7 {
+    background: linear-gradient(135deg, var(--white), #f8f8f8);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.design-7 .btn {
+    border-radius: var(--border-radius-xl);
+    padding: 1.2rem 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: var(--mit-red);
+    color: var(--white);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.design-7 .btn:hover {
+    background: var(--white);
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+    transform: scale(1.05);
+}
+
+.design-7 .card {
+    border-radius: var(--border-radius-xl);
+    background: var(--white);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Diseño 8: Moderno con Efecto Glass */
+.design-8 {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-2xl);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.design-8 .btn {
+    border-radius: var(--border-radius-xl);
+    padding: 1rem 2rem;
+    background: var(--mit-red);
+    color: var(--white);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.design-8 .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.design-8 .btn:hover::before {
+    transform: translateX(0);
+}
+
+.design-8 .card {
+    border-radius: var(--border-radius-xl);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Diseño 9: Contraste Alto */
+.design-9 {
+    background: var(--black);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    color: var(--white);
+}
+
+.design-9 .btn {
+    border-radius: var(--border-radius-xl);
+    padding: 1rem 2rem;
+    background: var(--mit-red);
+    color: var(--white);
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.design-9 .btn:hover {
+    background: var(--white);
+    color: var(--mit-red);
+    transform: translateY(-3px);
+}
+
+.design-9 .card {
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Diseño 10: Minimalista con Bordes Extremos */
+.design-10 {
+    background: var(--white);
+    border-radius: var(--border-radius-2xl);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.design-10 .btn {
+    border-radius: var(--border-radius-2xl);
+    padding: 1.2rem 2.5rem;
+    background: var(--white);
+    color: var(--mit-red);
+    border: 2px solid var(--mit-red);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.design-10 .btn:hover {
+    background: var(--mit-red);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.design-10 .card {
+    border-radius: var(--border-radius-2xl);
+    border: 1px solid var(--mit-light-gray);
+    transition: all 0.3s ease;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .design-6,
+    .design-7,
+    .design-8,
+    .design-9,
+    .design-10 {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .design-6 .btn,
+    .design-7 .btn,
+    .design-8 .btn,
+    .design-9 .btn,
+    .design-10 .btn {
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Soporte para Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+    .design-6,
+    .design-7,
+    .design-8,
+    .design-10 {
+        background: #1a1a1a;
+        color: var(--white);
+    }
+
+    .design-6 .card,
+    .design-7 .card,
+    .design-8 .card,
+    .design-10 .card {
+        background: #2d2d2d;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .design-6 .btn,
+    .design-7 .btn,
+    .design-8 .btn,
+    .design-10 .btn {
+        background: var(--mit-red);
+        color: var(--white);
+    }
+} 
