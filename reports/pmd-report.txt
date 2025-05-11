@@ -1,0 +1,540 @@
+src/main/java/co/edu/unbosque/horizont/HorizontApplication.java:11:	UseUtilityClass:	UseUtilityClass: This utility class has a non-private constructor
+src/main/java/co/edu/unbosque/horizont/HorizontApplication.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/HorizontApplication.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'args' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/config/ModelMapperConfig.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/ModelMapperConfig.java:14:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/config/ModelMapperConfig.java:15:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:14:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:18:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:19:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/WebConfig.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'registry' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/config/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/config/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/package-info.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/config/package-info.java:12:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:26:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:27:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:29:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'marketService' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:29:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'watchlistService' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:33:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:39:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:40:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:43:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbols' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'quotes' could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:49:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbols' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:56:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:57:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'symbols' could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/MarketController.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'quotes' could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:30:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'usuarioService1' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:33:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'alpacaClient'.
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:33:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'modelMapper'.
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:33:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'usuarioService'.
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:40:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:41:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:44:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dto' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/UsuarioController.java:45:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'respuesta' could be declared final
+src/main/java/co/edu/unbosque/horizont/controller/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/controller/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/controller/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:9:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:9:	DataClass:	DataClass: The class 'AgreementDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=6, WMC=6)
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:19:	FieldNamingConventions:	FieldNamingConventions: The field name 'signed_at' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:24:	FieldNamingConventions:	FieldNamingConventions: The field name 'ip_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:40:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'agreement' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:49:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getSigned_at' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:58:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'signed_at' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:58:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'signed_at' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:58:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setSigned_at' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:67:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getIp_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:76:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'ip_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:76:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ip_address' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AgreementDTO.java:76:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setIp_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:6:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:11:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:11:	DataClass:	DataClass: The class 'AlpacaAccountDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=8)
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:19:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:47:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'contact' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:65:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'identity' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:81:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:83:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'disclosures' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:90:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/AlpacaAccountDTO.java:101:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'agreements' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:6:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:12:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:12:	DataClass:	DataClass: The class 'ContactDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=14, WMC=14)
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:17:	FieldNamingConventions:	FieldNamingConventions: The field name 'email_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:22:	FieldNamingConventions:	FieldNamingConventions: The field name 'phone_number' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:25:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:27:	FieldNamingConventions:	FieldNamingConventions: The field name 'street_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:42:	FieldNamingConventions:	FieldNamingConventions: The field name 'postal_code' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:54:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getEmail_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:63:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'email_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:63:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'email_address' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:63:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setEmail_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:72:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getPhone_number' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:81:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'phone_number' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:81:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'phone_number' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:81:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setPhone_number' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:90:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getStreet_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:99:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'street_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:99:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'street_address' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:99:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setStreet_address' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:117:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'city' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:135:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'state' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:144:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getPostal_code' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:153:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'postal_code' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:153:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'postal_code' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:153:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setPostal_code' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/ContactDTO.java:171:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'country' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:10:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:10:	DataClass:	DataClass: The class 'DisclosuresDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=8)
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:15:	FieldNamingConventions:	FieldNamingConventions: The field name 'is_control_person' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:20:	FieldNamingConventions:	FieldNamingConventions: The field name 'is_affiliated_exchange_or_finra' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:20:	LongVariable:	LongVariable: Avoid excessively long variable names like is_affiliated_exchange_or_finra
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:25:	FieldNamingConventions:	FieldNamingConventions: The field name 'is_politically_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:25:	LongVariable:	LongVariable: Avoid excessively long variable names like is_politically_exposed
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:28:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:30:	FieldNamingConventions:	FieldNamingConventions: The field name 'immediate_family_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:30:	LongVariable:	LongVariable: Avoid excessively long variable names like immediate_family_exposed
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:37:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'isIs_control_person' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:46:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'is_control_person' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'is_control_person' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:46:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setIs_control_person' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:55:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'isIs_affiliated_exchange_or_finra' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:64:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'is_affiliated_exchange_or_finra' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:64:	LongVariable:	LongVariable: Avoid excessively long variable names like is_affiliated_exchange_or_finra
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:64:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'is_affiliated_exchange_or_finra' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:64:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setIs_affiliated_exchange_or_finra' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:73:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'isIs_politically_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:82:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'is_politically_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:82:	LongVariable:	LongVariable: Avoid excessively long variable names like is_politically_exposed
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:82:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'is_politically_exposed' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:82:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setIs_politically_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:91:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'isImmediate_family_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:100:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'immediate_family_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:100:	LongVariable:	LongVariable: Avoid excessively long variable names like immediate_family_exposed
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:100:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'immediate_family_exposed' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/DisclosuresDTO.java:100:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setImmediate_family_exposed' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:11:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:11:	DataClass:	DataClass: The class 'IdentityDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=18, WMC=18)
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:16:	FieldNamingConventions:	FieldNamingConventions: The field name 'given_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:21:	FieldNamingConventions:	FieldNamingConventions: The field name 'family_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:26:	FieldNamingConventions:	FieldNamingConventions: The field name 'date_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:31:	FieldNamingConventions:	FieldNamingConventions: The field name 'tax_id' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:36:	FieldNamingConventions:	FieldNamingConventions: The field name 'tax_id_type' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:41:	FieldNamingConventions:	FieldNamingConventions: The field name 'country_of_citizenship' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:41:	LongVariable:	LongVariable: Avoid excessively long variable names like country_of_citizenship
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:46:	FieldNamingConventions:	FieldNamingConventions: The field name 'country_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:51:	FieldNamingConventions:	FieldNamingConventions: The field name 'country_of_tax_residence' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:51:	LongVariable:	LongVariable: Avoid excessively long variable names like country_of_tax_residence
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:54:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:56:	FieldNamingConventions:	FieldNamingConventions: The field name 'funding_source' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:63:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getGiven_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:72:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'given_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:72:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'given_name' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:72:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setGiven_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:81:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getFamily_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:90:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'family_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:90:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'family_name' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:90:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setFamily_name' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:99:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getDate_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:108:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'date_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:108:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'date_of_birth' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:108:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setDate_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:117:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getTax_id' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:126:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'tax_id' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:126:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'tax_id' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:126:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setTax_id' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:135:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getTax_id_type' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:144:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'tax_id_type' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:144:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'tax_id_type' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:144:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setTax_id_type' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:153:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getCountry_of_citizenship' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:162:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'country_of_citizenship' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:162:	LongVariable:	LongVariable: Avoid excessively long variable names like country_of_citizenship
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:162:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'country_of_citizenship' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:162:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setCountry_of_citizenship' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:171:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getCountry_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:180:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'country_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:180:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'country_of_birth' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:180:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setCountry_of_birth' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:189:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getCountry_of_tax_residence' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:198:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'country_of_tax_residence' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:198:	LongVariable:	LongVariable: Avoid excessively long variable names like country_of_tax_residence
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:198:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'country_of_tax_residence' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:198:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setCountry_of_tax_residence' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:207:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'getFunding_source' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:216:	FormalParameterNamingConventions:	FormalParameterNamingConventions: The method parameter name 'funding_source' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:216:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'funding_source' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/IdentityDTO.java:216:	MethodNamingConventions:	MethodNamingConventions: The instance method name 'setFunding_source' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:2:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:11:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/alpaca/package-info.java:15:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:10:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:10:	DataClass:	DataClass: The class 'QuoteDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=10, WMC=10)
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:30:	LongVariable:	LongVariable: Avoid excessively long variable names like previousClosePrice
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'currentPrice' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'highPrice' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:54:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'lowPrice' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:62:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'openPrice' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:70:	LongVariable:	LongVariable: Avoid excessively long variable names like previousClosePrice
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteDTO.java:70:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'previousClosePrice' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:3:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:7:	DataClass:	DataClass: The class 'QuoteWithSymbolDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=6)
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:18:	UncommentedEmptyConstructor:	UncommentedEmptyConstructor: Document empty constructor
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:23:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:25:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'quote' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:25:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbol' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:34:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbol' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/QuoteWithSymbolDTO.java:42:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'quote' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/package-info.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/package-info.java:12:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/client/finnhub/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:3:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:3:	DataClass:	DataClass: The class 'UsuarioDTO' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=22, WMC=24)
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:4:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:5:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:6:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:7:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:8:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:10:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:11:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:12:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:16:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:16:	UncommentedEmptyConstructor:	UncommentedEmptyConstructor: Document empty constructor
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	ExcessiveParameterList:	ExcessiveParameterList: Avoid long parameter lists.
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'apellido' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'correo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'nombre' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:18:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'telefono' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ciudad' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigoPostal' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'direccion' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'estado' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'fechaNacimiento' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'pais' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:20:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ssn' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'nombre' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:40:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'apellido' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:43:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'correo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'telefono' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'direccion' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:52:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ciudad' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:55:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'estado' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:58:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigoPostal' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:61:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'pais' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:64:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'fechaNacimiento' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/UsuarioDTO.java:67:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ssn' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/dto/internal/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/dto/internal/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/dto/package-info.java:20:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:7:	DataClass:	DataClass: The class 'Usuario' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=24, WMC=26)
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:11:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:11:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:14:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:32:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:35:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:38:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:41:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:44:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:46:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:46:	UncommentedEmptyConstructor:	UncommentedEmptyConstructor: Document empty constructor
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	ExcessiveParameterList:	ExcessiveParameterList: Avoid long parameter lists.
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'apellido' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'correo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'direccion' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'nombre' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:48:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'telefono' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ciudad' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigoPostal' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'estado' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:49:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'pais' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:50:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'fechaNacimiento' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:50:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ssn' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:67:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:67:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:70:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'nombre' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:73:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'apellido' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:76:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'correo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:79:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'telefono' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:82:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'direccion' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:85:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ciudad' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:88:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'estado' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:91:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigoPostal' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:94:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'pais' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:97:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'fechaNacimiento' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/Usuario.java:100:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ssn' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/entity/package-info.java:2:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/entity/package-info.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/entity/package-info.java:6:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:10:	DataClass:	DataClass: The class 'BaseResponse' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=6, WMC=9)
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'errorMensaje' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'mensaje' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:38:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'mensaje' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:45:	UncommentedEmptyConstructor:	UncommentedEmptyConstructor: Document empty constructor
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:52:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'mensaje' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:60:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'codigo' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/BaseResponse.java:68:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'errorMensaje' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:12:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:13:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:20:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:23:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'ex' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:23:	ShortVariable:	ShortVariable: Avoid variables with short names like ex
+src/main/java/co/edu/unbosque/horizont/exception/ValidationExceptionHandler.java:24:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+src/main/java/co/edu/unbosque/horizont/exception/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/exception/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/exception/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/package-info.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/package-info.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/repository/UsuarioRepository.java:10:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/co/edu/unbosque/horizont/repository/UsuarioRepository.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/repository/UsuarioRepository.java:12:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:12:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:38:	FieldNamingConventions:	FieldNamingConventions: The final field name 'ALPACA_URL' doesn't match '[a-z][a-zA-Z0-9]*'
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:38:	FinalFieldCouldBeStatic:	FinalFieldCouldBeStatic: This final field could be made static
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:40:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:44:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'builder' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:48:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:51:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:55:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'cuenta' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'mapper' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:59:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'json' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:60:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:61:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:64:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'headers' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:64:	LooseCoupling:	LooseCoupling: Avoid using implementation types like 'HttpHeaders'; use the interface instead
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:69:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'request' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:75:	LawOfDemeter:	LawOfDemeter: Call to `getStatusCode` on foreign value `response` (degree 1)
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:75:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:76:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:78:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:80:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:81:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:83:	AvoidCatchingGenericException:	AvoidCatchingGenericException: Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/AlpacaClient.java:84:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/InterfaceAlpacaClient.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/InterfaceAlpacaClient.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/InterfaceAlpacaClient.java:12:	ImplicitFunctionalInterface:	ImplicitFunctionalInterface: Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/InterfaceAlpacaClient.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/InterfaceAlpacaClient.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/alpaca/package-info.java:18:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:22:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:29:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:31:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'builder' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:36:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:37:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:39:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:43:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:46:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbol' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/FinnhubClient.java:47:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'url' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/InterfaceFinnhubClient.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/finnhub/InterfaceFinnhubClient.java:9:	ImplicitFunctionalInterface:	ImplicitFunctionalInterface: Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:11:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:12:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:15:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/client/package-info.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceMarketService.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceMarketService.java:12:	ImplicitFunctionalInterface:	ImplicitFunctionalInterface: Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceMarketService.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceMarketService.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceMarketService.java:17:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:8:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:9:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:15:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:15:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceUsuarioService.java:17:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceWatchlistService.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceWatchlistService.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceWatchlistService.java:14:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/InterfaceWatchlistService.java:20:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:22:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:24:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'finnhubClient' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:27:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:28:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:30:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:33:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:34:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/MarketService.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbols' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:18:	CommentRequired:	CommentRequired: Class comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:25:	LongVariable:	LongVariable: Avoid excessively long variable names like interfaceAlpacaClient
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:27:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'modelMapper' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'dto' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:34:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'usuario' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:35:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'guardado' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:39:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'usuario' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:39:	MissingOverride:	MissingOverride: The method 'guardarUsuario(Usuario)' is missing an @Override annotation.
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:41:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'usuarioGuardado' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'contact' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:54:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'identity' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:62:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'disclosures' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:69:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'now' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:70:	AvoidUsingHardCodedIP:	AvoidUsingHardCodedIP: Do not hard code the IP address ip
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:70:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'ip' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:70:	ShortVariable:	ShortVariable: Avoid variables with short names like ip
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'agreement1' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:77:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'agreement2' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:82:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'agreement3' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:90:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'cuentaAlpaca' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:102:	MissingOverride:	MissingOverride: The method 'obtenerTodosLosUsuarios()' is missing an @Override annotation.
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:106:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:106:	MissingOverride:	MissingOverride: The method 'obtenerUsuarioPorId(Long)' is missing an @Override annotation.
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:106:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:110:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'id' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:110:	MissingOverride:	MissingOverride: The method 'eliminarUsuario(Long)' is missing an @Override annotation.
+src/main/java/co/edu/unbosque/horizont/service/internal/UsuarioService.java:110:	ShortVariable:	ShortVariable: Avoid variables with short names like id
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:8:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:14:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:17:	UseConcurrentHashMap:	UseConcurrentHashMap: If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:22:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:29:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'symbols' is not assigned and could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:38:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'listaLimpia' could be declared final
+src/main/java/co/edu/unbosque/horizont/service/internal/WatchlistService.java:39:	InefficientEmptyStringCheck:	InefficientEmptyStringCheck: String.trim().length() == 0 / String.trim().isEmpty() is an inefficient way to validate a blank String.
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:5:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:7:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:12:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/internal/package-info.java:16:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/package-info.java:1:	CommentSize:	CommentSize: Comment is too large: Too many lines
+src/main/java/co/edu/unbosque/horizont/service/package-info.java:4:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/package-info.java:9:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/package-info.java:10:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/main/java/co/edu/unbosque/horizont/service/package-info.java:13:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/test/java/co/edu/unbosque/horizont/HorizontApplicationTests.java:7:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/co/edu/unbosque/horizont/HorizontApplicationTests.java:7:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/co/edu/unbosque/horizont/HorizontApplicationTests.java:10:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: Document empty method body
+src/test/java/co/edu/unbosque/horizont/HorizontApplicationTests.java:10:	UnitTestShouldIncludeAssert:	UnitTestShouldIncludeAssert: This unit test should include assert() or fail()
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:16:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:16:	JUnit5TestShouldBePackagePrivate:	JUnit5TestShouldBePackagePrivate: JUnit 5 tests should be package-private.
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:18:	FieldNamingConventions:	FieldNamingConventions: The constant name 'logger' doesn't match '[A-Z][A-Z_0-9]*'
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:26:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:26:	JUnit5TestShouldBePackagePrivate:	JUnit5TestShouldBePackagePrivate: JUnit 5 tests should be package-private.
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:26:	UnitTestContainsTooManyAsserts:	UnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:27:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'url' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/MarketControllerTest.java:28:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:19:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:19:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:21:	FieldNamingConventions:	FieldNamingConventions: The constant name 'logger' doesn't match '[A-Z][A-Z_0-9]*'
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:30:	UnitTestContainsTooManyAsserts:	UnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:32:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'url' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:48:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'headers' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:48:	LooseCoupling:	LooseCoupling: Avoid using implementation types like 'HttpHeaders'; use the interface instead
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:51:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'request' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:54:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:59:	LawOfDemeter:	LawOfDemeter: Call to `getBody` on foreign value `response` (degree 1)
+src/test/java/co/edu/unbosque/horizont/controller/UsuarioControllerTest.java:60:	GuardLogStatement:	GuardLogStatement: Logger calls should be surrounded by log level guards.
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:21:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:21:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:23:	FieldNamingConventions:	FieldNamingConventions: The constant name 'logger' doesn't match '[A-Z][A-Z_0-9]*'
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:24:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:35:	UnitTestContainsTooManyAsserts:	UnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'aaplQuote' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'msftQuote' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:55:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'result' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:60:	LawOfDemeter:	LawOfDemeter: Call to `getQuote` on foreign value `result.get(0)` (degree 1)
+src/test/java/co/edu/unbosque/horizont/service/MarketServiceTest.java:62:	LawOfDemeter:	LawOfDemeter: Call to `getQuote` on foreign value `result.get(1)` (degree 1)
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:22:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:22:	CommentRequired:	CommentRequired: Class comments are required
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:23:	FieldNamingConventions:	FieldNamingConventions: The constant name 'logger' doesn't match '[A-Z][A-Z_0-9]*'
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:28:	CommentRequired:	CommentRequired: Field comments are required
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:37:	MethodNamingConventions:	MethodNamingConventions: The JUnit 5 test method name 'registrarUsuarioDesdeDTO_deberiaPersistirYRetornarUsuarioDTO' doesn't match '[a-z][a-zA-Z0-9]*'
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:37:	UnitTestContainsTooManyAsserts:	UnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dto' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'registrado' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:53:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'usuarios' could be declared final
+src/test/java/co/edu/unbosque/horizont/service/UsuarioServiceTest.java:56:	GuardLogStatement:	GuardLogStatement: Logger calls should be surrounded by log level guards.

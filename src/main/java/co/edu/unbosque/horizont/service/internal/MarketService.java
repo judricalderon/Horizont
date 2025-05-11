@@ -1,7 +1,7 @@
 package co.edu.unbosque.horizont.service.internal;
 
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteWithSymbolDTO;
-import co.edu.unbosque.horizont.service.client.InterfaceFinnhubClient;
+import co.edu.unbosque.horizont.service.client.finnhub.InterfaceFinnhubClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

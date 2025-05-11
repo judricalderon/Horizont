@@ -1,4 +1,4 @@
-package co.edu.unbosque.horizont.service.client;
+package co.edu.unbosque.horizont.service.client.finnhub;
 
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteDTO;
 import org.springframework.beans.factory.annotation.Value;
