@@ -7,15 +7,15 @@ build/
 # Maven Wrapper
 !.mvn/wrapper/maven-wrapper.jar
 
-# Ignora target en subdirectorios, excepto en src/main o src/test (por si acaso)
+# Ignora target en subdirectorios, excepto en src/main o src/test
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 # Archivos de entorno y configuración sensible
 .env
-application-*.properties
-application*.properties
-application-*.yml
+*.properties
+*.yml
+*.yaml
 
 # Archivos generados por STS (Spring Tool Suite)
 .apt_generated
