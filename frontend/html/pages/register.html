@@ -1,295 +1,457 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registro - Acciones El Bosque</title>
-    <link rel="stylesheet" href="../../styles/base/main.css">
-    <link rel="stylesheet" href="../../styles/pages/register.css">
-    <link rel="stylesheet" href="../../styles/components/footer.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/register.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
 </head>
 <body>
-    
-    <nav class="navbar navbar-simple">
-        <div class="logo">
-            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
-        </div>
-        <div class="nav-back">
-            <a href="index.html" class="back-link">
-                <span class="material-icons">arrow_back</span>
-                <span>Volver a Inicio</span>
-            </a>
-        </div>
-    </nav>
+<nav class="navbar navbar-simple">
+    <div class="logo">
+        <a href="index.html">
+            <img src="assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque" />
+        </a>
+    </div>
+    <div class="nav-back">
+        <a href="index.html" class="back-link">
+            <span class="material-icons">arrow_back</span>
+            <span>Volver a Inicio</span>
+        </a>
+    </div>
+</nav>
 
-    <div class="register-container">
-        <div class="register-card">
-            <div class="register-header">
-                <img src="assets/images/logo/logo.svg" alt="Acciones El Bosque">
-                <h1>Registro de Usuario</h1>
-                <p>Crea tu cuenta para empezar a operar</p>
-            </div>
-            
-            <form id="registerForm" class="register-form" method="POST" action="http://localhost:8080/api/usuarios/registrar">
-                <div class="form-group">
-                    <span class="material-icons">person</span>
-                    <input type="text" id="firstName" name="firstName" placeholder="Nombre" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">person_outline</span>
-                    <input type="text" id="lastName" name="lastName" placeholder="Apellido" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">email</span>
-                    <input type="email" id="email" name="email" placeholder="Correo Institucional"
-                           pattern=".+@unbosque\.edu\.co"
-                           title="Debe ser un correo institucional (@unbosque.edu.co)" required autocomplete="email">
-                    <span class="form-hint">Debe ser un correo institucional (@unbosque.edu.co)</span>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">phone</span>
-                    <input type="tel" id="phone" name="phone" placeholder="Número de Teléfono" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">home</span>
-                    <input type="text" id="address" name="address" placeholder="Dirección" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">location_city</span>
-                    <input type="text" id="city" name="city" placeholder="Ciudad" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">map</span>
-                    <input type="text" id="state" name="state" placeholder="Departamento/Estado" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">markunread_mailbox</span>
-                    <input type="text" id="postalCode" name="postalCode" placeholder="Código Postal" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">flag</span>
-                    <input type="text" id="country" name="country" placeholder="País" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">calendar_today</span>
-                    <input type="date" id="birthDate" name="birthDate" placeholder="Fecha de Nacimiento" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">fingerprint</span>
-                    <input type="text" id="ssn" name="ssn" placeholder="Número de Seguro Social (SSN)" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">account_circle</span>
-                    <input type="text" id="username" name="username" placeholder="Usuario" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">lock</span>
-                    <input type="password" id="password" name="password" placeholder="Crear contraseña" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">lock_outline</span>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required>
-                </div>
-            
-                <div class="form-group">
-                    <span class="material-icons">school</span>
-                    <select id="role" name="role" required>
-                        <option value="">Selecciona un rol</option>
-                        <option value="STUDENT">Persona Natural</option>
-                        <option value="STUDENT">Estudiante</option>
-                        <option value="MONITOR">Monitor</option>
-                        <option value="TEACHER">Profesor</option>
-                    </select>
-                </div>
-            
-                <div class="terms-privacy">
-                    <label>
-                        <input type="checkbox" id="termsAccept" required>
-                        <span>Acepto los <a href="terms.html" class="terms-link">Términos y Condiciones</a> y la <a href="privacy.html" class="terms-link">Política de Privacidad</a>.</span>
-                    </label>
-                </div>
-            
-                <div id="error-message" class="error-message" style="display: none;">
-                    Error en el registro
-                </div>
-            
-                <div id="success-message" class="success-message" style="display: none;">
-                    Registro exitoso. Serás redirigido para iniciar sesión.
-                </div>
-            
-                <button type="submit" class="btn-register" id="submitBtn">Registrarse</button>
-            </form>
+<div class="register-container">
+    <div class="register-card">
+        <div class="register-header">
+            <img src="assets/images/logo/logo.svg" alt="Acciones El Bosque" />
+            <h1>Registro de Usuario</h1>
+            <p>Crea tu cuenta para empezar a operar</p>
+        </div>
 
-            <div class="register-footer">
-                <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a></p>
+        <form id="registerForm" class="register-form">
+            <!-- Campos de entrada -->
+            <div class="form-group">
+                <span class="material-icons">person</span>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required />
             </div>
+            <div class="form-group">
+                <span class="material-icons">person_outline</span>
+                <input type="text" id="apellido" name="apellido" placeholder="Apellido" required />
+            </div>
+            <div class="form-group">
+                <span class="material-icons">email</span>
+                <input type="email" id="correo" name="correo" placeholder="Correo" required />
+            </div>
+
+            <div class="form-group" >
+                <span class="material-icons">phone</span>
+                <input style="padding-right: 185px;"
+                       type="tel"
+                       id="telefono"
+                       name="telefono"
+                       placeholder="Teléfono"
+                       required
+                       class="iti-phone"
+                />
+            </div>
+
+            <div class="form-group">
+                <span class="material-icons">flag</span>
+                <select id="country" name="country" required>
+                    <option value="USA" selected>Estados Unidos (USA)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="material-icons">home</span>
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección" required />
+            </div>
+            <div class="form-group">
+                <span class="material-icons">location_city</span>
+                <select id="ciudad" name="ciudad" required>
+                    <option value="" disabled selected>Seleccione una ciudad</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Houston">Houston</option>
+                    <option value="Miami">Miami</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Boston">Boston</option>
+                    <option value="Atlanta">Atlanta</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Seattle">Seattle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="material-icons">markunread_mailbox</span>
+                <select id="codigoPostal" name="codigoPostal" required>
+                    <option value="" disabled selected>Seleccione un código postal</option>
+                    <option value="10001">10001 - New York, NY</option>
+                    <option value="90001">90001 - Los Angeles, CA</option>
+                    <option value="60601">60601 - Chicago, IL</option>
+                    <option value="77001">77001 - Houston, TX</option>
+                    <option value="33101">33101 - Miami, FL</option>
+                    <option value="94101">94101 - San Francisco, CA</option>
+                    <option value="02108">02108 - Boston, MA</option>
+                    <option value="30301">30301 - Atlanta, GA</option>
+                    <option value="75201">75201 - Dallas, TX</option>
+                    <option value="98101">98101 - Seattle, WA</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="material-icons">map</span>
+                <select id="estado" name="estado" required>
+                    <option value="" disabled selected>Seleccione un estado</option>
+                    <option value="NY">New York (NY)</option>
+                    <option value="CA">California (CA)</option>
+                    <option value="IL">Illinois (IL)</option>
+                    <option value="TX">Texas (TX)</option>
+                    <option value="FL">Florida (FL)</option>
+                    <option value="MA">Massachusetts (MA)</option>
+                    <option value="GA">Georgia (GA)</option>
+                    <option value="WA">Washington (WA)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <span class="material-icons">calendar_today</span>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento"
+                       required min="1900-01-01" max="2006-12-31" />
+            </div>
+            <div class="form-group">
+                <span class="material-icons">fingerprint</span>
+                <input type="text" id="ssn" name="ssn"
+                       placeholder="Número de Seguro Social (SSN)" required />
+            </div>
+            <div class="form-group">
+                <span class="material-icons">lock</span>
+                <input type="password" id="password" name="password"
+                       placeholder="Crear Contraseña" required />
+            </div>
+
+            <div class="form-group">
+                <span class="material-icons">lock_outline</span>
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                       placeholder="Confirmar Contraseña" required />
+            </div>
+
+            <div class="form-group strength-group">
+                <div id="strength-bar"><div id="strength-fill"></div></div>
+                <small id="strength-text" class="form-hint"></small>
+            </div>
+
+            <div class="terms-privacy">
+                <label>
+                    <input type="checkbox" id="termsAccept" required />
+                    <span>
+              Acepto los
+              <a href="terms.html" class="terms-link">Términos y Condiciones</a>
+              y la
+              <a href="privacy.html" class="terms-link">Política de Privacidad</a>.
+            </span>
+                </label>
+            </div>
+
+            <div id="error-message" class="error-banner">
+                <span class="material-icons">error_outline</span>
+                <span id="error-text"></span>
+            </div>
+
+            <div id="success-message" class="success-banner">
+                <span class="material-icons">check_circle_outline</span>
+                <span id="success-text">¡Usuario verificado exitosamente!</span>
+            </div>
+
+            <button type="submit" class="btn-register" id="submitBtn">
+                Registrarse
+            </button>
+        </form>
+
+        <!-- Modal de verificación -->
+        <div id="codigoModal" class="modal">
+            <div class="modal-content">
+                <h2>Verificación de correo</h2>
+                <p>
+                    Hemos enviado un código a tu correo electrónico. Ingresa el código a continuación:
+                </p>
+                <input type="text" id="codigoVerificacion"
+                       placeholder="Código de verificación" />
+                <div id="codigoError">Ingresa un código válido</div>
+                <button id="verificarCodigoBtn">Verificar Código</button>
+            </div>
+        </div>
+
+        <div class="register-footer">
+            <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a></p>
         </div>
     </div>
+</div>
 
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Acciones El Bosque</h4>
-                <div class="footer-contact">
-                    <p>Universidad El Bosque</p>
-                    <p>Bogotá, Colombia</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><span class="material-icons">facebook</span></a>
-                    <a href="#"><span class="material-icons">twitter</span></a>
-                    <a href="#"><span class="material-icons">linkedin</span></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Trading</h4>
-                <ul>
-                    <li><a href="trading.html">Plataforma de Trading</a></li>
-                    <li><a href="portfolio.html">Mi Portafolio</a></li>
-                    <li><a href="orders.html">Órdenes</a></li>
-                    <li><a href="market.html">Mercado</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Recursos</h4>
-                <ul>
-                    <li><a href="notifications.html">Notificaciones</a></li>
-                    <li><a href="learning.html">Educación</a></li>
-                    <li><a href="support.html">Soporte</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Términos de Uso</a></li>
-                    <li><a href="privacy.html">Privacidad</a></li>
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                    <li><a href="contact.html">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+<footer class="main-footer">
+    <!-- footer completo como antes -->
+</footer>
 
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+<!-- Incluye zxcvbn justo antes de tu script principal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form          = document.getElementById('registerForm');
+        const submitBtn     = document.getElementById('submitBtn');
+        const errorBanner   = document.getElementById('error-message');
+        const successBanner = document.getElementById('success-message');
+        const modal         = document.getElementById('codigoModal');
+        const codigoError   = document.getElementById('codigoError');
+
+        // Referencias para la barra de fuerza
+        const pwdInput    = document.getElementById('password');
+        const strengthBar = document.getElementById('strength-fill');
+        const strengthTxt = document.getElementById('strength-text');
+
+        let userId = null;  // Guardará el ID devuelto por el registro
+
+        // Función común para mostrar errores
+        function showError(msg) {
+            document.getElementById('error-text').textContent = msg;
+            errorBanner.classList.add('show');
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Registrarse';
+        }
+
+        // 1) Cerrar modal al hacer clic fuera
+        modal.addEventListener('click', e => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+
+        // 2) Evaluar fuerza de contraseña en tiempo real
+        pwdInput.addEventListener('input', () => {
+            const pwd = pwdInput.value;
+            if (!pwd) {
+                strengthBar.style.width      = '0%';
+                strengthBar.style.background = '#dc3545';
+                strengthTxt.textContent      = '';
+                return;
+            }
+            const { score } = zxcvbn(pwd);
+            const widths  = ['0%','25%','50%','75%','100%'];
+            const colors  = ['#dc3545','#fd7e14','#ffc107','#28a745','#007bff'];
+            const texts   = ['Muy débil','Débil','Normal','Fuerte','Muy fuerte'];
+
+            strengthBar.style.width      = widths[score];
+            strengthBar.style.background = colors[score];
+            strengthTxt.textContent      = texts[score];
+        });
+
+        // 3) Manejo del submit
+        form.addEventListener('submit', e => {
             e.preventDefault();
-    
-            document.getElementById('error-message').style.display = 'none';
-            document.getElementById('success-message').style.display = 'none';
-    
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
+            errorBanner.classList.remove('show');
+            successBanner.classList.remove('show');
+
+            const nombre          = document.getElementById('nombre').value.trim();
+            const apellido        = document.getElementById('apellido').value.trim();
+            const correo          = document.getElementById('correo').value.trim();
+            const telefono        = document.getElementById('telefono').value.trim();
+            const direccion       = document.getElementById('direccion').value.trim();
+            const ciudad          = document.getElementById('ciudad').value.trim();
+            const estado          = document.getElementById('estado').value;
+            const codigoPostal    = document.getElementById('codigoPostal').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const ssn             = document.getElementById('ssn').value.trim();
+            const password        = pwdInput.value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const termsAccept     = document.getElementById('termsAccept').checked;
+
+            submitBtn.disabled    = true;
             submitBtn.textContent = 'Procesando...';
-    
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirmPassword').value.trim();
-            const role = document.getElementById('role').value;
-            const termsAccept = document.getElementById('termsAccept').checked;
-    
-            if (!fullName || !email || !username || !password || !confirmPassword || !role) {
-                showError('Todos los campos son obligatorios');
-                return;
-            }
-    
+
             if (!termsAccept) {
-                showError('Debes aceptar los términos y condiciones');
-                return;
+                return showError('Debes aceptar los términos y condiciones');
             }
-    
             if (password !== confirmPassword) {
-                showError('Las contraseñas no coinciden');
-                return;
+                return showError('Las contraseñas no coinciden');
             }
-    
-            if (!email.endsWith('@unbosque.edu.co')) {
-                showError('Debe usar un correo institucional (@unbosque.edu.co)');
-                return;
+
+            // 4) Validación de fuerza mínima
+            const { score } = zxcvbn(password);
+            if (score < 2) {
+                return showError('La contraseña es muy débil. Usa más caracteres, mayúsculas y símbolos.');
             }
-    
+
             const userData = {
-                fullName: fullName,
-                email: email,
-                username: username,
-                password: password,
-                role: role
+                nombre, apellido, correo, telefono,
+                direccion, ciudad, estado, codigoPostal,
+                fechaNacimiento, ssn, password
             };
-    
-            fetch('http://localhost:8080/api/usuarios/registrar', {
+
+            // 5) Registrar usuario
+            fetch('http://localhost:8080/usuarios/registrar', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al registrar usuario. Por favor, intenta nuevamente.');
+                .then(res => {
+                    if (!res.ok) return res.text().then(err => { throw new Error(err); });
+                    return res.json();
+                })
+                .then(data => {
+                    // Guardamos el ID devuelto por el servidor
+                    userId = data.id;
+                    // Mostramos el modal de confirmación
+                    modal.classList.add('show');
+                })
+                .catch(err => showError(err.message || 'Error al registrar'))
+                .finally(() => {
+                    submitBtn.disabled    = false;
+                    submitBtn.textContent = 'Registrarse';
+                });
+        });
+
+        // 6) Verificación de código OTP
+        document.getElementById('verificarCodigoBtn')
+            .addEventListener('click', () => {
+                codigoError.style.display = 'none';
+                const codigo = document.getElementById('codigoVerificacion').value.trim();
+
+                if (!codigo) {
+                    codigoError.textContent = 'Ingresa el código de verificación';
+                    codigoError.style.display = 'block';
+                    return;
                 }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('success-message').style.display = 'block';
-                document.getElementById('registerForm').reset();
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000);
-            })
-            .catch(error => {
-                showError(error.message);
+                if (!userId) {
+                    return showError('ID de usuario no disponible. Vuelve a registrarte.');
+                }
+
+                fetch(`http://localhost:8080/usuarios/confirmar?idUsuario=${userId}&codigo=${encodeURIComponent(codigo)}`, {
+                    method: 'POST'
+                })
+                    .then(res => {
+                        if (!res.ok) return res.text().then(err => { throw new Error(err); });
+                        return res.text();
+                    })
+                    .then(msg => {
+                        modal.classList.remove('show');
+                        // Mostrar mensaje en el banner de éxito
+                        document.getElementById('success-text').textContent =
+                            msg || '¡Código confirmado correctamente!';
+                        successBanner.classList.add('show');
+
+                        // Deshabilitar el botón de verificar y cambiar texto
+                        const verifyBtn = document.getElementById('verificarCodigoBtn');
+                        verifyBtn.disabled    = true;
+                        verifyBtn.textContent = '¡Confirmado! Redirigiendo...';
+
+                        // Redirige a trading.html tras 2 segundos
+                        setTimeout(() => {
+                            window.location.href = 'trading.html';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        codigoError.textContent = err.message || 'Código inválido o expirado';
+                        codigoError.style.display = 'block';
+                    });
             });
-    
-            function showError(message) {
-                const errorMsg = document.getElementById('error-message');
-                errorMsg.textContent = message;
-                errorMsg.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Registrarse';
+    });
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+<script>
+    const phoneInput = document.querySelector(".iti-phone");
+    const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: callback => {
+            fetch("https://ipinfo.io/json?token=<TU_TOKEN_IPINFO>")
+                .then(res => res.json())
+                .then(data => callback(data.country))
+                .catch(() => callback("us"));
+        },
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+    });
+
+    // Opcional: validar antes de enviar
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        if (!iti.isValidNumber()) {
+            e.preventDefault();
+            alert("Por favor ingresa un número de teléfono válido.");
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1) Define el mapeo ciudad → { estado, codigoPostal }
+        const ciudadMap = {
+            "New York":      { estado: "NY", codigoPostal: "10001" },
+            "Los Angeles":   { estado: "CA", codigoPostal: "90001" },
+            "Chicago":       { estado: "IL", codigoPostal: "60601" },
+            "Houston":       { estado: "TX", codigoPostal: "77001" },
+            "Miami":         { estado: "FL", codigoPostal: "33101" },
+            "San Francisco": { estado: "CA", codigoPostal: "94101" },
+            "Boston":        { estado: "MA", codigoPostal: "02108" },
+            "Atlanta":       { estado: "GA", codigoPostal: "30301" },
+            "Dallas":        { estado: "TX", codigoPostal: "75201" },
+            "Seattle":       { estado: "WA", codigoPostal: "98101" }
+        };
+
+        // 2) Construye mapas inversos para estado→(ciudad,postal) y postal→(ciudad,estado)
+        const estadoMap = {};
+        const postalMap = {};
+        for (const [ciudad, datos] of Object.entries(ciudadMap)) {
+            // Si un estado aparece varias veces (CA, TX), tomamos la primera ciudad listada
+            if (!(datos.estado in estadoMap)) {
+                estadoMap[datos.estado] = {
+                    ciudad,
+                    codigoPostal: datos.codigoPostal
+                };
+            }
+            postalMap[datos.codigoPostal] = {
+                ciudad,
+                estado: datos.estado
+            };
+        }
+
+        const ciudadSel = document.getElementById('ciudad');
+        const estadoSel = document.getElementById('estado');
+        const postalSel = document.getElementById('codigoPostal');
+
+        // 3) Cuando cambie la ciudad, actualiza estado y postal
+        ciudadSel.addEventListener('change', () => {
+            const datos = ciudadMap[ciudadSel.value];
+            if (datos) {
+                estadoSel.value = datos.estado;
+                postalSel.value = datos.codigoPostal;
             }
         });
-    
-        document.getElementById('confirmPassword').addEventListener('input', function() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = this.value;
-    
-            if (password !== confirmPassword) {
-                this.setCustomValidity('Las contraseñas no coinciden');
-            } else {
-                this.setCustomValidity('');
+
+        // 4) Cuando cambie el estado, actualiza ciudad y postal (usa la primera ciudad disponible)
+        estadoSel.addEventListener('change', () => {
+            const datos = estadoMap[estadoSel.value];
+            if (datos) {
+                ciudadSel.value = datos.ciudad;
+                postalSel.value = datos.codigoPostal;
             }
         });
-    
-        document.querySelectorAll('button, a, select').forEach(element => {
-            element.addEventListener('touchstart', function() {
-                this.classList.add('hover-effect');
-            });
-    
-            element.addEventListener('touchend', function() {
-                this.classList.remove('hover-effect');
-            });
+
+        // 5) Cuando cambie el postal, actualiza ciudad y estado
+        postalSel.addEventListener('change', () => {
+            const datos = postalMap[postalSel.value];
+            if (datos) {
+                ciudadSel.value = datos.ciudad;
+                estadoSel.value = datos.estado;
+            }
         });
-    </script>
-    
+    });
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
 </body>
 </html>

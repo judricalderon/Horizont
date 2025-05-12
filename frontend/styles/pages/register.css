@@ -90,12 +90,18 @@ body {
     appearance: none;
 }
 
-
 .register-form input:focus,
 .register-form select:focus {
-    outline: none;
     border-color: var(--register-primary);
     box-shadow: 0 0 0 0.2rem rgba(163, 31, 52, 0.25);
+    background-color: var(--register-card);
+    outline: none;
+}
+
+/* Opciones */
+.register-form select option {
+    background-color: #fff;
+    color: #212529;
 }
 
 .form-hint {
@@ -211,26 +217,34 @@ body {
     color: var(--register-secondary);
 }
 
-/* Estilos para el select */
+/* Moderniza el select: estilo elegante con fondo suave y flecha personalizada */
 .register-form select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='%236c757d' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+    background-color: var(--register-card);
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 12px 15px 12px 40px;
+    font-size: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath fill='%236c757d' d='M7 8L0 0h14z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 15px center;
-    background-size: 10px 5px;
-    padding-right: 30px;
+    background-size: 14px 8px;
+    padding-right: 40px;
     cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
-
 /* Responsive adjustments */
 @media (max-width: 576px) {
     .register-card {
         padding: 30px 20px;
     }
-    
+
     .register-header h1 {
         font-size: 22px;
     }
-    
+
     .register-form input[type="text"],
     .register-form input[type="email"],
     .register-form input[type="password"],
@@ -247,11 +261,11 @@ body {
         -webkit-appearance: none;
         appearance: none;
     }
-    
+
     .terms-privacy label {
         font-size: 13px;
     }
-    
+
     .btn-register,
     .register-footer a,
     .terms-privacy label,
@@ -260,7 +274,7 @@ body {
         display: flex;
         align-items: center;
     }
-    
+
     .terms-privacy span {
         padding: 5px 0;
     }
@@ -273,9 +287,208 @@ body {
     .terms-privacy a:active {
         opacity: 0.7;
     }
-    
+
     .register-form select {
         background-color: var(--register-card);
     }
 }
-} 
+
+
+/* ========== Estilos del Modal ========== */
+/* Overlay */
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Animación de entrada */
+@keyframes futuristicIn {
+    0%   { opacity: 0; transform: scale(0.8) translateY(-20px); }
+    60%  { opacity: 1; transform: scale(1.05) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Contenido */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(26, 26, 46, 0.7),
+    0 0 40px rgba(22, 33, 62, 0.5);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: futuristicIn 0.5s ease-out;
+}
+
+/* Destellos animados */
+.modal-content::before,
+.modal-content::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%; left: -25%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 70%);
+    animation: rotateGlow 4s linear infinite;
+    /* ¡IMPORTANTE! */
+    pointer-events: none;
+}
+.modal-content::after {
+    animation-delay: 2s;
+}
+
+.modal-content {
+    pointer-events: auto;
+}
+
+@keyframes rotateGlow {
+    to { transform: rotate(360deg); }
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.5);
+}
+
+.modal-content p {
+    font-size: 15px;
+    color: #c0c0c0;
+    margin-bottom: 25px;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #2a2a3d;
+    color: #f0f0f0;
+    font-size: 15px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+.modal-content input[type="text"]::placeholder {
+    color: #888;
+}
+.modal-content input[type="text"]:focus {
+    outline: none;
+    background: #35354a;
+    box-shadow: inset 0 0 12px rgba(163,31,52,0.6);
+}
+
+.modal-content button {
+    width: 100%;
+    background: linear-gradient(135deg, #A31F34, #FF4D6D);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(163,31,52,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-content button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(163,31,52,0.7);
+}
+
+/* Mensaje de error en modal */
+#codigoError {
+    display: none;
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 4px rgba(255,107,107,0.7);
+}
+
+/* ========== Estilos para el banner de error ========== */
+.error-banner,
+.success-banner {
+    display: none;             /* Ocultos por defecto */
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Banner de error */
+.error-banner {
+    background: linear-gradient(90deg,
+    rgba(220,53,69,0.15) 0%,
+    rgba(220,53,69,0.05) 100%);
+    border-left: 4px solid var(--register-danger);
+    color: var(--register-danger);
+}
+
+/* Banner de éxito */
+.success-banner {
+    background: linear-gradient(90deg,
+    rgba(40,167,69,0.15) 0%,
+    rgba(40,167,69,0.05) 100%);
+    border-left: 4px solid var(--register-success);
+    color: var(--register-success);
+}
+
+/* Íconos dentro de los banners */
+.error-banner .material-icons,
+.success-banner .material-icons {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Mostrar banners cuando se añade la clase .show */
+.error-banner.show,
+.success-banner.show {
+    display: flex;
+}
+
+/* Barra de fuerza de contraseña */
+#strength-bar {
+    width: 100%;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+#strength-fill {
+    height: 100%;
+    width: 0%;
+    background: red;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+#strength-text {
+    display: block;
+    font-size: 12px;
+    color: #6c757d;
+}
+
