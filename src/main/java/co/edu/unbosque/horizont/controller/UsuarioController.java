@@ -35,8 +35,13 @@ import java.util.Properties;
  * Incorpora además un ModelMapper y un AlpacaClient por si se desea mapear DTOs
  * o invocar directamente la API de Alpaca desde el controlador.
  */
+
 @RestController
 @RequestMapping("/usuarios")
+// Permite orígenes desde tu front en el puerto 5505
+@CrossOrigin(origins = "http://127.0.0.1:5505",
+        methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS },
+        allowCredentials = "true")
 public class UsuarioController {
 
 
