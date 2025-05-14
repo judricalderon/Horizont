@@ -126,7 +126,7 @@
             <div class="form-group">
                 <span class="material-icons">fingerprint</span>
                 <input type="text" id="ssn" name="ssn"
-                       placeholder="Número de Seguro Social (SSN)" required />
+                       placeholder="Número de Seguro Social (SSN) 10 dígitos" required />
             </div>
             <div class="form-group">
                 <span class="material-icons">lock</span>
@@ -180,7 +180,7 @@
                     Hemos enviado un código a tu correo electrónico. Ingresa el código a continuación:
                 </p>
                 <input type="text" id="codigoVerificacion"
-                       placeholder="Código de verificación" />
+                    placeholder="Código de verificación" />
                 <div id="codigoError">Ingresa un código válido</div>
                 <button id="verificarCodigoBtn">Verificar Código</button>
             </div>
@@ -346,9 +346,9 @@
                         verifyBtn.disabled    = true;
                         verifyBtn.textContent = '¡Confirmado! Redirigiendo...';
 
-                        // Redirige a trading.html tras 2 segundos
+                        // Redirige a portfolio.html tras 2 segundos
                         setTimeout(() => {
-                            window.location.href = 'trading.html';
+                            window.location.href = 'portfolio.html';
                         }, 2000);
                     })
                     .catch(err => {
@@ -450,6 +450,60 @@
         });
     });
 </script>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Acciones El Bosque</h4>
+        <div class="footer-contact">
+          <p>Universidad El Bosque</p>
+          <p>Bogotá, Colombia</p>
+        </div>
+        <div class="footer-social">
+          <a href="#"><span class="material-icons">facebook</span></a>
+          <a href="#"><span class="material-icons">twitter</span></a>
+          <a href="#"><span class="material-icons">linkedin</span></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Trading</h4>
+        <ul>
+          <li><a href="trading.html">Plataforma de Trading</a></li>
+          <li><a href="portfolio.html">Mi Portafolio</a></li>
+          <li><a href="orders.html">Órdenes</a></li>
+          <li><a href="market.html">Mercado</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="notifications.html">Notificaciones</a></li>
+          <li><a href="learning.html">Educación</a></li>
+          <li><a href="support.html">Soporte</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Términos de Uso</a></li>
+          <li><a href="privacy.html">Privacidad</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  
+  <script type="module">
+    import { initializeTrading } from '../../js/controllers/trading.js';
+    document.addEventListener('DOMContentLoaded', initializeTrading);
+  </script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>

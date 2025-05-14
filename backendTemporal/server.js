@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const db = require('./database/db');
+const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 5501;
+const API_KEY = 'your-alpaca-api-key';
+const SECRET_KEY = 'your-alpaca-secret-key';
 
 // Middleware
 app.use(cors());
@@ -68,7 +71,23 @@ app.post('/api/auth/register', (req, res) => {
     });
 });
 
+// Ruta para obtener datos de acciones
+app.get('/api/stocks', async (req, res) => {
+    try {
+        const response = await axios.get('https://paper-api.alpaca.markets/v2/assets', {
+            headers: {
+                'APCA-API-KEY-ID': CK4VN12P03TCB49HSV0N,
+                'APCA-API-SECRET-KEY': fG99qo00XZyd5vDOUceZJXGRYvfrOMnwOZdvNciP ,
+            },
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching stock data');
+    }
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
-}); 
+});

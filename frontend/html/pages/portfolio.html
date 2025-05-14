@@ -36,11 +36,11 @@
                 <h1>Mi Portafolio</h1>
                 <div class="portfolio-actions">
                     <button class="btn-refresh">
-                        <span class="material-icons">refresh</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Actualizar" style="width:20px;height:20px;vertical-align:middle;margin-right:4px;">
                         Actualizar
                     </button>
                     <button class="btn-export">
-                        <span class="material-icons">download</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Exportar" style="width:20px;height:20px;vertical-align:middle;margin-right:4px;">
                         Exportar
                     </button>
                 </div>
@@ -49,7 +49,7 @@
             <div class="summary-cards">
                 <div class="summary-card">
                     <div class="card-icon total-value">
-                        <span class="material-icons">account_balance_wallet</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2920/2920256.png" alt="Cartera" style="width:32px;height:32px;">
                     </div>
                     <div class="card-content">
                         <h3>Valor Total</h3>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="summary-card">
                     <div class="card-icon daily-change">
-                        <span class="material-icons">trending_up</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170627.png" alt="Cambio Diario" style="width:32px;height:32px;">
                     </div>
                     <div class="card-content">
                         <h3>Cambio Diario</h3>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="summary-card">
                     <div class="card-icon total-gain">
-                        <span class="material-icons">show_chart</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ganancia Total" style="width:32px;height:32px;">
                     </div>
                     <div class="card-content">
                         <h3>Ganancia Total</h3>
@@ -76,13 +76,140 @@
                 </div>
                 <div class="summary-card">
                     <div class="card-icon cash-balance">
-                        <span class="material-icons">payments</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331943.png" alt="Efectivo" style="width:32px;height:32px;">
                     </div>
                     <div class="card-content">
                         <h3>Efectivo Disponible</h3>
                         <p class="value" id="cashBalance">$0.00</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- NUEVA TARJETA: Ganancias y Comisiones -->
+        <section class="portfolio-card rounded-card">
+            <div class="portfolio-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ganancias" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+                Ganancias y Comisiones
+            </div>
+            <div class="portfolio-card-body">
+                <table class="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Símbolo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Símbolo</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Ganancia" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Ganancia/Pérdida</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Comisión" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisión Total</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="ElBosque" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">ElBosque</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Comisionista" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisionista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gainsCommissionsTableBody">
+                        <!-- Datos dinámicos -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- NUEVA TARJETA: Historial de Órdenes -->
+        <section class="portfolio-card rounded-card">
+            <div class="portfolio-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Órdenes" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+                Historial de Órdenes
+            </div>
+            <div class="portfolio-card-body">
+                <table class="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Fecha" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Fecha</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Tipo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Tipo de Orden</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Estado" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Estado</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Comisionista" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisionista</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Símbolo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Símbolo</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Cantidad" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Cantidad</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Precio" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Precio</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Total" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Total</th>
+                            <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Timestamp" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersHistoryTableBody">
+                        <!-- Datos dinámicos -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- NUEVA TARJETA: Gestión de Notificaciones -->
+        <section class="portfolio-card rounded-card">
+            <div class="portfolio-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Notificaciones" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+                Gestión de Notificaciones
+            </div>
+            <div class="portfolio-card-body">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                    <!-- Canales -->
+                    <div style="flex:1; min-width:220px;">
+                        <h4 style="margin-bottom:0.7rem; color:#8A1931; display:flex; align-items:center;"><img src='https://cdn-icons-png.flaticon.com/512/1827/1827933.png' style='width:20px;height:20px;margin-right:6px;'>Canales</h4>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Correo" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" checked style="margin-right:8px;">Correo</label>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="SMS" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" style="margin-right:8px;">SMS</label>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" style="margin-right:8px;">WhatsApp</label>
+                    </div>
+                    <!-- Tipos de Alerta -->
+                    <div style="flex:1; min-width:220px;">
+                        <h4 style="margin-bottom:0.7rem; color:#8A1931; display:flex; align-items:center;"><img src='https://cdn-icons-png.flaticon.com/512/190/190411.png' style='width:20px;height:20px;margin-right:6px;'>Tipos de Alerta</h4>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Movimientos" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" checked style="margin-right:8px;">Movimientos de precios</label>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Estado" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" style="margin-right:8px;">Cambios de estado</label>
+                        <label style="display:flex;align-items:center;margin-bottom:0.5rem;"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Confirmaciones" style="width:18px;height:18px;margin-right:8px;"><input type="checkbox" checked style="margin-right:8px;">Confirmaciones</label>
+                    </div>
+                </div>
+                <div class="portfolio-card-actions" style="margin-top:2rem;">
+                    <button class="btn-refresh" type="button">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Guardar" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Guardar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA TARJETA: Visualización por Mercado y Sector -->
+        <section class="portfolio-card rounded-card">
+            <div class="portfolio-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Mercado y Sector" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+                Visualización por Mercado y Sector
+            </div>
+            <div class="portfolio-card-body">
+                <div class="analysis-grid" style="gap:3rem;">
+                    <!-- Columna Mercado -->
+                    <div style="min-width:320px;">
+                        <h4 style="color:#8A1931;margin-bottom:0.5rem;display:flex;align-items:center;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="Mercado" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">Distribución por Mercado
+                        </h4>
+                        <canvas id="marketChart" width="320" height="180"></canvas>
+                        <div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+                            <button class="btn-refresh"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="NYSE" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">NYSE</button>
+                            <button class="btn-refresh"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="NASDAQ" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">NASDAQ</button>
+                            <button class="btn-refresh"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="LSE" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">LSE</button>
+                            <button class="btn-refresh"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="TSE" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">TSE</button>
+                            <button class="btn-refresh"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="ASX" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">ASX</button>
+                        </div>
+                    </div>
+                    <!-- Columna Sector -->
+                    <div style="min-width:320px;">
+                        <h4 style="color:#8A1931;margin-bottom:0.5rem;display:flex;align-items:center;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Sector" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;">Distribución por Sector
+                        </h4>
+                        <canvas id="sectorChart" width="320" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA TARJETA: Logs del Sistema -->
+        <section class="portfolio-card rounded-card">
+            <div class="portfolio-card-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Logs" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+                Logs del Sistema
+            </div>
+            <div class="portfolio-card-body" style="max-height:200px;overflow:auto;background:#f8f9fa;">
+                <pre id="logsBox" style="font-size:0.95em;color:#2c3e50;white-space:pre-wrap;">Cargando logs...</pre>
             </div>
         </section>
 
