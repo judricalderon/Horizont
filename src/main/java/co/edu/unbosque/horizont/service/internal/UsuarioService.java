@@ -9,6 +9,9 @@ import co.edu.unbosque.horizont.service.client.alpaca.InterfaceAlpacaClient;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -35,6 +38,9 @@ public class UsuarioService implements InterfaceUsuarioService {
     @Autowired
     private CorreoService correoService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Construye un {@link UsuarioService} inyectando el {@link ModelMapper}.
      *
@@ -58,6 +64,8 @@ public class UsuarioService implements InterfaceUsuarioService {
      * @return DTO del usuario creado.
      * @throws EmailAlreadyExistsException si el correo ya está registrado.
      */
+
+
     @Override
     public UsuarioDTO registrarUsuarioDesdeDTO(UsuarioDTO dto) {
         if (usuarioRepository.existsByCorreo(dto.getCorreo())) {
@@ -66,20 +74,33 @@ public class UsuarioService implements InterfaceUsuarioService {
             );
         }
 
+        // Mapea DTO a entidad
         Usuario usuario = modelMapper.map(dto, Usuario.class);
+
+        // ─── Codifica la contraseña antes de guardar ───
+        String rawPass = dto.getPassword();
+        String hashed = passwordEncoder.encode(rawPass);
+        usuario.setPassword(hashed);
+        // ──────────────────────────────────────────────
+
+        // Genera y asigna el OTP
         String codigoVerificacion = generarCodigoAleatorio();
         usuario.setCodigoVerificacion(codigoVerificacion);
         usuario.setExpiracionCodigo(LocalDateTime.now().plusMinutes(10));
         usuario.setVerificado(false);
 
+        // Guarda usuario y envía código
         Usuario guardado = usuarioRepository.save(usuario);
         correoService.enviarCodigoVerificacion(guardado.getCorreo(), codigoVerificacion);
 
+        // Crea la cuenta en Alpaca
         AlpacaAccountDTO cuenta = buildAlpacaAccountDTO(guardado);
         alpacaClient.crearCuenta(cuenta);
 
+        // Retorna DTO
         return modelMapper.map(guardado, UsuarioDTO.class);
     }
+
 
     /**
      * Verifica el código OTP de un usuario y activa la cuenta si es válido.
@@ -150,6 +171,14 @@ public class UsuarioService implements InterfaceUsuarioService {
     public void eliminarUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }
+
+
+    @Override
+    public Optional<Usuario> login(String correo, String rawPassword) {
+        return usuarioRepository.findByCorreo(correo)
+                .filter(u -> passwordEncoder.matches(rawPassword, u.getPassword()));
+    }
+
 
     /**
      * Construye el DTO de Alpaca combinando contact, identity, disclosures y agreements.

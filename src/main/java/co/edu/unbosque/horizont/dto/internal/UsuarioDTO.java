@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 public class UsuarioDTO {
 
-
     private Long id;
     private String nombre;
     private String apellido;
@@ -26,15 +25,16 @@ public class UsuarioDTO {
     private String codigoVerificacion;
     private LocalDateTime expiracionCodigo;
     private boolean verificado;
-
+    private String password;
+    private boolean esPremium;
 
     public UsuarioDTO() {}
-
 
     public UsuarioDTO(Long id, String nombre, String apellido, String correo, String telefono, String direccion,
                       String ciudad, String estado, String codigoPostal, String pais,
                       LocalDate fechaNacimiento, String ssn, String codigoVerificacion,
-                      LocalDateTime expiracionCodigo, boolean verificado) {
+                      LocalDateTime expiracionCodigo, boolean verificado,
+                      String password, boolean esPremium) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -50,68 +50,60 @@ public class UsuarioDTO {
         this.codigoVerificacion = codigoVerificacion;
         this.expiracionCodigo = expiracionCodigo;
         this.verificado = verificado;
+        this.password = password;
+        this.esPremium = esPremium;
     }
 
-
     // Getters y setters
-
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
-
 
     public String getApellido() { return apellido; }
     public void setApellido(String apellido) { this.apellido = apellido; }
 
-
     public String getCorreo() { return correo; }
     public void setCorreo(String correo) { this.correo = correo; }
-
 
     public String getTelefono() { return telefono; }
     public void setTelefono(String telefono) { this.telefono = telefono; }
 
-
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
-
 
     public String getCiudad() { return ciudad; }
     public void setCiudad(String ciudad) { this.ciudad = ciudad; }
 
-
     public String getEstado() { return estado; }
     public void setEstado(String estado) { this.estado = estado; }
-
 
     public String getCodigoPostal() { return codigoPostal; }
     public void setCodigoPostal(String codigoPostal) { this.codigoPostal = codigoPostal; }
 
-
     public String getPais() { return pais; }
     public void setPais(String pais) { this.pais = pais; }
-
 
     public LocalDate getFechaNacimiento() { return fechaNacimiento; }
     public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 
-
     public String getSsn() { return ssn; }
     public void setSsn(String ssn) { this.ssn = ssn; }
-
 
     public String getCodigoVerificacion() { return codigoVerificacion; }
     public void setCodigoVerificacion(String codigoVerificacion) { this.codigoVerificacion = codigoVerificacion; }
 
-
     public LocalDateTime getExpiracionCodigo() { return expiracionCodigo; }
     public void setExpiracionCodigo(LocalDateTime expiracionCodigo) { this.expiracionCodigo = expiracionCodigo; }
 
-
     public boolean isVerificado() { return verificado; }
     public void setVerificado(boolean verificado) { this.verificado = verificado; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public boolean isEsPremium() { return esPremium; }
+    public void setEsPremium(boolean esPremium) { this.esPremium = esPremium; }
 }
