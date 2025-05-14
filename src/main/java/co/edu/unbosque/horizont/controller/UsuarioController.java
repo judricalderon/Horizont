@@ -39,7 +39,7 @@ import java.util.Properties;
 @RestController
 @RequestMapping("/usuarios")
 // Permite orígenes desde tu front en el puerto 5505
-@CrossOrigin(origins = "http://127.0.0.1:5505",
+@CrossOrigin(origins = "http://127.0.0.1:5500",
         methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS },
         allowCredentials = "true")
 public class UsuarioController {
