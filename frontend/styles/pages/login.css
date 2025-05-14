@@ -253,32 +253,32 @@ body {
     .login-card {
         padding: 30px 20px;
     }
-    
+
     .login-header h1 {
         font-size: 22px;
     }
-    
+
     .social-buttons {
         flex-direction: column;
     }
-    
+
     .remember-forgot {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .remember-forgot a {
         margin-top: 10px;
         padding: 5px 0;
         display: inline-block;
     }
-    
-    .btn-login, 
+
+    .btn-login,
     .social-button {
         padding: 12px;
         font-size: 16px;
     }
-    
+
     /* Increase touch target size for better mobile usability */
     .social-button,
     .remember-forgot label,
@@ -297,4 +297,330 @@ body {
     .login-footer a:active {
         opacity: 0.7;
     }
+}
+
+/* Estilos para la página de login - Diseño 2: Centrado con Fondo de Gradiente */
+
+:root {
+    --login-primary: #A31F34;
+    --login-secondary: #8A1931;
+    --login-bg: #f8f9fa;
+    --login-card: #ffffff;
+    --login-text: #212529;
+    --login-border: #e9ecef;
+    --login-success: #28a745;
+    --login-danger: #dc3545;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--login-primary) 0%, #ff4d6d 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-top: 60px;
+}
+
+.login-card {
+    background-color: var(--login-card);
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.login-header h1 {
+    font-size: 24px;
+    color: var(--login-text);
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #6c757d;
+    margin: 0;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login-form .form-group .material-icons {
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    color: #6c757d;
+    font-size: 20px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--login-primary);
+    box-shadow: 0 0 0 0.2rem rgba(163, 31, 52, 0.25);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    color: var(--login-text);
+    font-size: 14px;
+}
+
+.remember-forgot input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.remember-forgot a {
+    color: var(--login-primary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.remember-forgot a:hover,
+.remember-forgot a:focus,
+.remember-forgot a.hover-effect {
+    text-decoration: underline;
+    color: var(--login-secondary);
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--login-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(163, 31, 52, 0.3);
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-login:hover,
+.btn-login:focus,
+.btn-login.hover-effect {
+    background-color: var(--login-secondary);
+    box-shadow: 0 7px 20px rgba(163, 31, 52, 0.4);
+}
+
+.btn-login:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.social-login {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social-login p {
+    color: #6c757d;
+    margin-bottom: 15px;
+    font-size: 14px;
+    position: relative;
+}
+
+.social-login p span {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.social-login p:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    background-color: var(--login-border);
+    z-index: 0;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--login-border);
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.social-button:hover,
+.social-button:focus,
+.social-button.hover-effect {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+}
+
+.login-footer {
+    text-align: center;
+    color: var(--login-text);
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: var(--login-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.login-footer a:hover,
+.login-footer a:focus,
+.login-footer a.hover-effect {
+    text-decoration: underline;
+    color: var(--login-secondary);
+}
+
+.error-message {
+    color: var(--login-danger);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 4px;
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-header h1 {
+        font-size: 22px;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .remember-forgot a {
+        margin-top: 10px;
+        padding: 5px 0;
+        display: inline-block;
+    }
+
+    .btn-login,
+    .social-button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Increase touch target size for better mobile usability */
+    .social-button,
+    .remember-forgot label,
+    .login-footer a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Fix for iOS devices to properly render focus */
+@media (hover: none) {
+    .btn-login:active,
+    .social-button:active,
+    .remember-forgot a:active,
+    .login-footer a:active {
+        opacity: 0.7;
+    }
+}
+
+/* ————————————— Override para el “ojito” ————————————— */
+
+/* 1) El candado (material-icons sin toggle-password) a la izquierda */
+.login-form .form-group .material-icons:not(.toggle-password) {
+    left: 15px;
+}
+
+/* 2) El ojo (toggle-password) siempre a la derecha */
+.login-form .form-group .toggle-password {
+    position: absolute !important;
+    top: 12px !important;
+    right: 15px !important;
+    left: auto !important;
+    transform: none !important;    /* anulamos cualquier translate */
+    cursor: pointer;
+    font-size: 20px;
+    color: #6c757d;
+    z-index: 3;
+}
+
+/* 3) Espacio extra a la derecha para el input password */
+.login-form input[type="password"] {
+    padding: 12px 50px 12px 40px !important;
 }

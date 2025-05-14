@@ -38,15 +38,22 @@
                 <input type="text" id="username" name="username" placeholder="Usuario o Correo electrónico" required autocomplete="email">
             </div>
 
-            <div class="form-group" style="position: relative;">
+            <div class="form-group">
                 <span class="material-icons">lock</span>
-                <input type="password" id="password" name="password" placeholder="Contraseña" required autocomplete="current-password">
-                <!-- Icono para mostrar/ocultar -->
-                <span id="togglePassword" class="material-icons"
-                      style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); cursor: pointer;">
-                visibility
-                </span>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Contraseña"
+                        required
+                        autocomplete="current-password"
+                >
+                <!-- Ojo sin estilos inline -->
+                <span id="togglePassword" class="material-icons toggle-password">
+    visibility
+  </span>
             </div>
+
 
 
 
@@ -221,6 +228,8 @@
 
     );
 </script>
+
+
 
 <script src="../../js/utils/auth.js"></script>
 </body>
