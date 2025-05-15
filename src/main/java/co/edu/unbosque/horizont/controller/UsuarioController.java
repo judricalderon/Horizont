@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import co.edu.unbosque.horizont.dto.internal.LoginRequestDTO;
+
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -44,8 +47,8 @@ import java.util.Properties;
         allowCredentials = "true")
 public class UsuarioController {
 
-
-    private final InterfaceUsuarioService usuarioService;
+    @Autowired
+    private InterfaceUsuarioService usuarioService;
     private final ModelMapper modelMapper;
     private final AlpacaClient alpacaClient;
 
@@ -161,4 +164,20 @@ public class UsuarioController {
         }
 
     }
+    // --------------------------------------
+    // LOGIN JSON
+    // POST /usuarios/login
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequestDTO req) {
+        return usuarioService.login(req.getCorreo(), req.getPassword())
+                .map(u -> Map.of(
+                        "id", u.getId(),
+                        "nombre", u.getNombre(),
+                        "correo", u.getCorreo(),
+                        "esPremium", u.isEsPremium()
+                ))
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
 }
