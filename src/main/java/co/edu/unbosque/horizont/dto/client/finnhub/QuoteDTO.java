@@ -29,7 +29,9 @@ public class QuoteDTO {
     @JsonProperty("pc")
     private double previousClosePrice;
 
-    // Getters y Setters
+    public QuoteDTO() {
+    }
+// Getters y Setters
 
     public double getCurrentPrice() {
         return currentPrice;

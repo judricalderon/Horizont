@@ -41,31 +41,22 @@ public class UsuarioController {
 
 
     private final InterfaceUsuarioService usuarioService;
-    private final ModelMapper modelMapper;
-    private final AlpacaClient alpacaClient;
 
     /**
      * Constructor para inyectar dependencias necesarias en el controlador.
      *
      * @param usuarioService servicio de usuarios que implementa la lógica de negocio
-     * @param modelMapper objeto para realizar conversiones entre DTOs y entidades
-     * @param alpacaClient cliente para interactuar con la API externa de Alpaca
-     * @param usuarioService1 instancia específica del servicio de usuario (se utiliza como final)
      */
 
     /**
      * Inyección de dependencias:
      * @param usuarioService servicio con la lógica de registro y verificación
-     * @param modelMapper    para convertir entre entidades y DTOs
-     * @param alpacaClient   cliente HTTP para la API externa de Alpaca
+
      */
     @Autowired
-    public UsuarioController(InterfaceUsuarioService usuarioService,
-                             ModelMapper modelMapper,
-                             AlpacaClient alpacaClient) {
+    public UsuarioController(InterfaceUsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-        this.modelMapper = modelMapper;
-        this.alpacaClient = alpacaClient;
+
     }
 
     /**

@@ -83,6 +83,12 @@
 		</dependency>
 	</dependencies>
 
+	<dependency>
+		<groupId>com.stripe</groupId>
+		<artifactId>stripe-java</artifactId>
+		<version>24.8.0</version> <!-- última versión estable -->
+	</dependency>
+
 	<build>
 		<plugins>
 			<plugin>
