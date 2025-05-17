@@ -95,6 +95,41 @@ body {
     box-shadow: 0 4px 12px rgba(117, 0, 20, 0.2);
 }
 
+/* Ajustes para el icono de notificaciones */
+.notifications-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.notifications-link .material-icons {
+    font-size: 1.5rem;
+    color: var(--mit-black);
+}
+
+/* Efecto hover */
+.notifications-link:hover {
+    background-color: rgba(117, 0, 20, 0.1);
+    transform: translateY(-1px);
+}
+
+.notifications-link:hover .material-icons {
+    color: var(--mit-red);
+}
+
+/* Oculta el texto en .visually-hidden, pero sigue accesible */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    white-space: nowrap;
+}
+
 .mobile-menu-toggle {
     display: none;
     background: none;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Acciones El Bosque</title>
+    <title>Portafolio - Horizont</title>
     <link rel="stylesheet" href="../../styles/base/main.css">
     <link rel="stylesheet" href="../../styles/pages/portfolio.css">
     <link rel="stylesheet" href="../../styles/components/footer.css">
@@ -15,21 +15,28 @@
 <nav class="navbar">
     <div class="logo">
         <a href="index.html">
-            <img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque">
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
         </a>
     </div>
     <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="trading.html">Trading</a></li>
         <li><a href="portfolio.html" class="active">Portafolio</a></li>
-        <li><a href="notifications.html">Notificaciones</a></li>
+        <li>
+            <a href="notifications.html" class="notifications-link" title="Notificaciones">
+                <span class="material-icons">notifications</span>
+                <span class="visually-hidden">Notificaciones</span>
+            </a>
+        </li>
     </ul>
+
+
     <div class="user-menu">
         <a href="login.html" id="loginLink">Iniciar Sesión</a>
         <div id="userInfo" style="display: none;">
             <span id="userName" class="material-icons">account_circle</span>
             <span id="userGreeting" style="margin: 0 8px;"></span>
-            <button id="logoutBtn" style="margin-left: 10px;">Cerrar sesión</button>
+            <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
         </div>
     </div>
 </nav>
@@ -50,6 +57,8 @@
                 </button>
             </div>
         </div>
+
+
 
         <div class="summary-cards">
             <div class="summary-card">
@@ -114,6 +123,11 @@
             </table>
         </div>
     </section>
+
+    <!-- en portafolio.html -->
+    <div id="watchlist-content"></div>
+
+
 
     <!-- NUEVA TARJETA: Historial de Órdenes -->
     <section class="portfolio-card rounded-card">
@@ -364,53 +378,24 @@
 </main>
 
 <!-- Footer -->
-<footer class="main-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Acciones El Bosque</h4>
-            <div class="footer-contact">
-                <p>Universidad El Bosque</p>
-                <p>Bogotá, Colombia</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><span class="material-icons">facebook</span></a>
-                <a href="#"><span class="material-icons">twitter</span></a>
-                <a href="#"><span class="material-icons">linkedin</span></a>
-            </div>
-        </div>
-        <div class="footer-section">
-            <h4>Trading</h4>
-            <ul>
-                <li><a href="trading.html">Plataforma de Trading</a></li>
-                <li><a href="portfolio.html">Mi Portafolio</a></li>
-                <li><a href="orders.html">Órdenes</a></li>
-                <li><a href="market.html">Mercado</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Recursos</h4>
-            <ul>
-                <li><a href="notifications.html">Notificaciones</a></li>
-                <li><a href="learning.html">Educación</a></li>
-                <li><a href="support.html">Soporte</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="terms.html">Términos de Uso</a></li>
-                <li><a href="privacy.html">Privacidad</a></li>
-                <li><a href="disclaimer.html">Disclaimer</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
-    </div>
-</footer>
+<div id="footer-placeholder"></div>
+
+<!-- 1) session.js -->
+<script src="/frontend/js/session.js"></script>
+<script>
+    fetch('watchlist-summary.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('watchlist-container').innerHTML = html;
+
+            // Cargar y ejecutar el JS después de inyectar el HTML
+            const script = document.createElement('script');
+            script.src = '../../scripts/watchlist-summary.js';
+            document.body.appendChild(script);
+        });
+</script>
+<script src="/frontend/js/watchlist-summary.js"></script>
 <script src="js/utils/portfolio.js"></script>
-<script src="../../js/session.js"></script>
+<script src="/frontend/js/include-components.js"></script>
 </body>
 </html>
