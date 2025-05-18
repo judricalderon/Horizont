@@ -1,45 +1,19 @@
-package co.edu.unbosque.horizont.entity;
+package co.edu.unbosque.horizont.dto.internal;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "suscripciones")
-public class Suscripcion {
+public class SuscripcionRequestDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private Boolean activo;
-
-    @Column(name = "fecha_cancelacion")
-    private LocalDate fechaCancelacion;
-
-    @Column(name = "fecha_inicio")
+    private Long usuarioId;
+    private String tipoPlan;
     private LocalDate fechaInicio;
-
-    @Column(name = "stripe_customer_id")
+    private LocalDate fechaCancelacion;
+    private boolean activo;
     private String stripeCustomerId;
-
-    @Column(name = "stripe_subscription_id")
     private String stripeSubscriptionId;
 
-    @Column(name = "tipo_plan")
-    private String tipoPlan;
-
-    @Column(name = "usuario_id")
-    private Long usuarioId;
 
     // Getters y setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getUsuarioId() {
         return usuarioId;

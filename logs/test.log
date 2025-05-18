@@ -1464,3 +1464,42 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'mari@example
 2025-05-10 21:41:26 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-10 21:41:26 - HikariPool-1 - Shutdown initiated...
 2025-05-10 21:41:26 - HikariPool-1 - Shutdown completed.
+2025-05-11 22:44:25 - Starting HorizontApplication using Java 23.0.1 with PID 8184 (C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont\target\classes started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-11 22:44:25 - No active profile set, falling back to 1 default profile: "default"
+2025-05-11 22:44:26 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-11 22:44:26 - Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interface.
+2025-05-11 22:44:27 - Tomcat initialized with port 8080 (http)
+2025-05-11 22:44:27 - Starting service [Tomcat]
+2025-05-11 22:44:27 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-11 22:44:27 - Initializing Spring embedded WebApplicationContext
+2025-05-11 22:44:27 - Root WebApplicationContext: initialization completed in 1258 ms
+2025-05-11 22:44:27 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-11 22:44:27 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-11 22:44:27 - HHH000026: Second-level cache disabled
+2025-05-11 22:44:27 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-11 22:44:27 - HikariPool-1 - Starting...
+2025-05-11 22:44:28 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38d42ab7
+2025-05-11 22:44:28 - HikariPool-1 - Start completed.
+2025-05-11 22:44:28 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-11 22:44:28 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-11 22:44:28 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-11 22:44:28 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-11 22:44:28 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-11 22:44:29 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-11 22:44:29 - Tomcat started on port 8080 (http) with context path '/'
+2025-05-11 22:44:29 - Started HorizontApplication in 4.605 seconds (process running for 5.493)
+2025-05-11 22:44:37 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-11 22:44:37 - Initializing Servlet 'dispatcherServlet'
+2025-05-11 22:44:37 - Completed initialization in 1 ms
+2025-05-11 23:09:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-11 23:09:54 - Graceful shutdown complete
+2025-05-11 23:09:54 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-11 23:09:54 - HikariPool-1 - Shutdown initiated...
+2025-05-11 23:09:54 - HikariPool-1 - Shutdown completed.
