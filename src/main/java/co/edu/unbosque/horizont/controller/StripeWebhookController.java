@@ -17,6 +17,15 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
+/**
+ * Controlador REST encargado de manejar los eventos enviados por Stripe a través de Webhooks.
+ *
+ * Este controlador escucha peticiones entrantes desde Stripe y procesa eventos como
+ * la finalización exitosa de una sesión de pago (`checkout.session.completed`),
+ * creando una suscripción interna en el sistema.
+ *
+ * Ruta base: <code>/api/stripe/webhook</code>
+ */
 
 @RestController
 @RequestMapping("/api/stripe/webhook")
@@ -27,9 +36,26 @@ public class StripeWebhookController {
 
     private final InterfaceSuscripcionService suscripcionService;
 
+    /**
+     * Constructor que inyecta el servicio de suscripciones utilizado para registrar
+     * y gestionar la suscripción del usuario en el sistema interno.
+     *
+     * @param suscripcionService servicio interno que gestiona la lógica de suscripciones
+     */
+
     public StripeWebhookController(InterfaceSuscripcionService suscripcionService) {
         this.suscripcionService = suscripcionService;
     }
+
+    /**
+     * Procesa el evento enviado por Stripe al endpoint de webhook. Valida la firma del evento
+     * para asegurar su autenticidad, y si se trata de un evento <code>checkout.session.completed</code>,
+     * registra una nueva suscripción en el sistema.
+     *
+     * @param payload cuerpo crudo del evento enviado por Stripe
+     * @param sigHeader encabezado de la firma enviada por Stripe para verificar la autenticidad del evento
+     * @return respuesta HTTP indicando si el evento fue procesado correctamente o si ocurrió algún error
+     */
 
     @PostMapping
     public ResponseEntity<String> handleStripeWebhook(
