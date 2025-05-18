@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
     /**
      * Configura las reglas de CORS para permitir solicitudes HTTP del frontend hacia el backend.
      *
-     * Se autorizan solicitudes desde "http://localhost:5501" y "http://127.0.0.1:5504",
+     * Se autorizan solicitudes desde "http://localhost:5501", "http://localhost:63342" y "http://127.0.0.1:5504",
      * habilitando los métodos GET, POST, PUT y DELETE, y permitiendo cualquier cabecera.
      *
      * @param registry objeto utilizado para registrar las configuraciones de CORS.
@@ -23,7 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5501", "http://127.0.0.1:5504", "http://127.0.0.1:5500") // agrega ambos
+                .allowedOrigins("http://localhost:5501", "http://127.0.0.1:5504", "http://127.0.0.1:5500", "http://localhost:63342")// agrega ambos
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*");
     }
