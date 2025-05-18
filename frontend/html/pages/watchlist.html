@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Watchlist - Acciones El Bosque</title>
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../../styles/base/main.css" />
+    <!-- Página Watchlist -->
+    <link rel="stylesheet" href="../../styles/pages/watchlist.css" />
+    <!-- Footer -->
+    <link rel="stylesheet" href="../../styles/components/footer.css" />
+    <!-- Material Icons & Roboto -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- Barra de Navegación -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT"/>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="portfolio.html">Portafolio</a></li>
+        <li>
+            <a href="notifications.html" class="notifications-link" title="Notificaciones">
+                <span class="material-icons">notifications</span>
+                <span class="visually-hidden">Notificaciones</span>
+            </a>
+        </li>
+        <li><a href="admin.html">Administración</a></li>
+    </ul>
+    <div class="user-menu">
+        <a href="login.html" id="loginLink">Iniciar Sesión</a>
+        <div id="userInfo" style="display: none;">
+            <span id="userName" class="material-icons">account_circle</span>
+            <span id="userGreeting" style="margin: 0 8px;"></span>
+            <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenido Principal -->
+<main class="watchlist-container">
+    <!-- Header -->
+    <div class="watchlist-header">
+        <div class="header-left">
+            <h1>Mi Watchlist</h1>
+            <p class="watchlist-description">
+                Consulta las acciones que estás siguiendo de cerca.
+            </p>
+        </div>
+        <div class="watchlist-actions">
+            <div class="search-box">
+                <span class="material-icons">search</span>
+                <input type="text" placeholder="Buscar acciones..." id="watchlistSearch"/>
+            </div>
+            <button class="btn-add-stock" id="addStockBtn">
+                <span class="material-icons">add</span>
+                Agregar Acción
+            </button>
+        </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="watchlist-summary" id="watchlistSummary">
+        <div class="summary-card">
+            <h3>Total Acciones: <span>3</span></h3>
+            <p>Valor total estimado: <strong>$1,399.20</strong></p>
+        </div>
+        <div class="summary-performance">
+            <p>Rendimiento diario: <span class="positive">+1.79%</span></p>
+        </div>
+    </div>
+
+    <!-- Lista de Acciones -->
+    <div class="watchlist-list" id="watchlistItems">
+        <table class="watchlist-table">
+            <thead>
+            <tr>
+                <th>Acción</th>
+                <th>Precio</th>
+                <th>Cambio</th>
+                <th class="actions">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>AAPL - Apple Inc.</td>
+                <td class="price">$178.23</td>
+                <td class="change positive">+1.25%</td>
+                <td class="actions">
+                    <button class="btn-remove" title="Eliminar">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>MSFT - Microsoft Corp.</td>
+                <td class="price">$321.56</td>
+                <td class="change negative">-0.58%</td>
+                <td class="actions">
+                    <button class="btn-remove" title="Eliminar">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>TSLA - Tesla Inc.</td>
+                <td class="price">$899.41</td>
+                <td class="change positive">+3.12%</td>
+                <td class="actions">
+                    <button class="btn-remove" title="Eliminar">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para agregar una acción -->
+    <div class="modal" id="addStockModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agregar Acción al Watchlist</h3>
+                <button class="close-modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="stockSymbol">Símbolo o nombre de la acción</label>
+                <input type="text" id="stockSymbol" placeholder="Ej: AAPL, MSFT, GOOGL"/>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelAddStock">Cancelar</button>
+                <button class="btn-primary" id="confirmAddStock">Agregar</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Scripts -->
+<script src="/frontend/js/include-components.js"></script>
+<script src="/frontend/js/session.js"></script>
+<script src="/frontend/js/watchlist.js"></script>
+</body>
+</html>

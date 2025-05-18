@@ -12,7 +12,7 @@ import java.util.List;
  * Controlador REST para operaciones relacionadas con el mercado financiero.
  *
  * Gestiona las solicitudes HTTP que involucran la obtención de cotizaciones en tiempo real
- * y otras funciones asociadas al mercado y las listas de seguimiento.
+ * y la gestión de la Watchlist asociada a cada usuario.
  */
 @RestController
 @RequestMapping("/api/market")
@@ -20,41 +20,52 @@ public class MarketController {
 
     private final InterfaceMarketService marketService;
     private final InterfaceWatchlistService watchlistService;
-    /**
-     * Constructor que inyecta los servicios de mercado y lista de seguimiento.
-     *
-     * @param marketService servicio encargado de las operaciones relacionadas con cotizaciones de mercado.
-     * @param watchlistService servicio encargado de la gestión de listas de seguimiento de activos.
-     */
-    public MarketController(InterfaceMarketService marketService, InterfaceWatchlistService watchlistService) {
+
+    public MarketController(InterfaceMarketService marketService,
+                            InterfaceWatchlistService watchlistService) {
         this.marketService = marketService;
         this.watchlistService = watchlistService;
     }
+
     /**
-     * Obtiene cotizaciones en tiempo real para una lista de símbolos proporcionados.
-     *
-     * Este endpoint permite a los clientes recuperar datos actualizados del mercado
-     * para múltiples símbolos en una sola solicitud.
-     *
-     * @param symbols lista de símbolos de activos financieros (por ejemplo, acciones) para los cuales se requieren las cotizaciones.
-     * @return una respuesta HTTP con una lista de objetos {@link QuoteWithSymbolDTO} que contienen las cotizaciones en tiempo real.
+     * Endpoint para obtener cotizaciones en tiempo real de una lista arbitraria de símbolos.
+     * Ejemplo: GET /api/market/quotes?symbols=AAPL,GOOGL,MSFT
      */
     @GetMapping("/quotes")
-    public ResponseEntity<List<QuoteWithSymbolDTO>> getQuotes(@RequestParam List<String> symbols) {
+    public ResponseEntity<List<QuoteWithSymbolDTO>> getQuotes(
+            @RequestParam("symbols") List<String> symbols) {
         List<QuoteWithSymbolDTO> quotes = marketService.getRealtimeQuotes(symbols);
         return ResponseEntity.ok(quotes);
     }
 
+    /**
+     * Guarda o actualiza la Watchlist de un usuario premium.
+     * Recibe el ID del usuario (por ej. de la sesión) y la lista de símbolos a guardar.
+     *
+     * POST /api/market/watchlist?usuarioId=42
+     * Body: ["AAPL","TSLA","GOOGL"]
+     */
     @PostMapping("/watchlist")
-    public ResponseEntity<String> saveWatchlist(@RequestBody List<String> symbols) {
-        //  Guardar en el servicio de watchlist
-        watchlistService.saveWatchlist(symbols);
+    public ResponseEntity<?> saveWatchlist(
+            @RequestParam("usuarioId") Long usuarioId,
+            @RequestBody List<String> symbols) {
+
+        watchlistService.saveWatchlist(usuarioId, symbols);
         return ResponseEntity.ok("Watchlist guardada correctamente");
     }
 
+    /**
+     * Obtiene la Watchlist de un usuario premium y devuelve sus cotizaciones en tiempo real.
+     *
+     * GET /api/market/watchlist?usuarioId=42
+     */
     @GetMapping("/watchlist")
-    public ResponseEntity<List<QuoteWithSymbolDTO>> getWatchlist() {
-        List<String> symbols = watchlistService.getWatchlist();
+    public ResponseEntity<List<QuoteWithSymbolDTO>> getWatchlist(
+            @RequestParam("usuarioId") Long usuarioId) {
+
+        // 1) Recupero únicamente los símbolos de la watchlist del usuario
+        List<String> symbols = watchlistService.getWatchlist(usuarioId);
+        // 2) Consulto las cotizaciones de esos símbolos
         List<QuoteWithSymbolDTO> quotes = marketService.getRealtimeQuotes(symbols);
         return ResponseEntity.ok(quotes);
     }

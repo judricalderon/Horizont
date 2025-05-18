@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- metas, estilos generales, etc. -->
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/index.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/pages/portfolio.css">
+    <style>
+        :root {
+            --navbar-height: 64px; /* Ajusta si tu navbar mide más o menos */
+        }
+
+        /* Aplica un margen superior a todas las secciones principales */
+        section {
+            margin-top: calc(var(--navbar-height) + 1rem);
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="portfolio.html" class="active">Portafolio</a></li>
+        <li>
+            <a href="notifications.html" class="notifications-link" title="Notificaciones">
+                <span class="material-icons">notifications</span>
+                <span class="visually-hidden">Notificaciones</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="user-menu">
+        <a href="login.html" id="loginLink">Iniciar Sesión</a>
+        <div id="userInfo" style="display: none;">
+            <span id="userName" class="material-icons">account_circle</span>
+            <span id="userGreeting" style="margin: 0 8px;"></span>
+            <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Sección de Planes y Suscripciones -->
+<section class="subscription-section">
+    <div class="container">
+        <h2 class="section-title">Planes Disponibles</h2>
+        <div class="plans-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 1200px;">
+
+            <!-- Plan Básico -->
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
+                <h3>Plan Básico</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">Gratis</p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Acceso básico al mercado
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Análisis fundamental
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Soporte por email
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Dashboard de trading básico
+                    </li>
+                </ul>
+                <button id="btnGratis" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem;">Comenzar Gratis</button>
+            </div>
+
+            <!-- Plan Premium -->
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 2px solid var(--mit-red); position: relative; transform: scale(1.05);">
+                <div style="position: absolute; top: -10px; right: 20px; background: var(--mit-bright-red); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">MÁS POPULAR</div>
+                <h3>Plan Premium</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$29.99/mes</p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Trading en tiempo real
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Análisis técnico avanzado
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Soporte prioritario 24/7
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Alertas personalizadas
+                    </li>
+                </ul>
+                <button id="btnPremium" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem; background: var(--mit-red); color: white;">Comenzar Premium</button>
+            </div>
+
+            <!-- Plan Anual -->
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
+                <h3>Plan Anual</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$299.99/año</p>
+                <p style="color: green; margin-bottom: 1rem;">Ahorra 16%</p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Todas las características Premium
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Acceso a webinars exclusivos
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Asesoría personalizada
+                    </li>
+                </ul>
+                <button id="btnAnual" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem;">Comenzar Anual</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = JSON.parse(localStorage.getItem("usuario"));
+
+        const redirigir = (rutaProtegida) => {
+            if (user) {
+                window.location.href = rutaProtegida;
+            } else {
+                window.location.href = "register.html";
+            }
+        };
+
+        document.getElementById("btnGratis")?.addEventListener("click", () => redirigir("portfolio.html"));
+        document.getElementById("btnPremium")?.addEventListener("click", () => redirigir("pasarela-pagos.html"));
+        document.getElementById("btnAnual")?.addEventListener("click", () => redirigir("pasarela-pagos.html?plan=anual"));
+    });
+</script>
+
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+<script src="/frontend/js/session.js"></script>
+
+
+<script src="/frontend/js/include-components.js"></script>
+</html>

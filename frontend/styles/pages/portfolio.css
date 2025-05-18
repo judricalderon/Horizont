@@ -416,4 +416,105 @@
     .history-table {
         overflow-x: auto;
     }
-} 
+}
+
+/* Tarjetas redondeadas y modernas */
+.portfolio-card.rounded-card {
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #8b959e22;
+    background: var(--portfolio-card);
+    margin-bottom: 2rem;
+    border: 1.5px solid var(--portfolio-border);
+    overflow: hidden;
+}
+.portfolio-card-header {
+    background: var(--portfolio-primary);
+    color: #fff;
+    padding: 1.2rem 2rem 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 18px 18px 0 0;
+    letter-spacing: 0.5px;
+}
+.portfolio-card-body {
+    padding: 2rem;
+}
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--portfolio-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px #8b959e11;
+    margin-top: 1rem;
+}
+.portfolio-table th, .portfolio-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+    text-align: left;
+}
+.portfolio-table th {
+    background: #f3f3f3;
+    color: var(--portfolio-primary);
+    font-weight: 600;
+}
+.portfolio-table tr:last-child td {
+    border-bottom: none;
+}
+.portfolio-card-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.portfolio-graph-placeholder {
+    height: 180px;
+    background: #f3f3f3;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b959e;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+/* Botones de filtro de mercado */
+.btn-refresh {
+    background: var(--portfolio-primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+    transition: background 0.2s;
+}
+.btn-refresh:hover {
+    background: var(--portfolio-secondary);
+}
+/* Cuadro de logs */
+#logsBox {
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 100px;
+    max-height: 180px;
+    overflow-y: auto;
+    font-family: 'Roboto Mono', 'Consolas', monospace;
+    color: #2c3e50;
+}
+
+.btn-logout {
+    background-color: #8A1931;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #a0223f;
+}
