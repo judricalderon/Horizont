@@ -39,11 +39,13 @@ public class StripeWebhookController {
         try {
             Event event = Webhook.constructEvent(payload, sigHeader, webhookSecret);
 
+
             if ("checkout.session.completed".equals(event.getType())) {
                 // Intenta deserializar automáticamente
                 Session session = (Session) event.getDataObjectDeserializer()
                         .getObject()
                         .orElse(null);
+                System.out.println("✔ Webhook recibido y validado correctamente");
 
                 // Si no hay sesión válida, la recuperamos manualmente
                 if (session == null) {
@@ -78,7 +80,7 @@ public class StripeWebhookController {
                             .atZone(ZoneOffset.UTC).toLocalDate();
                     dto.setFechaCancelacion(cancelacion);
                 }
-
+                System.out.println("Creando suscripción para usuario ID: " + usuarioId);
                 suscripcionService.crearSuscripcion(dto);
             }
 
