@@ -505,3 +505,235 @@
 2025-05-18 03:02:52 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-18 03:02:52 - HikariPool-1 - Shutdown initiated...
 2025-05-18 03:02:52 - HikariPool-1 - Shutdown completed.
+2025-05-18 12:33:45 - Starting SuscripcionServiceTest using Java 23.0.1 with PID 17148 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 12:33:45 - The following 1 profile is active: "test"
+2025-05-18 12:33:46 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 12:33:46 - Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2025-05-18 12:33:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 12:33:46 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 12:33:46 - HHH000026: Second-level cache disabled
+2025-05-18 12:33:47 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 12:33:47 - HikariPool-1 - Starting...
+2025-05-18 12:33:47 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 12:33:47 - HikariPool-1 - Start completed.
+2025-05-18 12:33:47 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 12:33:47 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 12:33:48 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 12:33:48 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:33:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 12:33:49 - Started SuscripcionServiceTest in 4.675 seconds (process running for 5.884)
+2025-05-18 12:34:03 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:34:03 - HikariPool-1 - Shutdown initiated...
+2025-05-18 12:34:03 - HikariPool-1 - Shutdown completed.
+2025-05-18 12:35:15 - Starting SuscripcionServiceTest using Java 23.0.1 with PID 7436 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 12:35:15 - The following 1 profile is active: "test"
+2025-05-18 12:35:16 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 12:35:16 - Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2025-05-18 12:35:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 12:35:16 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 12:35:16 - HHH000026: Second-level cache disabled
+2025-05-18 12:35:17 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 12:35:17 - HikariPool-1 - Starting...
+2025-05-18 12:35:17 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 12:35:17 - HikariPool-1 - Start completed.
+2025-05-18 12:35:17 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 12:35:17 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 12:35:18 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 12:35:18 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:35:19 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 12:35:19 - Started SuscripcionServiceTest in 4.732 seconds (process running for 6.052)
+2025-05-18 12:35:33 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:35:33 - HikariPool-1 - Shutdown initiated...
+2025-05-18 12:35:33 - HikariPool-1 - Shutdown completed.
+2025-05-18 12:43:59 - Starting SuscripcionServiceTest using Java 23.0.1 with PID 17564 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 12:43:59 - The following 1 profile is active: "test"
+2025-05-18 12:44:00 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 12:44:00 - Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2025-05-18 12:44:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 12:44:01 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 12:44:01 - HHH000026: Second-level cache disabled
+2025-05-18 12:44:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 12:44:01 - HikariPool-1 - Starting...
+2025-05-18 12:44:01 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 12:44:01 - HikariPool-1 - Start completed.
+2025-05-18 12:44:01 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 12:44:01 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 12:44:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 12:44:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:44:03 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 12:44:04 - Started SuscripcionServiceTest in 4.571 seconds (process running for 6.069)
+2025-05-18 12:44:16 - ✅ Suscripción creada: sub_test_001
+2025-05-18 12:44:16 - ✅ Usuario actualizado como premium: test7542@gmail.com
+2025-05-18 12:44:16 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:44:16 - HikariPool-1 - Shutdown initiated...
+2025-05-18 12:44:16 - HikariPool-1 - Shutdown completed.
+2025-05-18 12:44:49 - Starting SuscripcionServiceTest using Java 23.0.1 with PID 20432 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 12:44:49 - The following 1 profile is active: "test"
+2025-05-18 12:44:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 12:44:50 - Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2025-05-18 12:44:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 12:44:51 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 12:44:51 - HHH000026: Second-level cache disabled
+2025-05-18 12:44:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 12:44:51 - HikariPool-1 - Starting...
+2025-05-18 12:44:51 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 12:44:51 - HikariPool-1 - Start completed.
+2025-05-18 12:44:51 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 12:44:51 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 12:44:52 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 12:44:52 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:44:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 12:44:54 - Started SuscripcionServiceTest in 4.625 seconds (process running for 5.875)
+2025-05-18 12:45:06 - ✅ Suscripción creada: sub_test_001
+2025-05-18 12:45:06 - ✅ Usuario actualizado como premium: testsda7542@gmail.com
+2025-05-18 12:45:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 12:45:06 - HikariPool-1 - Shutdown initiated...
+2025-05-18 12:45:06 - HikariPool-1 - Shutdown completed.
+2025-05-18 13:05:18 - Starting SuscripcionControllerTest using Java 23.0.1 with PID 19020 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 13:05:18 - The following 1 profile is active: "test"
+2025-05-18 13:05:19 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 13:05:19 - Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2025-05-18 13:05:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 13:05:19 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 13:05:19 - HHH000026: Second-level cache disabled
+2025-05-18 13:05:20 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 13:05:20 - HikariPool-1 - Starting...
+2025-05-18 13:05:20 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 13:05:20 - HikariPool-1 - Start completed.
+2025-05-18 13:05:20 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 13:05:20 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 13:05:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 13:05:21 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:05:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 13:05:22 - Initializing Spring TestDispatcherServlet ''
+2025-05-18 13:05:22 - Initializing Servlet ''
+2025-05-18 13:05:22 - Completed initialization in 2 ms
+2025-05-18 13:05:22 - Started SuscripcionControllerTest in 4.771 seconds (process running for 6.09)
+2025-05-18 13:05:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:05:35 - HikariPool-1 - Shutdown initiated...
+2025-05-18 13:05:35 - HikariPool-1 - Shutdown completed.
+2025-05-18 13:06:27 - Starting SuscripcionControllerTest using Java 23.0.1 with PID 8752 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 13:06:27 - The following 1 profile is active: "test"
+2025-05-18 13:06:28 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 13:06:28 - Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2025-05-18 13:06:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 13:06:28 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 13:06:28 - HHH000026: Second-level cache disabled
+2025-05-18 13:06:29 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 13:06:29 - HikariPool-1 - Starting...
+2025-05-18 13:06:29 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 13:06:29 - HikariPool-1 - Start completed.
+2025-05-18 13:06:29 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 13:06:29 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 13:06:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 13:06:30 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:06:31 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 13:06:31 - Initializing Spring TestDispatcherServlet ''
+2025-05-18 13:06:31 - Initializing Servlet ''
+2025-05-18 13:06:31 - Completed initialization in 2 ms
+2025-05-18 13:06:31 - Started SuscripcionControllerTest in 4.553 seconds (process running for 5.805)
+2025-05-18 13:06:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:06:44 - HikariPool-1 - Shutdown initiated...
+2025-05-18 13:06:44 - HikariPool-1 - Shutdown completed.
+2025-05-18 13:09:42 - Starting SuscripcionControllerTest using Java 23.0.1 with PID 19880 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 13:09:42 - The following 1 profile is active: "test"
+2025-05-18 13:09:42 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 13:09:42 - Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
+2025-05-18 13:09:43 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 13:09:43 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 13:09:43 - HHH000026: Second-level cache disabled
+2025-05-18 13:09:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 13:09:43 - HikariPool-1 - Starting...
+2025-05-18 13:09:44 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 13:09:44 - HikariPool-1 - Start completed.
+2025-05-18 13:09:44 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 13:09:44 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 13:09:44 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 13:09:44 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:09:46 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 13:09:46 - Initializing Spring TestDispatcherServlet ''
+2025-05-18 13:09:46 - Initializing Servlet ''
+2025-05-18 13:09:46 - Completed initialization in 2 ms
+2025-05-18 13:09:46 - Started SuscripcionControllerTest in 4.795 seconds (process running for 6.084)
+2025-05-18 13:09:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:09:59 - HikariPool-1 - Shutdown initiated...
+2025-05-18 13:09:59 - HikariPool-1 - Shutdown completed.
+2025-05-18 13:13:52 - Starting SuscripcionControllerTest using Java 23.0.1 with PID 19432 (started by judri in C:\Users\judri\OneDrive\Documentos\SemestreV\Ing. Software 1\horizont\horizont)
+2025-05-18 13:13:52 - The following 1 profile is active: "test"
+2025-05-18 13:13:53 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-18 13:13:53 - Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2025-05-18 13:13:54 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 13:13:54 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-18 13:13:54 - HHH000026: Second-level cache disabled
+2025-05-18 13:13:54 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-18 13:13:54 - HikariPool-1 - Starting...
+2025-05-18 13:13:54 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-18 13:13:54 - HikariPool-1 - Start completed.
+2025-05-18 13:13:54 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 13:13:54 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 13:13:55 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 13:13:55 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:13:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-18 13:13:57 - Initializing Spring TestDispatcherServlet ''
+2025-05-18 13:13:57 - Initializing Servlet ''
+2025-05-18 13:13:57 - Completed initialization in 2 ms
+2025-05-18 13:13:57 - Started SuscripcionControllerTest in 4.733 seconds (process running for 6.049)
+2025-05-18 13:14:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-18 13:14:10 - HikariPool-1 - Shutdown initiated...
+2025-05-18 13:14:10 - HikariPool-1 - Shutdown completed.

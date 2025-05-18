@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,10 +38,24 @@ class UsuarioServiceTest {
     @Order(1)
     void registrarUsuarioDesdeDTO_deberiaPersistirYRetornarUsuarioDTO() {
         // Arrange
-        UsuarioDTO dto = new UsuarioDTO(
-                "Luca", "Garca", "lucia@example.com", "531-555-2160",
-                "Calle Falsa 123", "San Mateo", "CA", "050001",
-                "USA", "1995-08-12", "111-22-3333"
+        UsuarioDTO dto =  new UsuarioDTO(
+                null,
+                "Test2",
+                "Test2",
+                "test6@gmail.com",
+                "531-555-2160",
+                "20 N San Mateo Dr",
+                "San Mateo",
+                "CA",
+                "94401",
+                "USA",
+                LocalDate.of(1970, 1, 1),
+                "444-55-4321",
+                "ABC123",
+                LocalDateTime.now().plusMinutes(10),
+                true,
+                "pass123",
+                false
         );
 
         // Act

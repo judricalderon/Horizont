@@ -77,7 +77,7 @@ public class UsuarioService implements InterfaceUsuarioService {
         // Mapea DTO a entidad
         Usuario usuario = modelMapper.map(dto, Usuario.class);
 
-        // ─── Codifica la contraseña antes de guardar ───
+        // ---Codifica la contraseña antes de guardar---
         String rawPass = dto.getPassword();
         String hashed = passwordEncoder.encode(rawPass);
         usuario.setPassword(hashed);
