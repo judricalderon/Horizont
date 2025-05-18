@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Registro - Acciones El Bosque</title>
+    <title>Registro -  Horizont</title>
     <link rel="stylesheet" href="../../styles/base/main.css">
     <link rel="stylesheet" href="../../styles/pages/register.css">
     <link rel="stylesheet" href="../../styles/components/footer.css" />
@@ -15,7 +15,7 @@
 <nav class="navbar navbar-simple">
     <div class="logo">
         <a href="index.html">
-            <img src="assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque" />
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
         </a>
     </div>
     <div class="nav-back">
@@ -29,7 +29,7 @@
 <div class="register-container">
     <div class="register-card">
         <div class="register-header">
-            <img src="assets/images/logo/logo.svg" alt="Acciones El Bosque" />
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
             <h1>Registro de Usuario</h1>
             <p>Crea tu cuenta para empezar a operar</p>
         </div>
@@ -180,7 +180,7 @@
                     Hemos enviado un código a tu correo electrónico. Ingresa el código a continuación:
                 </p>
                 <input type="text" id="codigoVerificacion"
-                    placeholder="Código de verificación" />
+                       placeholder="Código de verificación" />
                 <div id="codigoError">Ingresa un código válido</div>
                 <button id="verificarCodigoBtn">Verificar Código</button>
             </div>
@@ -454,56 +454,56 @@
 <!-- Footer -->
 <footer class="main-footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h4>Acciones El Bosque</h4>
-        <div class="footer-contact">
-          <p>Universidad El Bosque</p>
-          <p>Bogotá, Colombia</p>
+        <div class="footer-section">
+            <h4>Acciones El Bosque</h4>
+            <div class="footer-contact">
+                <p>Universidad El Bosque</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><span class="material-icons">facebook</span></a>
+                <a href="#"><span class="material-icons">twitter</span></a>
+                <a href="#"><span class="material-icons">linkedin</span></a>
+            </div>
         </div>
-        <div class="footer-social">
-          <a href="#"><span class="material-icons">facebook</span></a>
-          <a href="#"><span class="material-icons">twitter</span></a>
-          <a href="#"><span class="material-icons">linkedin</span></a>
+        <div class="footer-section">
+            <h4>Trading</h4>
+            <ul>
+                <li><a href="trading.html">Plataforma de Trading</a></li>
+                <li><a href="portfolio.html">Mi Portafolio</a></li>
+                <li><a href="orders.html">Órdenes</a></li>
+                <li><a href="market.html">Mercado</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="footer-section">
-        <h4>Trading</h4>
-        <ul>
-          <li><a href="trading.html">Plataforma de Trading</a></li>
-          <li><a href="portfolio.html">Mi Portafolio</a></li>
-          <li><a href="orders.html">Órdenes</a></li>
-          <li><a href="market.html">Mercado</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Recursos</h4>
-        <ul>
-          <li><a href="notifications.html">Notificaciones</a></li>
-          <li><a href="learning.html">Educación</a></li>
-          <li><a href="support.html">Soporte</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="terms.html">Términos de Uso</a></li>
-          <li><a href="privacy.html">Privacidad</a></li>
-          <li><a href="disclaimer.html">Disclaimer</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-        </ul>
-      </div>
+        <div class="footer-section">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="notifications.html">Notificaciones</a></li>
+                <li><a href="learning.html">Educación</a></li>
+                <li><a href="support.html">Soporte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="terms.html">Términos de Uso</a></li>
+                <li><a href="privacy.html">Privacidad</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
     </div>
-  </footer>
+</footer>
 
-  
-  <script type="module">
+
+<script type="module">
     import { initializeTrading } from '../../js/controllers/trading.js';
     document.addEventListener('DOMContentLoaded', initializeTrading);
-  </script>
+</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
