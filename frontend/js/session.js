@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = JSON.parse(localStorage.getItem("usuario"));
         // Si hay sesión y es premium
         if (user && user.esPremium) {
-            window.location.href = "pasarela-pagos.html";
+            window.location.href = "hazte-premium.html";
         } else {
             // Si no está logueado o no es premium
             window.location.href = "register.html";
