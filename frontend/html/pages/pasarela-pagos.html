@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pasarela de Pagos - Horizont</title>
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../../styles/base/main.css" />
+    <!-- Página Pasarela Pagos -->
+    <link rel="stylesheet" href="../../styles/pages/pasarela-pagos.css" />
+    <!-- Footer -->
+    <link rel="stylesheet" href="../../styles/components/footer.css" />
+    <!-- Iconos & Tipografía -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT"/>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="portfolio.html">Portafolio</a></li>
+        <li>
+            <a href="notifications.html" title="Notificaciones">
+                <span class="material-icons">notifications</span>
+            </a>
+        </li>
+        <li><a href="admin.html">Administración</a></li>
+    </ul>
+    <div class="user-menu" id="userMenu">
+        <span class="user-name" id="userName"></span>
+       <div class="user-menu">
+        <a href="login.html" id="loginLink">Iniciar Sesión</a>
+        <div id="userInfo" style="display: none;">
+            <span id="userName" class="material-icons">account_circle</span>
+            <span id="userGreeting" style="margin: 0 8px;"></span>
+            <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+        </div>
+    </div>
+    </div>
+</nav>
+
+<!-- Contenido Principal -->
+<main class="payments-container">
+    <h1>Pasarela de Pagos</h1>
+    <p class="subtitle">Completa tu compra y activa tu plan Premium</p>
+
+    <div class="payment-layout">
+        <!-- Resumen de Plan -->
+        <aside class="plan-summary">
+            <h2>Tu Plan: <span class="plan-name">Premium Mensual</span></h2>
+            <p class="plan-price">$29.99 / mes</p>
+            <ul class="plan-features">
+                <li>🔒 Trading en tiempo real</li>
+                <li>📈 Análisis técnico avanzado</li>
+                <li>🚀 Alertas personalizadas</li>
+                <li>🎓 Acceso a webinars exclusivos</li>
+            </ul>
+        </aside>
+
+        <!-- Formulario de Pago -->
+        <section class="payment-form">
+            <form id="paymentForm">
+                <!-- Selección de método -->
+                <div class="form-group">
+                    <label>Método de pago</label>
+                    <div class="payment-methods">
+                        <label><input type="radio" name="method" value="card" checked/> Tarjeta de Crédito</label>
+                        <label><input type="radio" name="method" value="paypal"/> PayPal</label>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Crédito -->
+                <div class="form-group card-fields">
+                    <label for="cardNumber">Número de tarjeta</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required/>
+
+                    <div class="inline-group">
+                        <div>
+                            <label for="expiryDate">Vence</label>
+                            <input type="text" id="expiryDate" placeholder="MM/AA" required/>
+                        </div>
+                        <div>
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" placeholder="123" required/>
+                        </div>
+                    </div>
+
+                    <label for="cardHolder">Titular de la tarjeta</label>
+                    <input type="text" id="cardHolder" placeholder="Nombre y Apellido" required/>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="form-group">
+                    <button type="submit" class="btn-primary btn-pay">
+                        <span class="material-icons">payment</span>
+                        Pagar $29.99
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Scripts -->
+<script src="/frontend/js/include-components.js"></script>
+<script src="/frontend/js/session.js"></script>
+<script>
+    // Mostrar/ocultar campos según método
+    document.getElementById('paymentForm').addEventListener('change', e => {
+        const isCard = e.target.value === 'card';
+        document.querySelector('.card-fields').style.display = isCard ? 'block' : 'none';
+    });
+    // Inicial
+    document.querySelector('.card-fields').style.display = 'block';
+</script>
+<script src="/frontend/js/session.js"></script>
+</body>
+</html>

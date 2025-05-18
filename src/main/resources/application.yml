@@ -1,0 +1,44 @@
+# --------------------------------------
+# Configuración general
+spring:
+  application:
+    name: horizont
+  datasource:
+    url: jdbc:mysql://localhost:3306/horizont_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Kiara#555
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: horizontfortrading@gmail.com
+    password: kiacduxmshckdypf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8080
+
+# --------------------------------------
+# API KEY de Finnhub
+finnhub:
+  api:
+    url: https://finnhub.io/api/v1
+    key: d0ivv4hr01ql09hp8qn0d0ivv4hr01ql09hp8qng
+
+# --------------------------------------
+# API de Alpaca Paper Trading
+Alpaca:
+  api:
+    url: https://paper-api.alpaca.markets/v2
+    key: CKMDE1PS3JNCCCLKWYC0
+    secret: nzYn9viMp6SjNzz0AovW4IeUzNh4RwG4qW32f7nN

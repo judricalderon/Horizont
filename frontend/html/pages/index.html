@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acciones El Bosque - Plataforma de Trading</title>
-    
+    <title> Horizont - Plataforma de Trading</title>
+
     <!-- Estilos -->
     <link rel="stylesheet" href="../../styles/base/main.css">
     <link rel="stylesheet" href="../../styles/pages/index.css">
@@ -13,310 +13,242 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra de Navegación -->
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html"><img src="../../public/assets/images/logo/logo.svg" class="logo-img" alt="Acciones El Bosque"></a>
-        </div>
-        <div class="nav-links">
-            <a href="login.html" class="nav-link">Ingresar</a>
-            <a href="register.html" class="nav-link btn-primary">Registrarse</a>
-        </div>
-        <button class="mobile-menu-toggle">
-            <span class="material-icons">menu</span>
-        </button>
-    </nav>
-
-    <!-- Menú Móvil -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <img src="../../public/assets/images/logo/logo.svg" alt="Acciones El Bosque" class="mobile-logo">
-            <button class="close-menu">
-                <span class="material-icons">close</span>
-            </button>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="login.html" class="mobile-link">Ingresar</a>
-            <a href="register.html" class="mobile-link btn-primary">Registrarse</a>
-        </div>
+<!-- Barra de Navegación -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
+    </div>
+    <div class="nav-links" id="nav-session">
+        <a href="login.html" class="nav-link">Ingresar</a>
+        <a href="register.html" class="nav-link btn-primary">Registrarse</a>
     </div>
 
-    <!-- Sección Hero con Gráfico de Trading como Fondo -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Acciones El Bosque</h1>
-                <p>Potencia tu futuro financiero con nuestra plataforma de trading avanzada</p>
-                <div class="hero-buttons">
-                    <a href="register.html" class="btn-primary">Comenzar Ahora</a>
-                    <a href="trading.html" class="btn-secondary">Ver Demo</a>
-                </div>
+    <button class="mobile-menu-toggle">
+        <span class="material-icons">menu</span>
+    </button>
+</nav>
+
+<!-- Menú Móvil -->
+<div class="mobile-menu">
+    <div class="mobile-menu-header">
+        <img src="../../public/assets/images/logo/logo.svg" alt="Acciones El Bosque" class="mobile-logo">
+        <button class="close-menu">
+            <span class="material-icons">close</span>
+        </button>
+    </div>
+    <div class="mobile-menu-links" id="mobile-nav-session">
+        <a href="login.html" class="mobile-link">Ingresar</a>
+        <a href="register.html" class="mobile-link btn-primary">Registrarse</a>
+    </div>
+
+</div>
+
+<!-- Sección Hero con Gráfico de Trading como Fondo -->
+<section class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Acciones El Bosque</h1>
+            <p>Potencia tu futuro financiero con nuestra plataforma de trading avanzada</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-primary">Comenzar Ahora</a>
+                <a href="trading.html" class="btn-secondary">Ver Demo</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sección de Estadísticas -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">10,000+</span>
-                    <span class="stat-label">Usuarios Activos</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">$50M+</span>
-                    <span class="stat-label">Volumen Diario</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Satisfacción</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Soporte</span>
-                </div>
+<!-- Sección de Estadísticas -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">10,000+</span>
+                <span class="stat-label">Usuarios Activos</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">$50M+</span>
+                <span class="stat-label">Volumen Diario</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Satisfacción</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Soporte</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- Sección de Planes y Suscripciones -->
-    <section class="subscription-section">
-        <div class="container">
-            <h2 class="section-title">Planes Disponibles</h2>
-            <div class="plans-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 1200px;">
-                <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
-                    <h3>Plan Básico</h3>
-                    <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">Gratis </p>
-                    <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Acceso básico al mercado
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Análisis fundamental
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Soporte por email
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Dashboard de trading basico
-                        </li>
-                    </ul>
-                    <p>
-                        
-                    </p>
-                    <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Gratis</a>
-                </div>
-                
-                <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 2px solid var(--mit-red); position: relative; transform: scale(1.05);">
-                    <div style="position: absolute; top: -10px; right: 20px; background: var(--mit-bright-red); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">MÁS POPULAR</div>
-                    <h3>Plan Premium</h3>
-                    <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$29.99/mes</p>
-                    <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Trading en tiempo real
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Análisis técnico avanzado
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Soporte prioritario 24/7
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Alertas personalizadas
-                        </li>
-                    </ul>
-                    <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem; background: var(--mit-red); color: white;">Comenzar Premium</a>
-                </div>
-                
-                <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
-                    <h3>Plan Anual</h3>
-                    <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$299.99/año</p>
-                    <p style="color: green; margin-bottom: 1rem;">Ahorra 16%</p>
-                    <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Todas las características Premium
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Acceso a webinars exclusivos
-                        </li>
-                        <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                            Asesoría personalizada
-                        </li>
-                    </ul>
-                    <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Anual</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Características -->
-    <section class="features-section">
-        <div class="container">
-            <h2>Características Principales</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="material-icons">trending_up</span>
-                    <h3>Trading en Tiempo Real</h3>
-                    <p>Acceso a datos de mercado en tiempo real y ejecución instantánea de operaciones</p>
-                </div>
-                <div class="feature-card">
-                    <span class="material-icons">analytics</span>
-                    <h3>Análisis Técnico</h3>
-                    <p>Herramientas avanzadas de análisis y gráficos interactivos para tomar decisiones informadas</p>
-                </div>
-                <div class="feature-card"> 
-                    <span class="material-icons">school</span>
-                    <h3>Educación Financiera</h3>
-                    <p>Recursos educativos y simuladores para mejorar tus habilidades de trading</p>
-                </div>
-                <div class="feature-card">
-                    <span class="material-icons">security</span>
-                    <h3>Seguridad Garantizada</h3>
-                    <p>Protección de datos y transacciones seguras en todo momento</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Call-to-Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Comienza Tu Viaje de Trading Hoy</h2>
-                <p>Únete a miles de traders que ya están aprovechando nuestra plataforma</p>
-                <a href="register.html" class="btn-cta">Crear Cuenta Gratuita</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pie de Página footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Acciones El Bosque</h4>
-                <div class="footer-contact">
-                    <p>Universidad El Bosque</p>
-                    <p>Bogotá, Colombia</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><span class="material-icons">facebook</span></a>
-                    <a href="#"><span class="material-icons">twitter</span></a>
-                    <a href="#"><span class="material-icons">linkedin</span></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Trading</h4>
-                <ul>
-                    <li><a href="trading.html">Plataforma de Trading</a></li>
-                    <li><a href="portfolio.html">Mi Portafolio</a></li>
-                    <li><a href="orders.html">Órdenes</a></li>
-                    <li><a href="market.html">Mercado</a></li>
+<!-- Sección de Planes y Suscripciones -->
+<section class="subscription-section">
+    <div class="container">
+        <h2 class="section-title">Planes Disponibles</h2>
+        <div class="plans-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 1200px;">
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
+                <h3>Plan Básico</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">Gratis </p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Acceso básico al mercado
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Análisis fundamental
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Soporte por email
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Dashboard de trading basico
+                    </li>
                 </ul>
+                <p>
+
+                </p>
+                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Gratis</a>
             </div>
-            <div class="footer-section">
-                <h4>Recursos</h4>
-                <ul>
-                    <li><a href="notifications.html">Notificaciones</a></li>
-                    <li><a href="learning.html">Educación</a></li>
-                    <li><a href="support.html">Soporte</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 2px solid var(--mit-red); position: relative; transform: scale(1.05);">
+                <div style="position: absolute; top: -10px; right: 20px; background: var(--mit-bright-red); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">MÁS POPULAR</div>
+                <h3>Plan Premium</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$29.99/mes</p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Trading en tiempo real
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Análisis técnico avanzado
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Soporte prioritario 24/7
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Alertas personalizadas
+                    </li>
                 </ul>
+                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem; background: var(--mit-red); color: white;">Comenzar Premium</a>
             </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="terms.html">Términos de Uso</a></li>
-                    <li><a href="privacy.html">Privacidad</a></li>
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                    <li><a href="contact.html">Contacto</a></li>
+
+            <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
+                <h3>Plan Anual</h3>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$299.99/año</p>
+                <p style="color: green; margin-bottom: 1rem;">Ahorra 16%</p>
+                <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Todas las características Premium
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Acceso a webinars exclusivos
+                    </li>
+                    <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
+                        Asesoría personalizada
+                    </li>
                 </ul>
+                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Anual</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+    </div>
+</section>
+
+<!-- Sección de Características -->
+<section class="features-section">
+    <div class="container">
+        <h2>Características Principales</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="material-icons">trending_up</span>
+                <h3>Trading en Tiempo Real</h3>
+                <p>Acceso a datos de mercado en tiempo real y ejecución instantánea de operaciones</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-icons">analytics</span>
+                <h3>Análisis Técnico</h3>
+                <p>Herramientas avanzadas de análisis y gráficos interactivos para tomar decisiones informadas</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-icons">school</span>
+                <h3>Educación Financiera</h3>
+                <p>Recursos educativos y simuladores para mejorar tus habilidades de trading</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-icons">security</span>
+                <h3>Seguridad Garantizada</h3>
+                <p>Protección de datos y transacciones seguras en todo momento</p>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userMenu = document.getElementById('userMenu');
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            
-            if (currentUser) {
-                userMenu.innerHTML = `
-                    <span class="user-name">${currentUser.username}</span>
-                    <button onclick="logout()" class="login-btn">Cerrar Sesión</button>
-                `;
-            } else {
-                userMenu.innerHTML = `
-                    <a href="login.html" class="login-btn">Iniciar Sesión</a>
-                    <a href="register.html" class="register-btn">Registrarse</a>
-                `;
-            }
-            
-            // Alternar menú móvil
-            const mobileToggle = document.getElementById('mobileToggle');
-            const navLinks = document.getElementById('navLinks');
-            
-            mobileToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                // Cambiar ícono según el estado del menú
-                const icon = this.querySelector('.material-icons');
-                if (navLinks.classList.contains('active')) {
-                    icon.textContent = 'close';
-                } else {
-                    icon.textContent = 'menu';
-                }
-            });
-            
-            // Cerrar menú móvil cuando se hace clic en un enlace
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    mobileToggle.querySelector('.material-icons').textContent = 'menu';
-                });
-            });
-        });
+<!-- Sección Call-to-Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Comienza Tu Viaje de Trading Hoy</h2>
+            <p>Únete a miles de traders que ya están aprovechando nuestra plataforma</p>
+            <a href="register.html" class="btn-cta">Crear Cuenta Gratuita</a>
+        </div>
+    </div>
+</section>
 
-        function logout() {
-            localStorage.removeItem('currentUser');
-            window.location.reload();
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Scripts -->
+<!-- Script unificado de sesión y menú -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Lee la sesión guardada bajo la clave "usuario"
+        const user = JSON.parse(localStorage.getItem("usuario"));
+        const navSession = document.getElementById("nav-session");
+        const mobileNavSession = document.getElementById("mobile-nav-session");
+
+        if (user && user.nombre) {
+            // Si hay sesión, muestra saludo + enlace a trading + logout
+            navSession.innerHTML = `
+      <span class="nav-link">Hola, ${user.nombre}</span>
+      <a href="trading.html" class="nav-link">Trading</a>
+      <a href="#" class="nav-link btn-secondary" onclick="logout()">Cerrar sesión</a>
+    `;
+            mobileNavSession.innerHTML = `
+      <span class="mobile-link">Hola, ${user.nombre}</span>
+      <a href="trading.html" class="mobile-link">Trading</a>
+      <a href="#" class="mobile-link btn-secondary" onclick="logout()">Cerrar sesión</a>
+    `;
         }
-        
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const closeMenu = document.querySelector('.close-menu');
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
+        // Toggle menú móvil
+        const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const closeMenu = document.querySelector(".close-menu");
+        mobileMenuToggle.addEventListener("click", () => mobileMenu.classList.add("active"));
+        closeMenu.addEventListener("click", () => mobileMenu.classList.remove("active"));
+        document.querySelectorAll(".mobile-link").forEach(link =>
+            link.addEventListener("click", () => mobileMenu.classList.remove("active"))
+        );
+    });
 
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
+    // Función de logout: elimina la clave "usuario"
+    function logout() {
+        localStorage.removeItem("usuario");
+        window.location.href = "index.html";
+    }
+</script>
 
-        // Close mobile menu when a link is clicked
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
+<script src="/frontend/js/include-components.js"></script>
+<script src="../../js/session.js"></script>
 </body>
 </html>

@@ -1,0 +1,186 @@
+/* watchlist-summary.css */
+
+/* =========================
+   Contenedor principal
+   ========================= */
+.watchlist-summary-card {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.06),
+            inset 0 0 0 1px rgba(0,0,0,0.03);
+    padding: 1.75rem 2rem;
+    margin: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.watchlist-summary-card:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   Título con degradado vino
+   ========================= */
+.watchlist-title {
+    background: linear-gradient(135deg, #a0223f 0%, #c3455a 100%);
+    color: #ffffff;
+    padding: 1.2rem 2rem 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: -1.75rem -2rem 1rem -2rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    display: flex;
+    align-items: center;
+}
+.watchlist-title::before {
+    content: '⭐';
+    margin-right: 0.75rem;
+    font-size: 1.4rem;
+}
+.watchlist-title a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.watchlist-title a:hover {
+    opacity: 0.9;
+}
+
+/* =========================
+   Premium: lista de items
+   ========================= */
+.watchlist-premium {
+    display: grid;
+    row-gap: 1rem;
+}
+.watchlist-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02);
+}
+.watchlist-item:hover {
+    background-color: #e6e6e6;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+.watchlist-item .symbol {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #7a0d26;
+}
+.watchlist-item .details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.watchlist-item .price {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #34495e;
+}
+.watchlist-item .change {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.change.positive {
+    color: #27ae60;
+}
+.change.negative {
+    color: #c0392b;
+}
+
+/* =========================
+   Botón genérico
+   ========================= */
+.watchlist-button {
+    justify-self: start;
+    background-color: #7a0d26;
+    color: #ffffff;
+    padding: 0.65rem 1.4rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition:
+            background-color 0.2s ease,
+            transform 0.1s ease,
+            box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.watchlist-button:hover {
+    background-color: #5a091d;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   Versión bloqueada / no premium
+   ========================= */
+
+/* Base grid para locked */
+.watchlist-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem 1rem;
+    background-color: #fafafa;
+    border: 2px dashed #dcdcdc;
+    border-radius: 1rem;
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.03);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+.watchlist-locked:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Candado grande */
+.lock-icon {
+    font-size: 4rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.watchlist-locked:hover .lock-icon {
+    color: #a0223f;
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Texto bloqueado */
+.watchlist-locked p {
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.4;
+    max-width: 280px;
+}
+
+/* Botón “Hazte Premium” override */
+.watchlist-locked .watchlist-button {
+    background: linear-gradient(135deg, #c3455a 0%, #a0223f 100%);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+}
+.watchlist-locked .watchlist-button:hover {
+    background: linear-gradient(135deg, #a0223f 0%, #7a192f 100%);
+}
