@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import co.edu.unbosque.horizont.dto.internal.LoginRequestDTO;
 
-    
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
@@ -41,16 +41,10 @@ import java.util.Properties;
 
 @RestController
 @RequestMapping("/usuarios")
-// Permite orígenes desde tu front en el puerto 5505
-@CrossOrigin(origins = "http://127.0.0.1:5500",
-        methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS },
-        allowCredentials = "true")
 public class UsuarioController {
 
-    @Autowired
-    private InterfaceUsuarioService usuarioService;
-    private final ModelMapper modelMapper;
-    private final AlpacaClient alpacaClient;
+
+    private final InterfaceUsuarioService usuarioService;
 
     /**
      * Constructor para inyectar dependencias necesarias en el controlador.
@@ -64,16 +58,12 @@ public class UsuarioController {
     /**
      * Inyección de dependencias:
      * @param usuarioService servicio con la lógica de registro y verificación
-     * @param modelMapper    para convertir entre entidades y DTOs
-     * @param alpacaClient   cliente HTTP para la API externa de Alpaca
+
      */
     @Autowired
-    public UsuarioController(InterfaceUsuarioService usuarioService,
-                             ModelMapper modelMapper,
-                             AlpacaClient alpacaClient) {
+    public UsuarioController(InterfaceUsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-        this.modelMapper = modelMapper;
-        this.alpacaClient = alpacaClient;
+
     }
 
     /**
