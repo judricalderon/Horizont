@@ -88,9 +88,11 @@
     <div class="container">
         <h2 class="section-title">Planes Disponibles</h2>
         <div class="plans-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 1200px;">
+
+            <!-- Plan Básico -->
             <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
                 <h3>Plan Básico</h3>
-                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">Gratis </p>
+                <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">Gratis</p>
                 <ul style="margin: 1.5rem 0; list-style: none; padding: 0;">
                     <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
                         <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
@@ -106,15 +108,13 @@
                     </li>
                     <li style="margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
                         <span class="material-icons" style="color: var(--mit-red);">check_circle</span>
-                        Dashboard de trading basico
+                        Dashboard de trading básico
                     </li>
                 </ul>
-                <p>
-
-                </p>
-                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Gratis</a>
+                <button id="btnGratis" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem;">Comenzar Gratis</button>
             </div>
 
+            <!-- Plan Premium -->
             <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 2px solid var(--mit-red); position: relative; transform: scale(1.05);">
                 <div style="position: absolute; top: -10px; right: 20px; background: var(--mit-bright-red); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">MÁS POPULAR</div>
                 <h3>Plan Premium</h3>
@@ -137,9 +137,10 @@
                         Alertas personalizadas
                     </li>
                 </ul>
-                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem; background: var(--mit-red); color: white;">Comenzar Premium</a>
+                <button id="btnPremium" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem; background: var(--mit-red); color: white;">Comenzar Premium</button>
             </div>
 
+            <!-- Plan Anual -->
             <div class="plan-card" style="background: var(--mit-white); padding: 2rem; border-radius: 8px; border: 1px solid var(--mit-silver-gray); position: relative;">
                 <h3>Plan Anual</h3>
                 <p class="price" style="font-size: 2rem; color: var(--mit-red); margin: 1rem 0;">$299.99/año</p>
@@ -158,8 +159,9 @@
                         Asesoría personalizada
                     </li>
                 </ul>
-                <a href="register.html" class="btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.8rem;">Comenzar Anual</a>
+                <button id="btnAnual" class="btn-primary" style="display: block; width: 100%; padding: 0.8rem;">Comenzar Anual</button>
             </div>
+
         </div>
     </div>
 </section>
@@ -208,6 +210,23 @@
 <div id="footer-placeholder"></div>
 
 <!-- Scripts -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = JSON.parse(localStorage.getItem("usuario"));
+
+        const redirigir = (rutaProtegida) => {
+            if (user) {
+                window.location.href = rutaProtegida;
+            } else {
+                window.location.href = "register.html";
+            }
+        };
+
+        document.getElementById("btnGratis")?.addEventListener("click", () => redirigir("portfolio.html"));
+        document.getElementById("btnPremium")?.addEventListener("click", () => redirigir("hazte-premium.html"));
+        document.getElementById("btnAnual")?.addEventListener("click", () => redirigir("hazte-premium.html?plan=anual"));
+    });
+</script>
 <!-- Script unificado de sesión y menú -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {

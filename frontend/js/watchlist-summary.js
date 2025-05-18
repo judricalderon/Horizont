@@ -1,6 +1,6 @@
 // watchlist-summary.js
 document.addEventListener('DOMContentLoaded', () => {
-    const isPremium = window.isPremium ?? true;
+    const isPremium = window.isPremium ?? false;
     const container = document.getElementById('watchlist-content');
     if (!container) return;
 
