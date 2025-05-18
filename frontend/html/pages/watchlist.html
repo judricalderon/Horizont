@@ -5,153 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Watchlist - Acciones El Bosque</title>
 
-    <!-- Base Styles -->
+    <!-- Base Styles (puedes dejarlas o quitarlas mientras debugueas) -->
     <link rel="stylesheet" href="../../styles/base/main.css" />
-    <!-- Página Watchlist -->
     <link rel="stylesheet" href="../../styles/pages/watchlist.css" />
-    <!-- Footer -->
     <link rel="stylesheet" href="../../styles/components/footer.css" />
-    <!-- Material Icons & Roboto -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        /* 🚧 DEBUG: ver outline del tbody y filas */
+        #watchlistBody { outline: 3px solid red !important; }
+
+        /* Asegúrate también de que el modal aparezca */
+        .modal.show { display: flex !important; }
+        /* Spinner */
+        #spinner {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .spinner {
+            border: 4px solid rgba(0,0,0,0.1);
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border-left-color: #000;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Barra de Navegación -->
+<!-- NAVBAR (estática) -->
 <nav class="navbar">
     <div class="logo">
-        <a href="index.html">
-            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT"/>
-        </a>
+        <a href="index.html"><img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT"/></a>
     </div>
     <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="trading.html">Trading</a></li>
         <li><a href="portfolio.html">Portafolio</a></li>
-        <li>
-            <a href="notifications.html" class="notifications-link" title="Notificaciones">
-                <span class="material-icons">notifications</span>
-                <span class="visually-hidden">Notificaciones</span>
-            </a>
-        </li>
+        <li><a href="notifications.html"><span class="material-icons">notifications</span></a></li>
         <li><a href="admin.html">Administración</a></li>
     </ul>
     <div class="user-menu">
         <a href="login.html" id="loginLink">Iniciar Sesión</a>
-        <div id="userInfo" style="display: none;">
+        <div id="userInfo" style="display:none">
             <span id="userName" class="material-icons">account_circle</span>
-            <span id="userGreeting" style="margin: 0 8px;"></span>
+            <span id="userGreeting"></span>
             <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
         </div>
     </div>
 </nav>
 
-<!-- Contenido Principal -->
+
+<!-- CONTENIDO -->
+<div id="watchlistLocked" class="watchlist-locked" style="display:none;">
+    <span class="material-icons lock-icon">lock</span>
+    <p>Activa tu cuenta Premium para crear y ver tu Watchlist.</p>
+    <a href="pasarela-pagos.html" class="btn-primary">Hazte Premium</a>
+</div>
+
 <main class="watchlist-container">
-    <!-- Header -->
     <div class="watchlist-header">
         <div class="header-left">
             <h1>Mi Watchlist</h1>
-            <p class="watchlist-description">
-                Consulta las acciones que estás siguiendo de cerca.
-            </p>
+            <p class="watchlist-description">Consulta las acciones que estás siguiendo de cerca.</p>
         </div>
         <div class="watchlist-actions">
             <div class="search-box">
                 <span class="material-icons">search</span>
-                <input type="text" placeholder="Buscar acciones..." id="watchlistSearch"/>
+                <input id="watchlistSearch" placeholder="Buscar acciones..."/>
             </div>
-            <button class="btn-add-stock" id="addStockBtn">
-                <span class="material-icons">add</span>
-                Agregar Acción
+            <button id="addStockBtn" class="btn-add-stock">
+                <span class="material-icons">add</span> Agregar Acción
             </button>
         </div>
     </div>
 
-    <!-- Resumen -->
-    <div class="watchlist-summary" id="watchlistSummary">
-        <div class="summary-card">
-            <h3>Total Acciones: <span>3</span></h3>
-            <p>Valor total estimado: <strong>$1,399.20</strong></p>
-        </div>
-        <div class="summary-performance">
-            <p>Rendimiento diario: <span class="positive">+1.79%</span></p>
+    <div id="watchlistSummary" class="watchlist-summary"></div>
+
+
+    <div class="watchlist-list" id="watchlistList">
+        <div class="watchlist-table-wrapper">
+            <table class="watchlist-table">
+                <thead>
+                <tr>
+                    <th>Acción</th>
+                    <th class="text-right">Precio</th>
+                    <th class="text-right">Cambio</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody id="watchlistBody">
+                <!-- filas inyectadas por JS -->
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Lista de Acciones -->
-    <div class="watchlist-list" id="watchlistItems">
-        <table class="watchlist-table">
-            <thead>
-            <tr>
-                <th>Acción</th>
-                <th>Precio</th>
-                <th>Cambio</th>
-                <th class="actions">Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>AAPL - Apple Inc.</td>
-                <td class="price">$178.23</td>
-                <td class="change positive">+1.25%</td>
-                <td class="actions">
-                    <button class="btn-remove" title="Eliminar">
-                        <span class="material-icons">delete</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>MSFT - Microsoft Corp.</td>
-                <td class="price">$321.56</td>
-                <td class="change negative">-0.58%</td>
-                <td class="actions">
-                    <button class="btn-remove" title="Eliminar">
-                        <span class="material-icons">delete</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>TSLA - Tesla Inc.</td>
-                <td class="price">$899.41</td>
-                <td class="change positive">+3.12%</td>
-                <td class="actions">
-                    <button class="btn-remove" title="Eliminar">
-                        <span class="material-icons">delete</span>
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Modal para agregar una acción -->
-    <div class="modal" id="addStockModal">
+    <!-- MODAL -->
+    <div id="addStockModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Agregar Acción al Watchlist</h3>
-                <button class="close-modal">
+                <h3>Agregar Acción</h3>
+                <button id="closeModalBtn" class="close-modal">
                     <span class="material-icons">close</span>
                 </button>
             </div>
             <div class="modal-body">
-                <label for="stockSymbol">Símbolo o nombre de la acción</label>
-                <input type="text" id="stockSymbol" placeholder="Ej: AAPL, MSFT, GOOGL"/>
+                <label for="stockSymbol">Símbolo:</label>
+                <input id="stockSymbol" placeholder="Ej: AAPL"/>
+
+                <div class="popular-stocks-inline">
+                    <span>Sugerencias:</span>
+                    <div class="suggested-list-container">
+                        <ul class="suggested-list">
+                            <li class="category-title">📱 Tech y Big Tech</li>
+                            <li data-symbol="AAPL">🍎 AAPL (Apple)</li>
+                            <li data-symbol="GOOGL">🔍 GOOGL (Google)</li>
+                            <li data-symbol="MSFT">🪟 MSFT (Microsoft)</li>
+                            <li data-symbol="AMZN">📦 AMZN (Amazon)</li>
+                            <li data-symbol="TSLA">🚗 TSLA (Tesla)</li>
+                            <li data-symbol="META">📘 META (Facebook)</li>
+                            <li data-symbol="NVDA">🎮 NVDA (NVIDIA)</li>
+                            <li data-symbol="AMD">⚙️ AMD (Advanced Micro Devices)</li>
+                            <li data-symbol="INTC">💾 INTC (Intel)</li>
+
+                            <li class="category-title">💰 Finanzas</li>
+                            <li data-symbol="JPM">🏦 JPM (JPMorgan Chase)</li>
+                            <li data-symbol="BAC">💳 BAC (Bank of America)</li>
+                            <li data-symbol="WFC">🏛️ WFC (Wells Fargo)</li>
+                            <li data-symbol="GS">💼 GS (Goldman Sachs)</li>
+
+                            <li class="category-title">🛍️ Consumo y Retail</li>
+                            <li data-symbol="WMT">🛒 WMT (Walmart)</li>
+                            <li data-symbol="TGT">🎯 TGT (Target)</li>
+                            <li data-symbol="HD">🏠 HD (Home Depot)</li>
+                            <li data-symbol="COST">🧺 COST (Costco)</li>
+                            <li data-symbol="MCD">🍔 MCD (McDonald's)</li>
+                            <li data-symbol="SBUX">☕ SBUX (Starbucks)</li>
+                            <li data-symbol="DIS">🎬 DIS (Disney)</li>
+                            <li data-symbol="NFLX">📺 NFLX (Netflix)</li>
+
+                            <li class="category-title">⚙️ Energía y Autos</li>
+                            <li data-symbol="XOM">🛢️ XOM (Exxon Mobil)</li>
+                            <li data-symbol="CVX">⛽ CVX (Chevron)</li>
+                            <li data-symbol="F">🚙 F (Ford)</li>
+                            <li data-symbol="GM">🚗 GM (General Motors)</li>
+
+                            <li class="category-title">💊 Salud y Pharma</li>
+                            <li data-symbol="JNJ">💊 JNJ (Johnson & Johnson)</li>
+                            <li data-symbol="PFE">💉 PFE (Pfizer)</li>
+                            <li data-symbol="MRNA">🧬 MRNA (Moderna)</li>
+
+                            <li class="category-title">🌎 LATAM</li>
+                            <li data-symbol="EC">🇨🇴 EC (Ecopetrol - Colombia)</li>
+                            <li data-symbol="BBD">🇧🇷 BBD (Banco Bradesco - Brasil)</li>
+                            <li data-symbol="VALE">⛏️ VALE (Vale S.A. - Brasil)</li>
+                            <li data-symbol="PAM">⚡ PAM (Pampa Energía - Argentina)</li>
+                            <li data-symbol="YPF">🛢️ YPF (YPF - Argentina)</li>
+                            <li data-symbol="CIB">🏦 CIB (Bancolombia - ADR)</li>
+
+                            <li class="category-title">🌐 Internacionales</li>
+                            <li data-symbol="BABA">🛍️ BABA (Alibaba - China)</li>
+                            <li data-symbol="TM">🚘 TM (Toyota - Japón)</li>
+                            <li data-symbol="NSRGY">🍫 NSRGY (Nestlé - Suiza)</li>
+                            <li data-symbol="SAP">💻 SAP (Alemania)</li>
+                            <li data-symbol="TSM">🔧 TSM (Taiwan Semi. Mfg.)</li>
+                        </ul>
+                    </div>
+
+
+                </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-secondary" id="cancelAddStock">Cancelar</button>
-                <button class="btn-primary" id="confirmAddStock">Agregar</button>
+                <button id="cancelAddStock" class="btn-secondary">Cancelar</button>
+                <button id="confirmAddStock" class="btn-primary">Agregar</button>
             </div>
         </div>
     </div>
+
 </main>
 
-<!-- Footer -->
-<div id="footer-placeholder"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const stockInput = document.getElementById('stockSymbol');
+        const suggestions = document.querySelectorAll('.suggested-list li');
 
-<!-- Scripts -->
-<script src="/frontend/js/include-components.js"></script>
-<script src="/frontend/js/session.js"></script>
-<script src="/frontend/js/watchlist.js"></script>
+        // Rellenar el input del modal con sugerencias
+        suggestions.forEach(item => {
+            item.addEventListener('click', () => {
+                const symbol = item.getAttribute('data-symbol');
+                stockInput.value = symbol;
+            });
+        });
+
+        // 🔍 FILTRADO DE LA WATCHLIST
+        const searchInput = document.getElementById('watchlistSearch');
+        const watchlistBody = document.getElementById('watchlistBody');
+
+        searchInput.addEventListener('input', () => {
+            const filter = searchInput.value.toLowerCase();
+            const rows = watchlistBody.getElementsByTagName('tr');
+
+            Array.from(rows).forEach(row => {
+                const stockName = row.cells[0]?.textContent.toLowerCase(); // nombre en la primera celda
+                if (stockName.includes(filter)) {
+                    row.style.display = ''; // mostrar
+                } else {
+                    row.style.display = 'none'; // ocultar
+                }
+            });
+        });
+    });
+
+    const symbolInput = document.getElementById('stockSymbol');
+    const suggestedItems = document.querySelectorAll('.suggested-list li[data-symbol]');
+
+    symbolInput.addEventListener('input', () => {
+        const search = symbolInput.value.toUpperCase().trim();
+
+        suggestedItems.forEach(item => {
+            const symbol = item.getAttribute('data-symbol');
+            if (symbol.includes(search)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+
+</script>
+
+
+
+<script src="../../js/watchlist.js"></script>
+<script src="../../js/session.js"></script>
 </body>
 </html>

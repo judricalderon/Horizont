@@ -124,9 +124,8 @@
         </div>
     </section>
 
-    <!-- en portafolio.html -->
-    <div id="watchlist-content"></div>
 
+    <div id="watchlist-content"></div>
 
 
     <!-- NUEVA TARJETA: Historial de Órdenes -->
@@ -381,21 +380,46 @@
 <div id="footer-placeholder"></div>
 
 <!-- 1) session.js -->
-<script src="/frontend/js/session.js"></script>
-<script>
-    fetch('watchlist-summary.html')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('watchlist-container').innerHTML = html;
+<script src="../../js/session.js"></script>
 
-            // Cargar y ejecutar el JS después de inyectar el HTML
+
+<!-- 2) Exponemos `usuario` e `isPremium` ANTES de cargar el summary -->
+<script>
+    // Protejo ruta y obtengo user
+    const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+    if (!usuario.id) {
+        // Sin sesión, redirige
+        window.location.href = 'login.html';
+    }
+    // Exponemos para el summary
+    window.usuario = usuario;
+    window.isPremium = !!usuario.esPremium;
+</script>
+
+
+<!-- 3) Inyectamos el partial PREMIUM y luego su JS -->
+<script>
+    fetch('/frontend/html/pages/watchlist-summary-premium.html')
+        .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
+        .then(html => {
+            // Inyecto el partial en el DIV correcto
+            document.getElementById('watchlist-content').innerHTML = html;
+            // Y ahora cargo el script que arranca la lógica interna del summary
             const script = document.createElement('script');
-            script.src = '../../scripts/watchlist-summary.js';
+            script.src = '/frontend/js/watchlist-summary.js';
             document.body.appendChild(script);
+        })
+        .catch(err => {
+            console.error('Error cargando el Watchlist Summary:', err);
+            document.getElementById('watchlist-content').innerHTML =
+                '<p class="error">No se pudo cargar tu Watchlist.</p>';
         });
 </script>
-<script src="/frontend/js/watchlist-summary.js"></script>
-<script src="js/utils/portfolio.js"></script>
+
+<!-- 4) Incluimos el include-components -->
 <script src="/frontend/js/include-components.js"></script>
 </body>
 </html>
