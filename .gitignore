@@ -49,3 +49,5 @@ out/
 .DS_Store
 Thumbs.db
 /bin/
+# Ignorar carpetas de compilación
+/target/

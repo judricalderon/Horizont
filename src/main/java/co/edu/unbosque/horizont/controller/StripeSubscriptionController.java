@@ -7,11 +7,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controlador REST para gestionar las suscripciones utilizando Stripe.
+ *
+ * Proporciona un punto de entrada para la creación de sesiones de pago
+ * mediante Stripe Checkout. Esta clase se comunica con un servicio que encapsula
+ * la lógica de negocio relacionada con las suscripciones.
+ *
+ * Ruta base: <code>/api/stripe/suscripcion</code>
+ */
+
 @RestController
 @RequestMapping("/api/stripe/suscripcion")
 public class StripeSubscriptionController {
 
     private final InterfaceStripeSubscriptionService stripeService;
+
+    /**
+     * Constructor que inyecta el servicio de Stripe utilizado para manejar las suscripciones.
+     *
+     * @param stripeService servicio que gestiona la lógica de creación de sesiones con Stripe
+     */
 
     public StripeSubscriptionController(InterfaceStripeSubscriptionService stripeService) {
         this.stripeService = stripeService;
