@@ -1,9 +1,10 @@
 // watchlist-summary.js
-(function(){
+document.addEventListener('DOMContentLoaded', () => {
     const API_BASE    = 'http://localhost:8080/api/market';
     const usuarioId   = window.usuario?.id;
-    const isPremium   = window.isPremium ?? true;
+    const isPremium   = window.isPremium ?? false;
     const container   = document.getElementById('watchlist-content');
+    
     if (!container) return;
 
     // 1) Inyectar el partial según tipo de usuario

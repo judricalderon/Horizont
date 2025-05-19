@@ -7,6 +7,13 @@ import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+/**
+ * Implementación del servicio {@link InterfaceStripeSubscriptionService} que gestiona
+ * la interacción con la API de Stripe para crear sesiones de suscripción.
+ *
+ * Utiliza las claves y configuraciones definidas en el archivo de propiedades de la aplicación.
+ */
+
 @Service
 public class StripeSubscriptionService implements InterfaceStripeSubscriptionService {
 
@@ -23,6 +30,16 @@ public class StripeSubscriptionService implements InterfaceStripeSubscriptionSer
 
     @Value("${stripe.price.anual}")
     private String anualPriceId;
+
+    /**
+     * Crea una sesión de Stripe Checkout para una suscripción, basada en el tipo de plan
+     * seleccionado por el usuario.
+     *
+     * @param usuarioId ID del usuario que desea iniciar la suscripción
+     * @param tipoPlan tipo de plan (por ejemplo: "mensual" o "anual")
+     * @return una instancia de {@link Session} que contiene la URL de redirección de pago
+     * @throws StripeException si ocurre un error al comunicarse con la API de Stripe
+     */
 
     @Override
     public Session crearSesionCheckout(Long usuarioId, String tipoPlan) throws StripeException {
@@ -48,12 +65,4 @@ public class StripeSubscriptionService implements InterfaceStripeSubscriptionSer
     }
 
 
-    @Override
-    public void cancelarSuscripcion(String stripeSubscriptionId) throws StripeException {
-        Stripe.apiKey = stripeSecretKey;
-
-        com.stripe.model.Subscription subscription =
-                com.stripe.model.Subscription.retrieve(stripeSubscriptionId);
-        subscription.cancel();
-    }
 }
