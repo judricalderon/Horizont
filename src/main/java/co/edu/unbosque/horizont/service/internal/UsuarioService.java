@@ -77,7 +77,7 @@ public class UsuarioService implements InterfaceUsuarioService {
         // Mapea DTO a entidad
         Usuario usuario = modelMapper.map(dto, Usuario.class);
 
-        // ─── Codifica la contraseña antes de guardar ───
+        // ---Codifica la contraseña antes de guardar---
         String rawPass = dto.getPassword();
         String hashed = passwordEncoder.encode(rawPass);
         usuario.setPassword(hashed);
@@ -128,49 +128,7 @@ public class UsuarioService implements InterfaceUsuarioService {
         return false;
     }
 
-    /**
-     * Registra un usuario reutilizando la lógica de {@link #registrarUsuarioDesdeDTO(UsuarioDTO)}.
-     *
-     * @param usuario entidad de usuario para guardar.
-     * @return entidad de usuario guardada.
-     */
-    @Override
-    public Usuario guardarUsuario(Usuario usuario) {
-        UsuarioDTO dto = modelMapper.map(usuario, UsuarioDTO.class);
-        UsuarioDTO savedDto = registrarUsuarioDesdeDTO(dto);
-        return modelMapper.map(savedDto, Usuario.class);
-    }
 
-    /**
-     * Obtiene todos los usuarios registrados.
-     *
-     * @return lista de usuarios.
-     */
-    @Override
-    public List<Usuario> obtenerTodosLosUsuarios() {
-        return usuarioRepository.findAll();
-    }
-
-    /**
-     * Obtiene un usuario por su ID.
-     *
-     * @param id identificador del usuario.
-     * @return entidad de usuario o {@code null} si no existe.
-     */
-    @Override
-    public Usuario obtenerUsuarioPorId(Long id) {
-        return usuarioRepository.findById(id).orElse(null);
-    }
-
-    /**
-     * Elimina un usuario por su ID.
-     *
-     * @param id identificador del usuario a eliminar.
-     */
-    @Override
-    public void eliminarUsuario(Long id) {
-        usuarioRepository.deleteById(id);
-    }
 
 
     @Override

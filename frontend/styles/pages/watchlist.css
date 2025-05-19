@@ -2,17 +2,17 @@
     --mit-white: #ffffff;
     --mit-light-gray: #e0e0e0;
     --mit-dark-gray: #333333;
-    --mit-red: #8A1931;           /* Nuevo rojo principal */
+    --mit-red: #8A1931;
     --mit-dark-red: #6e0f28;
     --mit-green: #43a047;
-    --mit-gold: #D4AF37;          /* Dorado premium */
+    --mit-gold: #D4AF37;
     --mit-gold-dark: #b8912c;
     --mit-soft-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     --mit-border-radius: 12px;
     --mit-font: 'Roboto', sans-serif;
 }
 
-/* Contenedor principal */
+/* — Contenedor Principal — */
 .watchlist-container {
     font-family: var(--mit-font);
     padding: 2rem;
@@ -23,7 +23,7 @@
     gap: 2rem;
 }
 
-/* Encabezado */
+/* — Encabezado — */
 .watchlist-header {
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,6 @@
     font-size: 2rem;
     color: var(--mit-dark-gray);
     font-weight: 700;
-    /* Línea dorada debajo */
     position: relative;
 }
 .watchlist-header h1::after {
@@ -44,7 +43,7 @@
     position: absolute;
     bottom: -6px;
     left: 0;
-    width: 50px;
+    width: 60px;
     height: 4px;
     background: var(--mit-gold);
     border-radius: 2px;
@@ -55,7 +54,7 @@
     color: #666666;
 }
 
-/* Buscador y botón “Agregar” */
+/* — Buscador + Botón Agregar — */
 .watchlist-actions {
     display: flex;
     align-items: center;
@@ -69,7 +68,7 @@
     border: 1px solid var(--mit-light-gray);
     border-radius: var(--mit-border-radius);
     padding: 0.5rem 1rem;
-    background-color: #faf8f2; /* muy suave dorado */
+    background-color: #faf8f2;
 }
 .search-box input {
     border: none;
@@ -82,35 +81,62 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--mit-red);
     color: var(--mit-white);
     border: 2px solid var(--mit-gold);
     border-radius: var(--mit-border-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    box-shadow: var(--mit-soft-shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn-add-stock:hover {
     background-color: var(--mit-dark-red);
     transform: translateY(-2px);
 }
 
-/* Resumen */
+/* — Panel Bloqueado (No Premium) — */
+.watchlist-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: #fffdf7;
+    border: 1px solid var(--mit-gold-dark);
+    border-radius: var(--mit-border-radius);
+    box-shadow: var(--mit-soft-shadow);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.watchlist-locked:hover {
+    background-color: #fff9ec;
+}
+
+.watchlist-locked .lock-icon {
+    font-size: 4rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+/* — Resumen — */
 .watchlist-summary {
     display: flex;
     justify-content: space-between;
     background-color: #fdfaf5;
-    padding: 1.25rem;
+    padding: 1.5rem;
     border-radius: var(--mit-border-radius);
     box-shadow: var(--mit-soft-shadow);
     font-size: 0.95rem;
     color: var(--mit-dark-gray);
 }
-.summary-card {
+.summary-card,
+.summary-performance {
     flex: 1;
     text-align: center;
+}
+.summary-card {
     border-right: 1px solid var(--mit-light-gray);
 }
 .summary-card:last-child {
@@ -118,13 +144,16 @@
 }
 .summary-card h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--mit-red);
 }
 .summary-card p {
     margin: 0.3rem 0 0;
     font-weight: 500;
+}
+.summary-performance p {
+    margin: 0;
 }
 .summary-performance span {
     font-weight: bold;
@@ -136,7 +165,7 @@
     color: var(--mit-red);
 }
 
-/* Lista de acciones */
+/* — Tabla de la Watchlist — */
 .watchlist-list {
     background-color: var(--mit-white);
     padding: 1rem;
@@ -150,7 +179,7 @@
     min-width: 700px;
 }
 .watchlist-table thead {
-    background-color: #fcf3e1; /* tenue dorado */
+    background-color: #fcf3e1;
 }
 .watchlist-table th,
 .watchlist-table td {
@@ -162,6 +191,12 @@
 .watchlist-table th {
     text-align: left;
     font-weight: 600;
+}
+.watchlist-table tbody tr:nth-child(even) {
+    background-color: #faf8f2;
+}
+.watchlist-table tbody tr:hover {
+    background-color: #fff7e6;
 }
 .watchlist-table td.price,
 .watchlist-table td.actions {
@@ -176,20 +211,21 @@
     font-weight: 500;
 }
 
-/* Botón eliminar */
+/* — Botón Eliminar — */
 .btn-remove {
     background: transparent;
     color: var(--mit-red);
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.1s ease;
 }
 .btn-remove:hover {
     color: var(--mit-dark-red);
+    transform: scale(1.1);
 }
 
-/* Modal */
+/* — Modal de Agregar — */
 .modal {
     position: fixed;
     inset: 0;
@@ -199,11 +235,14 @@
     align-items: center;
     z-index: 1000;
 }
+.modal.show {
+    display: flex;
+}
 .modal-content {
     background: var(--mit-white);
     border-radius: var(--mit-border-radius);
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
     padding: 1.5rem;
     box-shadow: var(--mit-soft-shadow);
     display: flex;
@@ -218,8 +257,8 @@
 .modal-body input {
     width: 100%;
     padding: 0.6rem;
-    border-radius: var(--mit-border-radius);
     border: 1px solid var(--mit-light-gray);
+    border-radius: var(--mit-border-radius);
     font-size: 1rem;
 }
 .modal-footer {
@@ -228,15 +267,16 @@
     gap: 0.5rem;
 }
 
-/* Botones primario y secundario */
+/* — Botones Principales/Secundarios — */
 .btn-primary,
 .btn-secondary {
     padding: 0.6rem 1.2rem;
     border-radius: var(--mit-border-radius);
     font-size: 0.95rem;
     font-weight: 500;
-    border: none;
     cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
 }
 .btn-primary {
     background-color: var(--mit-red);
@@ -254,7 +294,23 @@
     background-color: #bdbdbd;
 }
 
-/* Responsive */
+/* — Logout Button — */
+.btn-logout {
+    background-color: var(--mit-red);
+    color: var(--mit-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+.btn-logout:hover {
+    background-color: var(--mit-dark-red);
+}
+
+/* — Responsive — */
 @media (max-width: 768px) {
     .watchlist-header {
         flex-direction: column;
@@ -276,19 +332,218 @@
         flex-direction: column;
         gap: 0.5rem;
     }
+    .watchlist-table {
+        min-width: unset;
+    }
 }
 
-.btn-logout {
-    background-color: #8A1931;
-    color: white;
+.watchlist-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--mit-border-radius);
+    box-shadow: var(--mit-soft-shadow);
+}
+
+.watchlist-table th,
+.watchlist-table td {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    color: var(--mit-dark-gray);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.watchlist-table th {
+    background-color: #fcf3e1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--mit-gold);
+}
+
+.watchlist-table td.text-right {
+    text-align: right;
+}
+
+.watchlist-table td.text-center {
+    text-align: center;
+}
+
+.watchlist-table tbody tr:hover {
+    background-color: #fff3db;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-remove {
+    background: transparent;
+    color: var(--mit-red);
     border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.15s ease, color 0.2s ease;
+}
+.btn-remove:hover {
+    transform: scale(1.2);
+    color: var(--mit-dark-red);
 }
 
-.btn-logout:hover {
-    background-color: #a0223f;
+.btn-remove {
+    background: transparent;
+    color: var(--mit-red);
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, color 0.2s ease;
 }
+.btn-remove:hover {
+    transform: scale(1.2);
+    color: var(--mit-dark-red);
+}
+
+/* =========================
+   Override filas de tabla para usar estilo .watchlist-item
+   ========================= */
+
+/* Mantener la tabla como lista, ocultando solo bordes y fondo del thead */
+.watchlist-table thead {
+    background: none;
+    border: none;
+}
+.watchlist-table th {
+    display: none;
+}
+
+/* Cada fila gana el estilo de “card” */
+.watchlist-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1rem; /* separación vertical */
+    border: none;        /* quitar líneas de tabla */
+}
+
+/* Hover idéntico al premium */
+.watchlist-table tbody tr:hover {
+    background-color: #e6e6e6;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+/* Celdas internas como grid items */
+.watchlist-table td {
+    display: contents; /* para que el grid de la fila lo distribuya */
+}
+
+/* Asegurar alineación y espaciado interno */
+.watchlist-table td:nth-child(1) {
+    grid-column: 1;
+    font-weight: 600;
+    color: #7a0d26;
+}
+.watchlist-table td.price {
+    grid-column: 2;
+    justify-self: end;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #34495e;
+}
+.watchlist-table td.change {
+    grid-column: 3;
+    justify-self: end;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.watchlist-table td.change.positive {
+    color: #27ae60;
+}
+.watchlist-table td.change.negative {
+    color: #c0392b;
+}
+.watchlist-table td.actions {
+    grid-column: 4;
+    justify-self: end;
+}
+
+/* Ocultar líneas de separación */
+.watchlist-table td,
+.watchlist-table tr {
+    border: none;
+}
+
+/* Hover idéntico al premium, pero añadiendo elevación */
+.watchlist-table tbody tr:hover {
+    background-color: #e6e6e6;
+    box-shadow:
+            inset 0 0 0 1px rgba(0,0,0,0.05),  /* borde interno */
+            0 4px 12px rgba(0,0,0,0.08);         /* sombra exterior */
+    transform: translateY(-2px);
+}
+
+.popular-stocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.stock-option {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.stock-option:hover {
+    background-color: #dcdcdc;
+}
+
+.popular-stocks-inline {
+    margin-top: 0.75rem;
+}
+
+.suggested-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: grid;
+    gap: 0.4rem;
+}
+
+.suggested-list li {
+    background-color: #f9f9f9;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.suggested-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.suggested-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.suggested-list .category-title {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #888;
+    padding: 8px 10px;
+    margin-top: 12px;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+
+

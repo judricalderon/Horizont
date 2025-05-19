@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="es">
 <head>
     <!-- metas, estilos generales, etc. -->
     <link rel="stylesheet" href="../../styles/base/main.css">
@@ -134,29 +133,47 @@
         </div>
     </div>
 </section>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const user = JSON.parse(localStorage.getItem("usuario"));
+<script type="module">
+    import { obtenerUsuarioAutenticado } from '../../js/session.js';
 
-        const redirigir = (rutaProtegida) => {
-            if (user) {
-                window.location.href = rutaProtegida;
-            } else {
-                window.location.href = "register.html";
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = obtenerUsuarioAutenticado({ redirigir: true, permitirPremium: false });
+        if (!user) return;
+
+        const iniciarCheckout = async (tipoPlan) => {
+            try {
+                const response = await fetch(`http://localhost:8080/api/stripe/suscripcion/crear-sesion?usuarioId=${user.id}&tipoPlan=${tipoPlan}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" }
+                });
+
+                if (!response.ok) throw new Error("Fallo al crear la sesión");
+
+                const data = await response.text(); // <- Esto arregla el error del token 'h'
+                window.location.href = data;
+
+            } catch (err) {
+                console.error("Error al iniciar pago:", err);
+                alert("Hubo un error al iniciar el proceso de pago.");
             }
         };
 
-        document.getElementById("btnGratis")?.addEventListener("click", () => redirigir("portfolio.html"));
-        document.getElementById("btnPremium")?.addEventListener("click", () => redirigir("pasarela-pagos.html"));
-        document.getElementById("btnAnual")?.addEventListener("click", () => redirigir("pasarela-pagos.html?plan=anual"));
+        document.getElementById("btnGratis")?.addEventListener("click", () => {
+            if (user) {
+                window.location.href = "portfolio.html";
+            } else {
+                window.location.href = "register.html";
+            }
+        });
+
+        document.getElementById("btnPremium")?.addEventListener("click", () => iniciarCheckout("mensual"));
+        document.getElementById("btnAnual")?.addEventListener("click", () => iniciarCheckout("anual"));
     });
 </script>
 
 
 <!-- Footer -->
 <div id="footer-placeholder"></div>
-<script src="/frontend/js/session.js"></script>
 
 
 <script src="/frontend/js/include-components.js"></script>
-</html>

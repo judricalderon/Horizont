@@ -11,6 +11,9 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -29,18 +32,25 @@ class UsuarioControllerTest {
     @Test
     void shouldRegisterUserSuccessfully() {
         // Arrange
-        UsuarioDTO dto = new UsuarioDTO();
-        dto.setNombre("Maria");
-        dto.setApellido("Peez");
-        dto.setCorreo("marisdfsdf@example.com");
-        dto.setTelefono("531-555-2160");
-        dto.setDireccion("Call 123");
-        dto.setCiudad("San Mateo");
-        dto.setEstado("CA");
-        dto.setCodigoPostal("110111");
-        dto.setPais("USA");
-        dto.setFechaNacimiento("1990-05-10");
-        dto.setSsn("111-22-3333");
+        UsuarioDTO dto = new UsuarioDTO(
+                null,
+                "Test2",
+                "Test2",
+                "test6@gmail.com",
+                "531-555-2160",
+                "20 N San Mateo Dr",
+                "San Mateo",
+                "CA",
+                "94401",
+                "USA",
+                LocalDate.of(1970, 1, 1),
+                "444-55-4321",
+                "ABC123",
+                LocalDateTime.now().plusMinutes(10),
+                true,
+                "pass123",
+                false
+        );
 
 
         String url = "http://localhost:" + port + "/usuarios/registrar";
@@ -56,7 +66,8 @@ class UsuarioControllerTest {
         // Assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().getNombre()).isEqualTo("Maria");
+        assertThat(response.getBody().getNombre()).isEqualTo(dto.getNombre());
+
         logger.info("Usuario registrado correctamente: {}", response.getBody());
     }
 }
