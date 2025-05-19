@@ -69,4 +69,24 @@ public class MarketController {
         List<QuoteWithSymbolDTO> quotes = marketService.getRealtimeQuotes(symbols);
         return ResponseEntity.ok(quotes);
     }
+
+    /**
+     * Elimina uno o varios símbolos del watchlist de un usuario específico.
+     *
+     * <p>Este endpoint HTTP DELETE recibe un ID de usuario y una lista de símbolos
+     * a eliminar del watchlist correspondiente. Utiliza el servicio {@code watchlistService}
+     * para procesar cada símbolo individualmente.</p>
+     *
+     * @param usuarioId El ID del usuario cuyo watchlist será modificado.
+     * @param symbols Lista de símbolos (por ejemplo, acciones o criptomonedas) que se desea eliminar del watchlist.
+     * @return {@code ResponseEntity} con mensaje de éxito si la operación fue completada correctamente.
+     */
+
+    @DeleteMapping("/watchlist")
+    public ResponseEntity<?> deleteFromWatchlist(
+            @RequestParam("usuarioId") Long usuarioId,
+            @RequestBody List<String> symbols) {
+        symbols.forEach(sym -> watchlistService.removeSymbol(usuarioId, sym));
+        return ResponseEntity.ok("Símbolos eliminados correctamente");
+    }
 }

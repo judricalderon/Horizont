@@ -1,23 +1,73 @@
 <!-- watchlist-summary-premium.html -->
 <link rel="stylesheet" href="../../styles/pages/watchlist-summary.css" />
-<div class="watchlist-summary-card">
+
+<div class="watchlist-summary-card" id="watchlistSummaryCard">
     <h2 class="watchlist-title">
-        <a href="/frontend/html/pages/watchlist.html" id="watchlist-link">⭐ Watchlist</a>
+        <a href="watchlist.html" id="watchlist-link">⭐ Watchlist</a>
     </h2>
-    <div class="watchlist-item">
-        <span class="symbol">AAPL</span>
-        <span class="price">$176.56</span>
-        <span class="change positive">+1.25%</span>
+
+    <!-- Aquí inyectaremos las acciones -->
+    <div id="watchlist-summary-items">
+        <p class="loading">Cargando tus favoritos…</p>
     </div>
-    <div class="watchlist-item">
-        <span class="symbol">TSLA</span>
-        <span class="price">$197.44</span>
-        <span class="change negative">-0.73%</span>
-    </div>
-    <div class="watchlist-item">
-        <span class="symbol">AMZN</span>
-        <span class="price">$129.99</span>
-        <span class="change positive">+0.45%</span>
-    </div>
-    <a href="/frontend/html/pages/watchlist.html" class="watchlist-button">Ver Detalles</a>
+
+    <a href="watchlist.html" class="watchlist-button">
+        Añadir acciones💵
+    </a>
 </div>
+
+<script>
+    (function(){
+
+        const API_BASE = 'http://localhost:8080/api/market';
+
+
+        const container = document.getElementById('watchlist-summary-items');
+        if (!container) {
+            console.warn('No existe el contenedor #watchlist-summary-items');
+            return;
+        }
+
+        // Carga y renderiza el resumen
+        async function loadSummary() {
+            // muestra estado de carga
+            container.innerHTML = '<p class="loading">Cargando tus favoritos…</p>';
+            try {
+                const res = await fetch(`${API_BASE}/watchlist`);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json(); // [{ symbol, quote:{currentPrice, previousClosePrice} }, ...]
+
+                // vacía
+                container.innerHTML = '';
+
+                if (!data.length) {
+                    container.innerHTML = '<p>No tienes acciones en tu Watchlist.</p>';
+                    return;
+                }
+
+                // itera y genera cada tarjeta
+                data.forEach(item => {
+                    const diff = item.quote.currentPrice - item.quote.previousClosePrice;
+                    const pct  = (diff / item.quote.previousClosePrice * 100).toFixed(2);
+                    const div  = document.createElement('div');
+                    div.className = 'watchlist-item';
+                    div.innerHTML = `
+          <span class="symbol">${item.symbol}</span>
+          <span class="price">$${item.quote.currentPrice.toFixed(2)}</span>
+          <span class="change ${diff >= 0 ? 'positive' : 'negative'}">
+            ${diff >= 0 ? '+' : ''}${pct}%
+          </span>
+        `;
+                    container.appendChild(div);
+                });
+
+            } catch(err) {
+                console.error('Error cargando resumen de Watchlist:', err);
+                container.innerHTML = '<p class="error">No se pudo cargar tu Watchlist.</p>';
+            }
+        }
+
+        // Lanza la carga inmediatamente
+        loadSummary();
+    })();
+</script>

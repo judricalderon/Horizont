@@ -32,6 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "http://127.0.0.1:5501",
                         "http://127.0.0.1:5500"
                 )
+
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*");
     }

@@ -76,18 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html";
         });
     }
-
     // Lógica del botón premium (si existe)
     const startBtn = document.getElementById("startPremiumBtn");
-    if (startBtn) {
-        startBtn.addEventListener("click", evt => {
-            evt.preventDefault();
-            const usuario = obtenerUsuarioAutenticado({ redirigir: true, permitirPremium: false });
-            if (usuario) {
-                window.location.href = "hazte-premium.html";
-            }
-        });
-    }
+
+    if (!startBtn) return;
+
+    startBtn.addEventListener("click", evt => {
+        evt.preventDefault();
+        const user = JSON.parse(localStorage.getItem("usuario"));
+        // Si hay sesión y es premium
+        if (user && user.esPremium) {
+            window.location.href = "hazte-premium.html";
+        } else {
+            // Si no está logueado o no es premium
+            window.location.href = "register.html";
+        }
+    });
+
 });
 export { obtenerUsuarioAutenticado };
 
