@@ -56,3 +56,4 @@ public class SuscripcionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(creada);
     }
 }
+
