@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Comisionista - Horizont</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/comisionista.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
+            </a>
+        </div>
+        <div class="nav-links" id="nav-session">
+            <a href="trading.html" class="nav-link">Trading</a>
+            <a href="#" class="nav-link btn-secondary" onclick="logout()">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="comisionista-container">
+        <!-- Sidebar Neumorphism -->
+        <aside class="sidebar-neu">
+            <div class="profile-section-neu">
+                <div class="profile-avatar-neu">
+                    <span class="material-icons">account_circle</span>
+                </div>
+                <div class="profile-info-neu">
+                    <h3 id="nombre-comisionista">Juan Pérez</h3>
+                    <span class="profile-role-neu">Comisionista Senior</span>
+                </div>
+                <div class="profile-stats-neu">
+                    <div class="stat-item-neu">
+                        <span class="material-icons">people</span>
+                        <span id="total-clientes">25</span>
+                    </div>
+                    <div class="stat-item-neu">
+                        <span class="material-icons">trending_up</span>
+                        <span id="total-operaciones">150</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav-neu">
+                <a href="#dashboard" class="nav-item-neu active"><span class="material-icons">dashboard</span>Dashboard</a>
+                <a href="#clientes" class="nav-item-neu"><span class="material-icons">people</span>Clientes</a>
+                <a href="#operaciones" class="nav-item-neu"><span class="material-icons">swap_horiz</span>Operaciones</a>
+                <a href="#reportes" class="nav-item-neu"><span class="material-icons">assessment</span>Reportes</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Dashboard -->
+            <section id="dashboard" class="content-section active">
+                <div class="section-header-neu">
+                    <h2>Dashboard</h2>
+                    <div class="header-actions">
+                        <button class="btn-neu btn-primary-neu">
+                            <span class="material-icons">add</span>
+                            Nueva Operación
+                        </button>
+                    </div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="card-neu">
+                        <div class="card-header-neu">
+                            <h3>Rendimiento del Mes</h3>
+                            <div class="card-actions">
+                                <button class="btn-icon-neu">
+                                    <span class="material-icons">more_vert</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container-neu">
+                            <canvas id="rendimientoChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-neu">
+                        <div class="card-header-neu">
+                            <h3>Clientes Activos</h3>
+                            <div class="card-actions">
+                                <button class="btn-icon-neu">
+                                    <span class="material-icons">more_vert</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container-neu">
+                            <canvas id="clientesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-neu">
+                        <div class="card-header-neu">
+                            <h3>Últimas Operaciones</h3>
+                            <div class="card-actions">
+                                <button class="btn-icon-neu">
+                                    <span class="material-icons">more_vert</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-container-neu">
+                            <table class="table-neu">
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Tipo</th>
+                                        <th>Monto</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ultimas-operaciones">
+                                    <!-- Se llenará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clientes -->
+            <section id="clientes" class="content-section">
+                <div class="section-header-neu">
+                    <h2>Gestión de Clientes</h2>
+                    <div class="header-actions">
+                        <button class="btn-neu btn-primary-neu">
+                            <span class="material-icons">person_add</span>
+                            Nuevo Cliente
+                        </button>
+                    </div>
+                </div>
+                <div class="clients-grid">
+                    <div class="search-bar-neu">
+                        <span class="material-icons">search</span>
+                        <input type="text" id="searchClient" placeholder="Buscar cliente..." class="input-neu">
+                    </div>
+                    <div class="table-container-neu">
+                        <table class="table-neu">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                    <th>Portafolio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientes-lista">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Operaciones -->
+            <section id="operaciones" class="content-section">
+                <div class="section-header-neu">
+                    <h2>Operaciones</h2>
+                    <div class="header-actions">
+                        <button class="btn-neu btn-primary-neu">
+                            <span class="material-icons">add</span>
+                            Nueva Operación
+                        </button>
+                    </div>
+                </div>
+                <div class="operations-grid">
+                    <div class="filters-bar-neu">
+                        <div class="filter-group-neu">
+                            <label>Estado</label>
+                            <select id="filterStatus" class="select-neu">
+                                <option value="all">Todos los estados</option>
+                                <option value="pending">Pendientes</option>
+                                <option value="completed">Completadas</option>
+                                <option value="cancelled">Canceladas</option>
+                            </select>
+                        </div>
+                        <div class="filter-group-neu">
+                            <label>Fecha</label>
+                            <input type="date" id="filterDate" class="input-neu">
+                        </div>
+                    </div>
+                    <div class="table-container-neu">
+                        <table class="table-neu">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Tipo</th>
+                                    <th>Monto</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="operaciones-lista">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reportes -->
+            <section id="reportes" class="content-section">
+                <div class="section-header-neu">
+                    <h2>Reportes</h2>
+                    <div class="header-actions">
+                        <button class="btn-neu btn-primary-neu" onclick="generarReporte()">
+                            <span class="material-icons">download</span>
+                            Generar Reporte
+                        </button>
+                    </div>
+                </div>
+                <div class="reports-grid">
+                    <div class="report-filters-neu">
+                        <div class="filter-group-neu">
+                            <label>Fecha Inicio</label>
+                            <input type="date" id="startDate" class="input-neu">
+                        </div>
+                        <div class="filter-group-neu">
+                            <label>Fecha Fin</label>
+                            <input type="date" id="endDate" class="input-neu">
+                        </div>
+                    </div>
+                    <div class="report-preview-neu">
+                        <div class="chart-container-neu">
+                            <canvas id="reportChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<!-- Pie de Página -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Acciones El Bosque</h4>
+            <div class="footer-contact">
+                <p>Universidad El Bosque</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><span class="material-icons">facebook</span></a>
+                <a href="#"><span class="material-icons">twitter</span></a>
+                <a href="#"><span class="material-icons">linkedin</span></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Trading</h4>
+            <ul>
+                <li><a href="trading.html">Plataforma de Trading</a></li>
+                <li><a href="portfolio.html">Mi Portafolio</a></li>
+                <li><a href="orders.html">Órdenes</a></li>
+                <li><a href="market.html">Mercado</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="notifications.html">Notificaciones</a></li>
+                <li><a href="learning.html">Educación</a></li>
+                <li><a href="support.html">Soporte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="terms.html">Términos de Uso</a></li>
+                <li><a href="privacy.html">Privacidad</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="AccesAdmin.html">Acceso Administrativo</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/comisionista.js"></script>
+</body>
+</html> 

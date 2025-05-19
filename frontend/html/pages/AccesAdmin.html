@@ -145,6 +145,16 @@
                 <small id="strength-text" class="form-hint"></small>
             </div>
 
+            <div class="form-group">
+                <span class="material-icons">supervisor_account</span>
+                <select id="perfil" name="perfil" required>
+                    <option value="" disabled selected>¿Qué usuario quieres registrar?</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="especialista">Especialista / Comisionista</option>
+                    <option value="auditor">Auditor / Legal</option>
+                </select>
+            </div>
+
             <div class="terms-privacy">
                 <label>
                     <input type="checkbox" id="termsAccept" required />
@@ -266,6 +276,7 @@
             const password        = pwdInput.value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const termsAccept     = document.getElementById('termsAccept').checked;
+            const perfil          = document.getElementById('perfil').value;
 
             submitBtn.disabled    = true;
             submitBtn.textContent = 'Procesando...';
@@ -286,7 +297,9 @@
             const userData = {
                 nombre, apellido, correo, telefono,
                 direccion, ciudad, estado, codigoPostal,
-                fechaNacimiento, ssn, password
+                fechaNacimiento, ssn, password,
+                perfil,
+                es_premium: 1
             };
 
             // 5) Registrar usuario
