@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Acciones El Bosque</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="stylesheet" href="../../styles/pages/contact.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-simple">
+        <div class="logo">
+            <img src="../../Resources/HORIZONT.png" class="logo-img" alt="HORIZONT">
+        </div>
+        <div class="nav-back">
+            <a href="index.html" class="back-link">
+                <span class="material-icons">arrow_back</span>
+                <span>Volver a Inicio</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-content">
+            <div class="contact-header">
+                <h1>Contacto</h1>
+                <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <span class="material-icons">location_on</span>
+                        <h3>Ubicación</h3>
+                        <p>Universidad El Bosque</p>
+                        <p>Bogotá, Colombia</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="material-icons">email</span>
+                        <h3>Email</h3>
+                        <p>soporte@accioneselbosque.com</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="material-icons">phone</span>
+                        <h3>Teléfono</h3>
+                        <p>+57 (1) 123-4567</p>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Acciones El Bosque</h4>
+                <div class="footer-contact">
+                    <p>Universidad El Bosque</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Trading</h4>
+                <ul>
+                    <li><a href="trading.html">Plataforma de Trading</a></li>
+                    <li><a href="portfolio.html">Mi Portafolio</a></li>
+                    <li><a href="orders.html">Órdenes</a></li>
+                    <li><a href="market.html">Mercado</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="notifications.html">Notificaciones</a></li>
+                    <li><a href="learning.html">Educación</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Términos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidad</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li><a href="AccesAdmin.html">Acceso Administrativo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Acciones El Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Mensaje enviado con éxito');
+                    this.reset();
+                } else {
+                    throw new Error('Error al enviar el mensaje');
+                }
+            } catch (error) {
+                alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
+            }
+        });
+    </script>
+</body>
+</html> 
