@@ -1,42 +1,26 @@
-const ONE_HOUR_MS = 60 * 60 * 1000;
-
-/**
- * Valida si hay un usuario autenticado, su sesión no ha caducado y permite configurar el comportamiento.
- * @param {Object} options
- * @param {boolean} options.redirigir - Si debe redirigir si no hay sesión (default: true)
- * @param {boolean} options.permitirPremium - Si debe permitir usuarios premium (default: true)
- * @returns {object|null} usuario si está autenticado, null si no lo está
- */
-function obtenerUsuarioAutenticado(options = { redirigir: true, permitirPremium: true }) {
-    let user = JSON.parse(localStorage.getItem("usuario"));
-    const now = Date.now();
-
-    // Validar expiración de sesión
-    if (user && user.loginTime && now - user.loginTime > ONE_HOUR_MS) {
-        localStorage.removeItem("usuario");
-        user = null;
-    }
-
-    if (user && !user.loginTime) {
-        user.loginTime = now;
-        localStorage.setItem("usuario", JSON.stringify(user));
-    }
-
-    if (!user && options.redirigir) {
-        window.location.href = "login.html";
-        return null;
-    }
-
-    if (user?.esPremium && options.permitirPremium === false) {
-        alert("Ya tienes una suscripción activa. ¡Gracias por ser premium!");
-        return null;
-    }
-
-    return user;
-}
-
+// js/utils/session.js
 document.addEventListener("DOMContentLoaded", () => {
-    const user = obtenerUsuarioAutenticado({ redirigir: false });
+    const ONE_HOUR_MS = 60 * 60 * 1000;
+    let user = JSON.parse(localStorage.getItem("usuario"));
+
+    // Si hay usuario, compruebo expiración
+    if (user) {
+        const now = Date.now();
+
+        // Si ya existe loginTime, revisa expiración
+        if (user.loginTime) {
+            if (now - user.loginTime > ONE_HOUR_MS) {
+                // Sesión caducada
+                localStorage.removeItem("usuario");
+                window.location.href = "login.html";
+                return;
+            }
+        } else {
+            // Primera vez que cargo este script tras login, guardo loginTime
+            user.loginTime = now;
+            localStorage.setItem("usuario", JSON.stringify(user));
+        }
+    }
 
     const userNameEl = document.getElementById("userName");
     const userGreetingEl = document.getElementById("userGreeting");
@@ -45,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutBtn = document.getElementById("logoutBtn");
 
     if (!user) {
-        // Redirigir si está en una página protegida
+        // Sin login: redirijo en páginas protegidas
         const protectedPages = [
             "portfolio.html",
             "notifications.html",
@@ -57,12 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     } else {
-        // Mostrar información en UI
-        if (userNameEl) userNameEl.textContent = user.nombre;
-        if (userGreetingEl) userGreetingEl.textContent = `Hola, ${user.nombre}`;
-        if (loginLink) loginLink.style.display = "none";
-        if (userInfo) userInfo.style.display = "flex";
+        // Mostrar datos de usuario en UI
+        if (userNameEl)      userNameEl.textContent = user.nombre;
+        if (userGreetingEl)  userGreetingEl.textContent = `Hola, ${user.nombre}`;
+        if (loginLink)       loginLink.style.display = "none";
+        if (userInfo)        userInfo.style.display = "flex";
 
+        // Ocultar link admin si no es admin
         if (user.rol !== "admin") {
             const adminLink = document.querySelector('a[href="admin.html"]');
             if (adminLink) adminLink.style.display = "none";
@@ -76,23 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html";
         });
     }
-    // Lógica del botón premium (si existe)
-    const startBtn = document.getElementById("startPremiumBtn");
-
-    if (!startBtn) return;
-
-    startBtn.addEventListener("click", evt => {
-        evt.preventDefault();
-        const user = JSON.parse(localStorage.getItem("usuario"));
-        // Si hay sesión y es premium
-        if (user && user.esPremium) {
-            window.location.href = "hazte-premium.html";
-        } else {
-            // Si no está logueado o no es premium
-            window.location.href = "register.html";
-        }
-    });
-
 });
-export { obtenerUsuarioAutenticado };
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startBtn = document.getElementById("startPremiumBtn");
+  if (!startBtn) return;
+
+  startBtn.addEventListener("click", evt => {
+    evt.preventDefault();
+    const user = JSON.parse(localStorage.getItem("usuario"));
+    // Si hay sesión y es premium
+    if (user && user.esPremium) {
+      window.location.href = "hazte-premium.html";
+    } else {
+      // Si no está logueado o no es premium
+      window.location.href = "register.html";
+    }
+  });
+});
 

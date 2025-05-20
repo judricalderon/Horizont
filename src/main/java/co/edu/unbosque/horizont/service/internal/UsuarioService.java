@@ -4,6 +4,7 @@ import co.edu.unbosque.horizont.dto.client.alpaca.*;
 import co.edu.unbosque.horizont.dto.internal.UsuarioDTO;
 import co.edu.unbosque.horizont.entity.Usuario;
 import co.edu.unbosque.horizont.exception.EmailAlreadyExistsException;
+import co.edu.unbosque.horizont.exception.UsernameNotFoundException;
 import co.edu.unbosque.horizont.repository.UsuarioRepository;
 import co.edu.unbosque.horizont.service.client.alpaca.InterfaceAlpacaClient;
 import org.modelmapper.ModelMapper;
@@ -195,4 +196,44 @@ public class UsuarioService implements InterfaceUsuarioService {
         }
         return sb.toString();
     }
+
+    // 1) Iniciar MFA
+    public boolean iniciarLoginMfa(Long idUsuario, String correo) {
+        Optional<Usuario> opt = usuarioRepository.findById(idUsuario);
+        if (opt.isEmpty()) return false;
+        Usuario u = opt.get();
+
+        String codigo = generarCodigoAleatorio(); // reutiliza tu método
+        u.setLoginCodigoVerificacion(codigo);
+        u.setLoginExpiracionCodigo(LocalDateTime.now().plusMinutes(5));
+        u.setLoginVerificado(false);
+        usuarioRepository.save(u);
+
+        correoService.enviarCodigoVerificacion(correo, codigo);
+        return true;
+    }
+
+    // 2) Verificar MFA
+    public boolean verificarLoginMfa(Long idUsuario, String codigoIngresado) {
+        Optional<Usuario> opt = usuarioRepository.findById(idUsuario);
+        if (opt.isEmpty()) return false;
+        Usuario u = opt.get();
+        // aquí usamos el isLoginVerificado()
+        if (u.isLoginVerificado()) return true;
+        if (codigoIngresado.equals(u.getLoginCodigoVerificacion())
+                && u.getLoginExpiracionCodigo().isAfter(LocalDateTime.now())) {
+            u.setLoginVerificado(true);
+            usuarioRepository.save(u);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public UsuarioDTO obtenerUsuarioDTOPorId(Long idUsuario) {
+        Usuario u = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+        return modelMapper.map(u, UsuarioDTO.class);
+    }
+
 }

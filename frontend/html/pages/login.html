@@ -83,7 +83,18 @@
                 </button>
             </div>
         </div>
+<form id="mfaForm" class="login-form" style="display:none;">
+  <div class="form-group">
+    <span class="material-icons">vpn_key</span>
+    <input type="text" id="mfaCode" name="mfaCode" placeholder="Código de Verificación" required>
+  </div>
+  <div id="mfa-error-message" class="error-message" style="display: none;">
+    Código inválido o expirado
+  </div>
+  <button type="submit" class="btn-login" id="mfaSubmitBtn">Verificar Código</button>
+</form>
 
+        
         <div class="login-footer">
             <p>¿No tienes una cuenta? <a href="register.html">Regístrate</a></p>
         </div>
@@ -140,97 +151,121 @@
 
 <!-- Scripts -->
 <script>
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
+  const baseUrl   = 'http://localhost:8080/usuarios';
+  const loginForm = document.getElementById('loginForm');
+  const mfaForm   = document.getElementById('mfaForm');
+  const errorMsg  = document.getElementById('error-message');
+  const mfaError  = document.getElementById('mfa-error-message');
+  let currentUserId = null;
 
-        // Ocultar mensaje de error previo
-        const errorMsg = document.getElementById('error-message');
-        errorMsg.style.display = 'none';
+  // Paso 1: envío de credenciales
+  loginForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    errorMsg.style.display = 'none';
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Procesando...';
 
-        // Desactivar botón para prevenir múltiples envíos
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Procesando...';
+    const correo   = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    if (!correo || !password) {
+      errorMsg.textContent = 'Todos los campos son obligatorios';
+      errorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Iniciar Sesión';
+      return;
+    }
 
-        const correo = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
+    try {
+      const resp = await fetch(`${baseUrl}/login/mfa/init`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ correo, password })
+      });
+      if (resp.status === 401) throw new Error('Credenciales incorrectas');
+      const data = await resp.json();
+      if (data.mfaRequired) {
+        currentUserId   = data.idUsuario;
+        loginForm.style.display = 'none';
+        mfaForm.style.display   = 'block';
+      }
+    } catch (err) {
+      errorMsg.textContent = err.message;
+      errorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Iniciar Sesión';
+    }
+  });
 
-        if (!correo || !password) {
-            errorMsg.textContent = 'Todos los campos son obligatorios';
-            errorMsg.style.display = 'block';
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Iniciar Sesión';
-            return;
-        }
+  // Paso 2: verificación de código MFA y guardado de sesión
+  mfaForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    mfaError.style.display = 'none';
+    const btn = document.getElementById('mfaSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Verificando...';
 
-        try {
-            const response = await fetch('http://localhost:8080/usuarios/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ correo, password })
-            });
+    const codigo = document.getElementById('mfaCode').value.trim();
+    if (!codigo) return;
 
-            if (response.status === 401) {
-                throw new Error('Usuario o contraseña incorrectos');
-            }
-            if (!response.ok) {
-                throw new Error('Error del servidor, intenta más tarde');
-            }
+    try {
+      const resp = await fetch(
+        `${baseUrl}/login/verify?idUsuario=${currentUserId}&codigo=${codigo}`,
+        { method: 'POST' }
+      );
+      if (!resp.ok) throw new Error('Código inválido o expirado');
 
-            const user = await response.json();
-            // Guardar sesión
-            localStorage.setItem('usuario', JSON.stringify(user));
+      // Aquí recibimos directamente el UsuarioDTO
+      const usuario = await resp.json();
 
-            // Redirigir según esPremium (o según rol si lo añades después)
-            if (user.esPremium) {
-                window.location.href = 'trading.html';
-            } else {
-                window.location.href = 'trading.html';
-            }
+      // Guardamos loginTime y el objeto usuario para utils/session.js
+      usuario.loginTime = Date.now();
+      localStorage.setItem('usuario', JSON.stringify(usuario));
 
-        } catch (err) {
-            errorMsg.textContent = err.message;
-            errorMsg.style.display = 'block';
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Iniciar Sesión';
-        }
-    });
+    // Redirige según si es admin o premium
+    if (usuario.isAdmin) {
+    window.location.href = 'admin.html';
+    } else {
+    window.location.href = 'trading.html';
+    }
 
-    // Hover en táctil
-    document.querySelectorAll('button, a').forEach(element => {
-        element.addEventListener('touchstart', function() {
-            this.classList.add('hover-effect');
-        });
-        element.addEventListener('touchend', function() {
-            this.classList.remove('hover-effect');
-        });
-    });
+    } catch (err) {
+      mfaError.textContent = err.message;
+      mfaError.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Verificar Código';
+    }
+  });
 
-    // Toggle de visibilidad de contraseña
-    const toggle = document.getElementById('togglePassword');
-    const pwdInput = document.getElementById('password');
-    toggle.addEventListener('click', () => {
-        const show = pwdInput.type === 'password';
-        pwdInput.type = show ? 'text' : 'password';
-        toggle.textContent = show ? 'visibility_off' : 'visibility';
-    });
+  // Hover en táctil
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('touchstart', () => el.classList.add('hover-effect'));
+    el.addEventListener('touchend',   () => el.classList.remove('hover-effect'));
+  });
 
-    // Si ya hay sesión guardada, redirige directo
-    window.addEventListener('load', () => {
-            const user = JSON.parse(localStorage.getItem('usuario'));
-            if (user) {
-                window.location.href = user.esPremium ? 'trading.html' : 'trading.html';
-            }
+  // Toggle visibilidad de contraseña
+  const toggle = document.getElementById('togglePassword');
+  const pwdInput = document.getElementById('password');
+  toggle.addEventListener('click', () => {
+    const show = pwdInput.type === 'password';
+    pwdInput.type = show ? 'text' : 'password';
+    toggle.textContent = show ? 'visibility_off' : 'visibility';
+  });
 
+ // Si ya hay sesión guardada, redirige según rol
+window.addEventListener('load', () => {
+  const user = JSON.parse(localStorage.getItem('usuario'));
+  if (user) {
+    if (user.isAdmin) {
+      window.location.href = 'admin.html';
+    } else {
+      window.location.href = 'trading.html';
+    }
+  }
+});
 
-        }
-
-
-    );
 </script>
 
 
-
-<script src="../../js/utils/auth.js"></script>
 </body>
 </html>

@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
  * Esta clase se almacena en la base de datos y contiene información personal,
  * de autenticación y de estado de verificación del usuario.
  */
-
 @Entity
 public class Usuario {
 
@@ -35,13 +34,17 @@ public class Usuario {
     private LocalDateTime expiracionCodigo;
     private boolean verificado = false;
 
+    // Campos para verificación de login
+    private String loginCodigoVerificacion;
+    private LocalDateTime loginExpiracionCodigo;
+    private boolean loginVerificado = false;
+
     private String password;
     private boolean esPremium = false;
-
+    private boolean isAdmin = false;
     /**
      * Constructor vacío requerido por JPA.
      */
-
     public Usuario() {}
 
     /**
@@ -59,11 +62,11 @@ public class Usuario {
      * @param fechaNacimiento fecha de nacimiento
      * @param ssn número de seguro social o identificador legal
      * @param codigoVerificacion código enviado para verificar la cuenta
+     * @param isAdmin
      */
-
     public Usuario(String nombre, String apellido, String correo, String telefono, String direccion,
                    String ciudad, String estado, String codigoPostal, String pais,
-                   LocalDate fechaNacimiento, String ssn, String codigoVerificacion) {
+                   LocalDate fechaNacimiento, String ssn, String codigoVerificacion, boolean isAdmin) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -78,6 +81,10 @@ public class Usuario {
         this.codigoVerificacion = codigoVerificacion;
         this.verificado = false;
         this.expiracionCodigo = null;
+        this.loginCodigoVerificacion = null;
+        this.loginExpiracionCodigo = null;
+        this.loginVerificado = false;
+        this.isAdmin = isAdmin;
     }
 
     /** @return ID del usuario */
@@ -170,6 +177,24 @@ public class Usuario {
     /** @param verificado {@code true} si el usuario ha sido verificado */
     public void setVerificado(boolean verificado) { this.verificado = verificado; }
 
+    /** @return código de verificación para login */
+    public String getLoginCodigoVerificacion() { return loginCodigoVerificacion; }
+
+    /** @param loginCodigoVerificacion código de verificación para login */
+    public void setLoginCodigoVerificacion(String loginCodigoVerificacion) { this.loginCodigoVerificacion = loginCodigoVerificacion; }
+
+    /** @return fecha y hora de expiración del código de login */
+    public LocalDateTime getLoginExpiracionCodigo() { return loginExpiracionCodigo; }
+
+    /** @param loginExpiracionCodigo fecha y hora de expiración del código de login */
+    public void setLoginExpiracionCodigo(LocalDateTime loginExpiracionCodigo) { this.loginExpiracionCodigo = loginExpiracionCodigo; }
+
+    /** @return {@code true} si el login ha sido verificado */
+    public boolean isLoginVerificado() { return loginVerificado; }
+
+    /** @param loginVerificado {@code true} si el login ha sido verificado */
+    public void setLoginVerificado(boolean loginVerificado) { this.loginVerificado = loginVerificado; }
+
     /** @return contraseña del usuario */
     public String getPassword() { return password; }
 
@@ -181,4 +206,12 @@ public class Usuario {
 
     /** @param esPremium {@code true} si el usuario tiene una suscripción premium */
     public void setEsPremium(boolean esPremium) { this.esPremium = esPremium; }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 }
