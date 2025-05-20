@@ -36,4 +36,31 @@ public interface InterfaceUsuarioService {
      *         de lo contrario, un {@code Optional.empty()}
      */
     Optional<Usuario> login(String correo, String rawPassword);
+
+    /**
+     * Inicia el proceso MFA (Multi-Factor Authentication) para login enviando
+     * un código de verificación al usuario.
+     *
+     * @param idUsuario el identificador del usuario al que se le enviará el código
+     * @param correo la dirección de correo electrónico donde se enviará el código
+     * @return {@code true} si el envío y registro del código fue exitoso; {@code false} si el usuario no existe
+     */
+    boolean iniciarLoginMfa(Long idUsuario, String correo);
+
+    /**
+     * Verifica el código MFA ingresado durante el proceso de login.
+     *
+     * @param idUsuario el identificador del usuario que está intentando verificar el código
+     * @param codigoIngresado el código de verificación que el usuario ingresó
+     * @return {@code true} si el código es correcto y está dentro del tiempo de validez; {@code false} en caso contrario
+     */
+    boolean verificarLoginMfa(Long idUsuario, String codigoIngresado);
+
+    /**
+     * Obtiene el DTO de un usuario por su ID.
+     *
+     * @param idUsuario el ID del usuario
+     * @return el {@link UsuarioDTO} con datos básicos y extendidos
+     */
+    UsuarioDTO obtenerUsuarioDTOPorId(Long idUsuario);
 }

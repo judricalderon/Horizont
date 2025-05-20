@@ -17,6 +17,7 @@ import co.edu.unbosque.horizont.dto.internal.LoginRequestDTO;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -80,7 +81,7 @@ public class UsuarioController {
             UsuarioDTO respuesta = usuarioService.registrarUsuarioDesdeDTO(dto);
             return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
 
-   
+
 
 
         } catch (EmailAlreadyExistsException e) {
@@ -169,5 +170,46 @@ public class UsuarioController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
+
+    // --- MFA Login ---
+
+    /**
+     * Paso 1: Verifica credenciales y envía código al correo si son válidas.
+     */
+    @PostMapping("/login/mfa/init")
+    public ResponseEntity<?> loginMfaInit(@RequestBody LoginRequestDTO req) {
+        return usuarioService.login(req.getCorreo(), req.getPassword())
+                .map(u -> {
+                    // Iniciar MFA: genera y envía código
+                    usuarioService.iniciarLoginMfa(u.getId(), u.getCorreo());
+                    return Map.of(
+                            "mfaRequired", true,
+                            "idUsuario", u.getId()
+                    );
+                })
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
+    /**
+     * Paso 2: Verifica el código MFA e inicia sesión (retorna token o datos de sesión).
+     */
+    @PostMapping("/login/verify")
+    public ResponseEntity<?> loginMfaVerify(
+            @RequestParam Long idUsuario,
+            @RequestParam String codigo) {
+        boolean ok = usuarioService.verificarLoginMfa(idUsuario, codigo);
+        if (!ok) {
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body("Código inválido o expirado.");
+        }
+
+        // Obtenemos el DTO del usuario y lo devolvemos
+        UsuarioDTO usuarioDto = usuarioService.obtenerUsuarioDTOPorId(idUsuario);
+        return ResponseEntity.ok(usuarioDto);
+    }
+
+
 
 }

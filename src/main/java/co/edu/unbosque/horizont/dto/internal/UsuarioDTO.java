@@ -34,7 +34,10 @@ public class UsuarioDTO {
     private boolean verificado;
     private String password;
     private boolean esPremium;
-
+    private String loginCodigoVerificacion;
+    private LocalDateTime loginExpiracionCodigo;
+    private boolean loginVerificado;
+    private boolean isAdmin = false;
     /**
      * Constructor vacío para frameworks que requieren instanciación por reflexión.
      */
@@ -60,14 +63,18 @@ public class UsuarioDTO {
      * @param verificado indica si el usuario ha sido verificado
      * @param password contraseña del usuario
      * @param esPremium indica si el usuario tiene una suscripción premium
+     * @param loginCodigoVerificacion código de verificación usado para login
+     * @param loginExpiracionCodigo fecha y hora de expiración del código de login
+     * @param loginVerificado indica si el login ha sido verificado
+     * @param isAdmin  Indica si el usuario es admin
      */
-
 
     public UsuarioDTO(Long id, String nombre, String apellido, String correo, String telefono, String direccion,
                       String ciudad, String estado, String codigoPostal, String pais,
                       LocalDate fechaNacimiento, String ssn, String codigoVerificacion,
                       LocalDateTime expiracionCodigo, boolean verificado,
-                      String password, boolean esPremium) {
+                      String loginCodigoVerificacion, LocalDateTime loginExpiracionCodigo, boolean loginVerificado,
+                      String password, boolean esPremium, boolean isAdmin) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -83,8 +90,12 @@ public class UsuarioDTO {
         this.codigoVerificacion = codigoVerificacion;
         this.expiracionCodigo = expiracionCodigo;
         this.verificado = verificado;
+        this.loginCodigoVerificacion = loginCodigoVerificacion;
+        this.loginExpiracionCodigo = loginExpiracionCodigo;
+        this.loginVerificado = loginVerificado;
         this.password = password;
         this.esPremium = esPremium;
+        this.isAdmin = isAdmin;
     }
 
     /** @return ID del usuario */
@@ -188,4 +199,36 @@ public class UsuarioDTO {
 
     /** @param esPremium {@code true} si el usuario tiene suscripción premium */
     public void setEsPremium(boolean esPremium) { this.esPremium = esPremium; }
+
+    public String getLoginCodigoVerificacion() {
+        return loginCodigoVerificacion;
+    }
+
+    public void setLoginCodigoVerificacion(String loginCodigoVerificacion) {
+        this.loginCodigoVerificacion = loginCodigoVerificacion;
+    }
+
+    public LocalDateTime getLoginExpiracionCodigo() {
+        return loginExpiracionCodigo;
+    }
+
+    public void setLoginExpiracionCodigo(LocalDateTime loginExpiracionCodigo) {
+        this.loginExpiracionCodigo = loginExpiracionCodigo;
+    }
+
+    public boolean isLoginVerificado() {
+        return loginVerificado;
+    }
+
+    public void setLoginVerificado(boolean loginVerificado) {
+        this.loginVerificado = loginVerificado;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 }
