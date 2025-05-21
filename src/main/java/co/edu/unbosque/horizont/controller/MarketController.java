@@ -1,6 +1,7 @@
 package co.edu.unbosque.horizont.controller;
 
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteWithSymbolDTO;
+import co.edu.unbosque.horizont.dto.client.finnhub.HistoryDTO;
 import co.edu.unbosque.horizont.service.internal.InterfaceMarketService;
 import co.edu.unbosque.horizont.service.internal.InterfaceWatchlistService;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,23 @@ public class MarketController {
         List<QuoteWithSymbolDTO> quotes = marketService.getRealtimeQuotes(symbols);
         return ResponseEntity.ok(quotes);
     }
+
+    /**
+     * Endpoint para obtener histórico de precios según timeframe:
+     * - 1D: últimas 24h con velas 5m
+     * - 1W: última semana con velas diarias
+     * - 1M: último mes con velas diarias
+     * - 1A: último año con velas semanales
+     * Ejemplo: GET /api/market/history?symbol=AAPL&timeframe=1D
+     */
+    @GetMapping("/history")
+    public ResponseEntity<HistoryDTO> getHistory(
+            @RequestParam("symbol") String symbol,
+            @RequestParam(value = "timeframe", defaultValue = "1D") String timeframe) {
+        HistoryDTO dto = marketService.getHistoryByTimeframe(symbol, timeframe);
+        return ResponseEntity.ok(dto);
+    }
+
 
     /**
      * Guarda o actualiza la Watchlist de un usuario premium.
