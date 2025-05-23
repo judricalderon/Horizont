@@ -1,5 +1,6 @@
 package co.edu.unbosque.horizont.service.client.finnhub;
 
+import co.edu.unbosque.horizont.dto.client.finnhub.HistoryDTO;
 import co.edu.unbosque.horizont.dto.client.finnhub.QuoteDTO;
 /**
  * Interfaz para el cliente de consumo de la API de Finnhub.
@@ -14,4 +15,6 @@ public interface InterfaceFinnhubClient {
      * @return un objeto {@link QuoteDTO} que contiene los datos de la cotización.
      */
 QuoteDTO getQuote(String symbol);
+
+    HistoryDTO getStockCandles(String symbol, String resolution, long from, long to);
 }

@@ -38,6 +38,7 @@ public class UsuarioDTO {
     private LocalDateTime loginExpiracionCodigo;
     private boolean loginVerificado;
     private boolean isAdmin = false;
+    private double balanceUsd = 0.0;
     /**
      * Constructor vacío para frameworks que requieren instanciación por reflexión.
      */
@@ -67,6 +68,7 @@ public class UsuarioDTO {
      * @param loginExpiracionCodigo fecha y hora de expiración del código de login
      * @param loginVerificado indica si el login ha sido verificado
      * @param isAdmin  Indica si el usuario es admin
+     * @param balanceUsd Saldo del usuario
      */
 
     public UsuarioDTO(Long id, String nombre, String apellido, String correo, String telefono, String direccion,
@@ -74,7 +76,7 @@ public class UsuarioDTO {
                       LocalDate fechaNacimiento, String ssn, String codigoVerificacion,
                       LocalDateTime expiracionCodigo, boolean verificado,
                       String loginCodigoVerificacion, LocalDateTime loginExpiracionCodigo, boolean loginVerificado,
-                      String password, boolean esPremium, boolean isAdmin) {
+                      String password, boolean esPremium, boolean isAdmin, double balanceUsd) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -96,6 +98,7 @@ public class UsuarioDTO {
         this.password = password;
         this.esPremium = esPremium;
         this.isAdmin = isAdmin;
+        this.balanceUsd = balanceUsd;
     }
 
     /** @return ID del usuario */
@@ -230,5 +233,13 @@ public class UsuarioDTO {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public double getBalanceUsd() {
+        return balanceUsd;
+    }
+
+    public void setBalanceUsd(double balanceUsd) {
+        this.balanceUsd = balanceUsd;
     }
 }

@@ -2,15 +2,22 @@ package co.edu.unbosque.horizont.service.client.alpaca;
 
 import co.edu.unbosque.horizont.dto.client.alpaca.AlpacaAccountDTO;
 
-import co.edu.unbosque.horizont.service.client.alpaca.InterfaceAlpacaClient;
-
+import co.edu.unbosque.horizont.dto.client.alpaca.AlpacaOrderResultDTO;
+import co.edu.unbosque.horizont.entity.TipoOrden;
+import co.edu.unbosque.horizont.service.internal.TradeServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+
+import java.util.Map;
 
 /**
  * Servicio que implementa la comunicación con la API externa de Alpaca para la creación de cuentas de usuario.
@@ -22,6 +29,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class AlpacaClient implements InterfaceAlpacaClient {
+
+    private static final Logger log = LoggerFactory.getLogger(TradeServiceImpl.class);
     /**
      * Clave pública de la API de Alpaca, inyectada desde el archivo de configuración.
      */
@@ -45,6 +54,15 @@ public class AlpacaClient implements InterfaceAlpacaClient {
      *
      * @param builder objeto utilizado para construir el {@code RestTemplate}
      */
+
+    // Para trading de mercado (paper)
+    @Value("${alpaca.paper.api_key}")
+    private String paperApiKey;
+    @Value("${alpaca.paper.api_secret}")
+    private String paperApiSecret;
+    @Value("${alpaca.paper.api_url}")
+    private String paperUrl;
+
     public AlpacaClient(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
@@ -93,4 +111,44 @@ public class AlpacaClient implements InterfaceAlpacaClient {
                     .body("Error al crear cuenta en Alpaca: " + e.getMessage());
         }
     }
-}
+    public double getLastPrice(String simbolo) {
+        // Implementación real usando la API de Alpaca
+        // o devuelve un valor simulado por ahora
+        return 123.45; // ejemplo temporal
+    }
+
+    @Override
+    public AlpacaOrderResultDTO placeOrder(String symbol, int quantity, TipoOrden tipo) {
+        // Construimos la URL para Paper-Trading
+        String url = paperUrl + "/orders";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("APCA-API-KEY-ID",    paperApiKey);
+        headers.add("APCA-API-SECRET-KEY", paperApiSecret);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String,Object> body = Map.of(
+                "symbol",        symbol,
+                "qty",           quantity,
+                "side",          (tipo == TipoOrden.COMPRA ? "buy" : "sell"),
+                "type",          "market",
+                "time_in_force", "gtc"
+        );
+
+        HttpEntity<Map<String,Object>> req = new HttpEntity<>(body, headers);
+
+        try {
+            ResponseEntity<AlpacaOrderResultDTO> resp =
+                    restTemplate.postForEntity(url, req, AlpacaOrderResultDTO.class);
+
+            if (resp.getStatusCode().is2xxSuccessful() && resp.getBody() != null) {
+                return resp.getBody();
+            }
+            throw new RuntimeException("Orden rechazada: " + resp.getStatusCode());
+
+        } catch (HttpClientErrorException.Forbidden forb) {
+            log.error("Alpaca Paper Trading 403 Forbidden: {}", forb.getResponseBodyAsString());
+            throw forb;
+        }
+
+    }}

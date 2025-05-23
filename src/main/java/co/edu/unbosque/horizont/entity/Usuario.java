@@ -42,6 +42,9 @@ public class Usuario {
     private String password;
     private boolean esPremium = false;
     private boolean isAdmin = false;
+    private double balanceUsd = 0.0;
+
+
     /**
      * Constructor vacío requerido por JPA.
      */
@@ -63,10 +66,11 @@ public class Usuario {
      * @param ssn número de seguro social o identificador legal
      * @param codigoVerificacion código enviado para verificar la cuenta
      * @param isAdmin
+     * @param balanceUsd Saldo del usuario
      */
     public Usuario(String nombre, String apellido, String correo, String telefono, String direccion,
                    String ciudad, String estado, String codigoPostal, String pais,
-                   LocalDate fechaNacimiento, String ssn, String codigoVerificacion, boolean isAdmin) {
+                   LocalDate fechaNacimiento, String ssn, String codigoVerificacion, boolean isAdmin, double balanceUsd) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -85,6 +89,7 @@ public class Usuario {
         this.loginExpiracionCodigo = null;
         this.loginVerificado = false;
         this.isAdmin = isAdmin;
+        this.balanceUsd = balanceUsd;
     }
 
     /** @return ID del usuario */
@@ -213,5 +218,13 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public double getBalanceUsd() {
+        return balanceUsd;
+    }
+
+    public void setBalanceUsd(double balanceUsd) {
+        this.balanceUsd = balanceUsd;
     }
 }
