@@ -20,5 +20,7 @@ public interface InterfaceAlpacaClient {
      */
     ResponseEntity<String> crearCuenta(AlpacaAccountDTO cuenta);
 
+    double getLastPrice(String simbolo);
+
     AlpacaOrderResultDTO placeOrder(String symbol, int quantity, TipoOrden tipo);
 }

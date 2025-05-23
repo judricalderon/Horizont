@@ -72,4 +72,6 @@ public class QuoteDTO {
     public void setPreviousClosePrice(double previousClosePrice) {
         this.previousClosePrice = previousClosePrice;
     }
+
+
 }
