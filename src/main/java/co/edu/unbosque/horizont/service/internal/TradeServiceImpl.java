@@ -69,23 +69,31 @@ public class TradeServiceImpl implements InterfaceTradeService {
         log.info("Iniciando ejecución de orden: usuarioId={}, simbolo={}, cantidad={}, tipo={}",
                 usuarioId, req.getSimbolo(), req.getCantidad(), req.getTipo());
 
+        // 1) Generar resumen (preview)
         OrdenResumenDTO resumen = previewOrder(usuarioId, req);
         log.info("Resumen generado: precioActual={}, totalEstimado={}",
                 resumen.getPrecioActual(), resumen.getTotalEstimado());
 
+        // 2) Enviar la orden a Alpaca
         AlpacaOrderResultDTO result = alpaca.placeOrder(
                 req.getSimbolo(),
                 req.getCantidad(),
                 req.getTipo()
         );
-        log.info("Orden enviada a Alpaca. ID={}, precioEjecutado={}",
+        log.info("Orden enviada a Alpaca. ID={}, precioEjecutado raw={}",
                 result.getId(), result.getFilledAvgPrice());
 
+        // 3) Fallback: si Alpaca devuelve 0.0, usamos el precio de preview
+        double executedPrice = result.getFilledAvgPrice();
+        if (executedPrice <= 0.0) {
+            log.warn("filledAvgPrice==0, usando precio de preview: {}", resumen.getPrecioActual());
+            executedPrice = resumen.getPrecioActual();
+        }
+        double total = executedPrice * req.getCantidad();
+
+        // 4) Ajustar balance y posiciones
         Usuario u = usuarioRepo.findById(usuarioId)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        double executedPrice = result.getFilledAvgPrice();
-        double total = executedPrice * req.getCantidad();
 
         if (req.getTipo() == TipoOrden.COMPRA) {
             u.setBalanceUsd(u.getBalanceUsd() - total);
@@ -115,6 +123,7 @@ public class TradeServiceImpl implements InterfaceTradeService {
         usuarioRepo.save(u);
         log.info("Usuario actualizado en base de datos: id={}", u.getId());
 
+        // 5) Guardar la orden en BD
         Orden orden = new Orden();
         orden.setUsuario(u);
         orden.setSimbolo(req.getSimbolo());
@@ -129,6 +138,7 @@ public class TradeServiceImpl implements InterfaceTradeService {
         log.info("Orden guardada en base de datos: id={}, simbolo={}, estado={}",
                 orden.getId(), orden.getSimbolo(), orden.getEstado());
 
+        // 6) Retornar DTO con el precio correcto
         return new OrdenResponseDTO(
                 req.getSimbolo(),
                 req.getCantidad(),

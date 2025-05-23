@@ -382,3 +382,45 @@
     transform: translateY(0);
   }
 }
+
+/* ================== ESTILOS PARA EL PANEL DE ÓRDENES ================== */
+
+.total-preview {
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  background-color: #f5f7fa;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+
+.total-preview:hover {
+  background-color: #e9eef5;
+}
+.total-preview {
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.total-compra {
+  background-color: #e6f5ec;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.total-venta {
+  background-color: #fdecea;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
