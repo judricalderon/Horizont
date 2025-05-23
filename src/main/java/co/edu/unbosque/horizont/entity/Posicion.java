@@ -3,13 +3,14 @@ package co.edu.unbosque.horizont.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "posicion")
 public class Posicion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     private String simbolo;
@@ -25,6 +26,13 @@ public class Posicion {
         this.cantidad = cantidad;
     }
 
+    public Posicion(Usuario usuario, String simbolo, int cantidad) {
+        this.usuario = usuario;
+        this.simbolo = simbolo;
+        this.cantidad = cantidad;
+    }
+
+    // Getters y Setters
     public Long getId() {
         return id;
     }

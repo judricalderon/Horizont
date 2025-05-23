@@ -179,56 +179,75 @@ document.addEventListener('DOMContentLoaded', async () => {
     tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:#888">No se pudieron cargar los símbolos.</td></tr>`;
   }
 
-  // 2) Función para mostrar el gráfico con fallback de datos
-  async function showSymbolChart(symbol, timeframe = '1D') {
-    const res1 = await fetch(`${API_BASE}/history?symbol=${symbol}&timeframe=${timeframe}`);
-    if (!res1.ok) throw new Error('No se pudo cargar historial');
-    let { t, c } = await res1.json();
+// 2) Función para mostrar el gráfico con fallback de datos
+async function showSymbolChart(symbol, timeframe = '1D') {
+  const res1 = await fetch(`${API_BASE}/history?symbol=${symbol}&timeframe=${timeframe}`);
+  if (!res1.ok) throw new Error('No se pudo cargar historial');
+  let { t, c } = await res1.json();
 
-    // fallback: datos “dummy” si viene vacío
-    if (!t.length) {
-      const now = Math.floor(Date.now()/1000);
-      t = Array.from({length:12}, (_,i) => now - (11-i)*2*3600);
-      // obtener precio actual como base
-      let base = 100;
-      try {
-        const qres = await fetch(`${API_BASE}/quotes?symbols=${symbol}`);
-        if (qres.ok) {
-          const qd = await qres.json();
-          base = qd[0]?.quote.c || base;
-        }
-      } catch{}
-      c = t.map((_,i) => +(base * (0.95 + 0.1*(i/11))).toFixed(2));
+  // fallback: datos “dummy” si viene vacío
+  if (!t.length) {
+    // Generar 12 timestamps espaciados cada 2 horas hacia atrás
+    const now = Math.floor(Date.now() / 1000);
+    t = Array.from({ length: 12 }, (_, i) => now - (11 - i) * 2 * 3600);
+
+    // Obtener precio actual como base
+    let base = 100;
+    try {
+      const qres = await fetch(`${API_BASE}/quotes?symbols=${symbol}`);
+      if (qres.ok) {
+        const qd = await qres.json();
+        base = qd[0]?.quote.c || base;
+      }
+    } catch { /* silent */ }
+
+    // Generar valores con pequeña variación aleatoria
+    c = [];
+    let current = base;
+    for (let i = 0; i < t.length; i++) {
+      // variación aleatoria de hasta ±1.5%
+      const changePct = (Math.random() - 0.5) * 0.03;
+      current = parseFloat((current * (1 + changePct)).toFixed(2));
+      c.push(current);
     }
+  }
 
-    const labels = t.map(ts => {
-      const d = new Date(ts*1000);
-      return d.getHours() + ':' + String(d.getMinutes()).padStart(2,'0');
-    });
+  // Preparar labels de horas:minutos
+  const labels = t.map(ts => {
+    const d = new Date(ts * 1000);
+    return d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
+  });
 
-    const data = { labels, datasets: [{
+  // Configuración del dataset
+  const data = {
+    labels,
+    datasets: [{
       label: `${symbol} precio (USD)`,
       data: c,
       fill: false,
       tension: 0.1
-    }]};
+    }]
+  };
 
-    if (chartInstance) chartInstance.destroy();
-    const ctx = document.getElementById('symbolChart').getContext('2d');
-    chartInstance = new Chart(ctx, {
-      type: 'line',
-      data,
-      options: {
-        scales: {
-          x: { display: true, title: { display: true, text: 'Hora' } },
-          y: { display: true, title: { display: true, text: 'Precio (USD)' } }
-        }
+  // Renderizar el chart
+  if (chartInstance) chartInstance.destroy();
+  const ctx = document.getElementById('symbolChart').getContext('2d');
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data,
+    options: {
+      scales: {
+        x: { display: true, title: { display: true, text: 'Hora' } },
+        y: { display: true, title: { display: true, text: 'Precio (USD)' } }
       }
-    });
+    }
+  });
 
-    document.getElementById('selectedSymbolHeader')
-      .textContent = `${symbol} — ${timeframe==='1D'?'Últimas 24h':timeframe}`;
-  }
+  // Actualizar encabezado
+  document.getElementById('selectedSymbolHeader')
+    .textContent = `${symbol} — ${timeframe === '1D' ? 'Últimas 24h' : timeframe}`;
+}
+
 
   // 3) Timeframe buttons
   document.querySelectorAll('.btn-timeframe').forEach(btn => {
