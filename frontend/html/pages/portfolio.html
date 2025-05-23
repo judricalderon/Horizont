@@ -100,29 +100,34 @@
         </div>
     </section>
 
-    <!-- NUEVA TARJETA: Ganancias y Comisiones -->
-    <section class="portfolio-card rounded-card">
-        <div class="portfolio-card-header">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ganancias" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
-            Ganancias y Comisiones
-        </div>
-        <div class="portfolio-card-body">
-            <table class="portfolio-table">
-                <thead>
-                <tr>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Símbolo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Símbolo</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Ganancia" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Ganancia/Pérdida</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Comisión" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisión Total</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="ElBosque" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">ElBosque</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Comisionista" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisionista</th>
-                </tr>
-                </thead>
-                <tbody id="gainsCommissionsTableBody">
-                <!-- Datos dinámicos -->
-                </tbody>
-            </table>
-        </div>
-    </section>
+  <!-- NUEVA TARJETA: Ganancias y Comisiones -->
+<section class="portfolio-card rounded-card">
+  <div class="portfolio-card-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ganancias" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+    Ganancias y Comisiones
+  </div>
+
+  <div class="portfolio-card-body">
+    <div class="scrollable-table">
+      <table class="portfolio-table">
+        <thead>
+          <tr>
+            <th><span class="material-icons">show_chart</span> Símbolo</th>
+            <th><span class="material-icons">trending_up</span> Ganancia/Pérdida</th>
+            <th><span class="material-icons">attach_money</span> Comisión Total</th>
+            <th><span class="material-icons">person</span> Horizont</th>
+            <!-- Columna futura (oculta) -->
+            <th class="hide-column"><span class="material-icons">groups</span> Comisionista</th>
+          </tr>
+        </thead>
+        <tbody id="gainsCommissionsTableBody">
+          <!-- Datos dinámicos -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 
 
     <div id="watchlist-content"></div>
@@ -134,6 +139,13 @@
             <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Órdenes" style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
             Historial de Órdenes
         </div>
+        <div class="history-filters search-wrapper">
+         <span class="material-icons">search</span>
+        <input type="text" id="searchInput" placeholder="Buscar..." />
+        </div>
+        
+        <div class="history-table">
+            <div class="scrollable-table">
         <div class="portfolio-card-body">
             <table class="portfolio-table">
                 <thead>
@@ -141,7 +153,6 @@
                     <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Fecha" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Fecha</th>
                     <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Tipo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Tipo de Orden</th>
                     <th><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Estado" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Estado</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Comisionista" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Comisionista</th>
                     <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Símbolo" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Símbolo</th>
                     <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Cantidad" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Cantidad</th>
                     <th><img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Precio" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">Precio</th>
@@ -153,6 +164,8 @@
                 <!-- Datos dinámicos -->
                 </tbody>
             </table>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -355,23 +368,7 @@
             </div>
         </div>
 
-        <div class="history-table">
-            <table>
-                <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Tipo</th>
-                    <th>Símbolo</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Total</th>
-                    <th>Estado</th>
-                </tr>
-                </thead>
-                <tbody id="historyTableBody">
-                <!-- El historial se cargará dinámicamente -->
-                </tbody>
-            </table>
+       
         </div>
     </section>
 </main>
@@ -381,6 +378,9 @@
 
 <!-- 1) session.js -->
 <script src="../../js/session.js"></script>
+
+<!-- 1.1) portfolio.js -->
+<script src="../../js/portfolio.js"></script>
 
 
 <!-- 2) Exponemos `usuario` e `isPremium` ANTES de cargar el summary -->

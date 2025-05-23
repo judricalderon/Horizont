@@ -15,17 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const orderHistoryDiv = document.querySelector('.order-history');
   const positionsDiv    = document.querySelector('.positions-list');
 
-  async function loadOrderHistory() {
-    const res = await fetch(`http://localhost:8080/api/trade/list/${userId}`);
-    const orders = await res.json();
-    orderHistoryDiv.innerHTML = orders.map(o => `
-      <div class="order-entry">
-        <span>${o.fecha?.slice(0,19).replace('T',' ')}</span>
-        <strong>${o.tipo}</strong> ${o.simbolo} x${o.cantidad}
-        @ $${o.precioEjecutado.toFixed(2)} → <em>${o.estado}</em>
-      </div>
-    `).join('');
-  }
 
   async function loadPositions() {
     const res = await fetch(`http://localhost:8080/api/trade/list/${userId}`);
@@ -151,7 +140,6 @@ async function updateTotalPreview() {
       return;
     }
 
-    await loadOrderHistory();
     await loadPositions();
   }
 
