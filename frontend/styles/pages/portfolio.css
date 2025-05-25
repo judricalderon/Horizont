@@ -341,34 +341,88 @@
     font-size: 0.9rem;
 }
 
+/* ===== Historial de Órdenes (tabla) ===== */
 .history-table {
-    background: var(--portfolio-card);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    overflow: hidden;
+  background: var(--portfolio-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.04);
+  margin-top: 1.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-origin: center center;
+}
+
+.history-table:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .history-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.history-table th,
-.history-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--portfolio-border);
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: var(--portfolio-text);
 }
 
 .history-table th {
-    background: var(--portfolio-bg);
-    font-weight: 500;
-    color: var(--portfolio-text);
+  background: linear-gradient(90deg, rgba(243,243,243,1) 0%, rgba(230,230,230,1) 100%);
+  font-weight: 600;
+  color: var(--portfolio-primary);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--portfolio-border);
 }
 
-.history-table tr:hover {
-    background: var(--portfolio-bg);
+.history-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--portfolio-border);
+  vertical-align: middle;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table tbody tr:hover {
+  background-color: rgba(248,249,250,0.6);
+  color: var(--portfolio-primary);
+}
+
+/* ===== Tarjeta completa ===== */
+.portfolio-card.rounded-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-origin: center center;
+}
+
+.portfolio-card.rounded-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card-header {
+  background: var(--portfolio-primary);
+  background: linear-gradient(135deg, var(--portfolio-primary) 0%, var(--portfolio-secondary) 100%);
+  color: #fff;
+  padding: 1.4rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 20px 20px 0 0;
+  letter-spacing: 0.8px;
+}
+
+.portfolio-card-body {
+  padding: 2rem;
+  background: #fafafa;
+}
+
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -518,3 +572,108 @@
 .btn-logout:hover {
     background-color: #a0223f;
 }
+
+/* Scroll para historial largo */
+.history-table .scrollable-table {
+    max-height: 400px; /* ajustable */
+    overflow-y: auto;
+    display: block;
+}
+
+.history-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.history-table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+    transform: scale(1.01);
+}
+
+.history-table {
+    overflow-x: auto;
+}
+
+.scrollable-table {
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    max-height: 300px;
+    overflow-y: auto;
+}
+/* Contenedor de la barra de búsqueda */
+.history-filters {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Caja contenedora del input e ícono */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--portfolio-card);
+  border: 1.5px solid var(--portfolio-border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  width: 100%; /* ✅ permite que crezca */
+  box-sizing: border-box;
+}
+
+/* Input interno */
+.search-wrapper input {
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+  flex: 1;
+  background: transparent;
+  color: var(--portfolio-text);
+  width: 100%;
+}
+
+/* Ícono opcional */
+.search-wrapper .material-icons {
+  color: var(--portfolio-text);
+  opacity: 0.6;
+}
+
+/* Estilo para ganancias/pérdidas positivas o negativas */
+td.gain-positive {
+  color: var(--portfolio-success);
+  font-weight: bold;
+}
+td.gain-negative {
+  color: var(--portfolio-danger);
+  font-weight: bold;
+}
+
+/* Íconos del encabezado más sutiles */
+.portfolio-table th .material-icons {
+  vertical-align: middle;
+  font-size: 18px;
+  opacity: 0.7;
+  margin-right: 6px;
+}
+
+/* Oculta columnas no implementadas */
+th.hide-column,
+td.hide-column {
+  display: none;
+}
+
+/* Efecto hover y responsividad */
+.portfolio-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.portfolio-table tbody tr:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.005);
+}
+
+/* Scroll interno si hay muchas filas */
+.scrollable-table {
+  max-height: 350px;
+  overflow-y: auto;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+    
